@@ -1,6 +1,6 @@
 ---
 import type { TourPackage } from '../data/packages';
-import { MapPin, Clock } from 'lucide-astro';
+import { MapPin, Clock, Star, Calendar, ArrowRight } from 'lucide-astro';
 
 export interface Props {
   pkg: TourPackage;
@@ -9,57 +9,87 @@ export interface Props {
 const { pkg } = Astro.props;
 ---
 
-<article class="package-card">
+<article class="package-card" data-package-id={pkg.id}>
   <div class="card-image-wrapper">
     <img src={pkg.image} alt={pkg.title} class="card-image" loading="lazy" />
-    <div class="card-price">
-      <span>{pkg.price}</span>
+    <div class="card-price-badge">
+      <span class="price-amount">{pkg.price}</span>
+      <span class="price-unit">/ person</span>
+    </div>
+    {pkg.rating && (
+      <div class="card-rating-tag">
+        <Star size={12} class="star-icon" />
+        <span>{pkg.rating}</span>
+      </div>
+    )}
+    <div class="card-date-tag">
+      <Calendar size={11} class="date-icon" />
+      <span>Next: {pkg.nextDate || '25 Aug'}</span>
     </div>
   </div>
   
   <div class="card-content">
-    <div class="meta-info">
-      <div class="meta-item">
-        <MapPin size={16} class="icon" />
-        <span>{pkg.destination}</span>
-      </div>
-      <div class="meta-item">
-        <Clock size={16} class="icon" />
-        <span>{pkg.duration}</span>
-      </div>
+    <div class="meta-row">
+      <span class="meta-pill"><MapPin size={13} class="icon" /> {pkg.destination}</span>
+      <span class="meta-pill"><Clock size={13} class="icon" /> {pkg.duration}</span>
     </div>
     
     <h3 class="card-title">{pkg.title}</h3>
     <p class="card-description">{pkg.shortDescription}</p>
-    
-    <div class="card-footer">
-      <a href={`https://wa.me/919830905332?text=Hi%2C%20I%20want%20to%20book%20the%20${encodeURIComponent(pkg.title)}%20package!`} target="_blank" rel="noopener" class="btn btn-secondary btn-full">Book on WhatsApp</a>
+
+    <div class="card-actions">
+      <!-- Button 1: See Details (Opens Sub-Tab Panel in same view) -->
+      <a 
+        href={`/packages/${pkg.id}`} 
+        class="btn-see-details open-subtab-btn" 
+        data-id={pkg.id}
+        title={`View details of ${pkg.title}`}
+      >
+        <span>See Details</span>
+        <ArrowRight size={14} class="arrow" />
+      </a>
+
+      <!-- Button 2: Rounded Book Now (WhatsApp) -->
+      <a 
+        href={`https://wa.me/919830905332?text=Hi%2C%20I%20want%20to%20book%20the%20${encodeURIComponent(pkg.title)}%20package!`} 
+        target="_blank" 
+        rel="noopener" 
+        class="btn-book-now"
+        title="Book on WhatsApp"
+      >
+        <svg class="wa-icon" viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+        <span>Book Now</span>
+      </a>
     </div>
   </div>
 </article>
 
 <style>
   .package-card {
-    background-color: var(--c-neutral);
-    border-radius: var(--radius);
+    background: #ffffff;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 100%;
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--c-border);
+    border: 1px solid #E2E8F0;
   }
 
   .package-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-hover);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 59, 115, 0.12);
+    border-color: #CBD5E1;
   }
 
   .card-image-wrapper {
     position: relative;
-    height: 240px;
+    height: 220px;
     overflow: hidden;
+    background: #F1F5F9;
   }
 
   .card-image {
@@ -73,60 +103,198 @@ const { pkg } = Astro.props;
     transform: scale(1.05);
   }
 
-  .card-price {
+  .card-price-badge {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
-    background-color: var(--c-accent);
-    color: var(--c-neutral);
-    padding: 8px 16px;
-    border-radius: var(--radius-sm);
+    bottom: 12px;
+    right: 12px;
+    background: #003B73;
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 10px;
     font-family: var(--f-heading);
-    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+
+  .price-amount {
+    font-weight: 700;
     font-size: 1.1rem;
-    box-shadow: var(--shadow-md);
+    color: #FFD166;
+  }
+
+  .price-unit {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .card-rating-tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #ffffff;
+    color: #1E293B;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  }
+
+  .star-icon {
+    color: #F59E0B;
+    fill: #F59E0B;
+  }
+
+  .card-date-tag {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #F26419;
+    color: #ffffff;
+    padding: 3px 9px;
+    border-radius: 20px;
+    font-size: 0.73rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  }
+
+  .date-icon {
+    color: #ffffff;
   }
 
   .card-content {
-    padding: 25px;
+    padding: 20px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
   }
 
-  .meta-info {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    font-size: 0.875rem;
-    color: var(--c-text-muted);
-  }
-
-  .meta-item {
+  .meta-row {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 12px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
   }
 
-  .meta-item .icon {
-    color: var(--c-primary);
+  .meta-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #64748B;
+  }
+
+  .meta-pill .icon {
+    color: #003B73;
   }
 
   .card-title {
-    font-size: 1.25rem;
-    margin-bottom: 12px;
-    color: var(--c-text);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #0F172A;
+    line-height: 1.35;
   }
 
   .card-description {
-    color: var(--c-text-muted);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 25px;
+    color: #475569;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin-bottom: 18px;
     flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
-  .btn-full {
-    width: 100%;
+  .card-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid #F1F5F9;
+  }
+
+  .btn-see-details {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 12px;
+    background: #F8FAFC;
+    color: #003B73;
+    border: 1.5px solid #003B73;
+    border-radius: 10px;
+    font-family: var(--f-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  .btn-see-details:hover {
+    background: #003B73;
+    color: #ffffff;
+  }
+
+  .btn-see-details .arrow {
+    transition: transform 0.2s ease;
+  }
+
+  .btn-see-details:hover .arrow {
+    transform: translateX(3px);
+  }
+
+  .btn-book-now {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 16px;
+    background: #25D366;
+    color: #ffffff;
+    border-radius: 30px;
+    font-family: var(--f-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+  }
+
+  .btn-book-now:hover {
+    background: #1ea952;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
+  }
+
+  .wa-icon {
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 480px) {
+    .card-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .btn-book-now {
+      border-radius: 10px;
+    }
   }
 </style>

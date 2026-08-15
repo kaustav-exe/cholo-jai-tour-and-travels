@@ -1,0 +1,430 @@
+---
+import { packages } from '../data/packages';
+import { 
+  X, MapPin, Clock, Star, CheckCircle, XCircle, Bus, Hotel, CreditCard, 
+  HelpCircle, Calendar, Send, ArrowRight, Compass, Navigation, Utensils, 
+  Check, Gift, Info, MessageSquare, ShieldCheck, Camera, Play, Video
+} from 'lucide-astro';
+---
+
+<!-- Sub-Tab Drawer Modal -->
+<div class="subtab-drawer-overlay" id="subtab-drawer-overlay" aria-hidden="true">
+  <div class="subtab-drawer-panel" role="dialog" aria-modal="true" aria-labelledby="st-drawer-title">
+    
+    <!-- Picture Banner Top Bar -->
+    <div class="st-drawer-top" id="st-drawer-header-bg">
+      <div class="st-top-overlay"></div>
+      <div class="st-top-content">
+        <span class="st-badge font-sm">Tour Details Sub-Tab</span>
+        <h2 id="st-drawer-title" class="st-title">Select a Package</h2>
+      </div>
+      <button class="st-close-btn" id="close-subtab-drawer" aria-label="Close Sub-Tab" type="button">
+        <X size={18} />
+      </button>
+    </div>
+
+    <!-- Sub-Tab Navigation Bar -->
+    <div class="st-subnav">
+      <button class="st-tab-btn active" data-target="st-sec-roadmap">Roadmap</button>
+      <button class="st-tab-btn" data-target="st-sec-gallery">Gallery</button>
+      <button class="st-tab-btn" data-target="st-sec-overview">Highlights</button>
+      <button class="st-tab-btn" data-target="st-sec-stay">Stay &amp; Cab</button>
+      <button class="st-tab-btn" data-target="st-sec-price">Tariff</button>
+      <button class="st-tab-btn st-btn-book" data-target="st-sec-form">Book Now</button>
+    </div>
+
+    <!-- Scrollable Body Content -->
+    <div class="st-drawer-body" id="st-drawer-body">
+      
+      <!-- Dynamic Content Injection Container -->
+      <div id="st-dynamic-container">
+        <!-- Will be dynamically populated via client script -->
+      </div>
+
+    </div>
+
+    <!-- Bottom Actions Bar -->
+    <div class="st-drawer-footer">
+      <a href="#" id="st-full-page-link" class="st-link-full">
+        <span>Dedicated Page</span>
+        <ArrowRight size={13} />
+      </a>
+      <button class="st-close-bottom" id="close-subtab-bottom">Close</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- Embedded Data Store for Client Scripting -->
+<script is:inline id="packages-data-json" type="application/json" set:html={JSON.stringify(packages)} />
+
+<style>
+  .subtab-drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    display: flex;
+    justify-content: flex-end;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+
+  .subtab-drawer-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .subtab-drawer-panel {
+    background: #ffffff;
+    width: 100%;
+    max-width: 640px;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -8px 0 30px rgba(0, 0, 0, 0.2);
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .subtab-drawer-overlay.open .subtab-drawer-panel {
+    transform: translateX(0);
+  }
+
+  /* Compact Picture Top Bar */
+  .st-drawer-top {
+    position: relative;
+    padding: 20px 20px;
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    min-height: 100px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .st-top-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,20,40,0.3) 0%, rgba(0,30,60,0.92) 100%);
+  }
+
+  .st-top-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .st-badge {
+    background: rgba(255, 255, 255, 0.2);
+    color: #FFD166;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+  }
+
+  .st-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.25;
+  }
+
+  .st-close-btn {
+    position: relative;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .st-close-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  /* Compact SubNav Bar */
+  .st-subnav {
+    display: flex;
+    gap: 6px;
+    background: #F8FAFC;
+    border-bottom: 1px solid #E2E8F0;
+    padding: 8px 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .st-subnav::-webkit-scrollbar { display: none; }
+
+  .st-tab-btn {
+    background: none;
+    border: 1px solid transparent;
+    padding: 5px 12px;
+    border-radius: 14px;
+    font-family: var(--f-heading);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #64748B;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+  }
+
+  .st-tab-btn:hover, .st-tab-btn.active {
+    background: #ffffff;
+    color: #003B73;
+    border-color: #CBD5E1;
+  }
+
+  .st-tab-btn.st-btn-book {
+    background: #F26419;
+    color: #ffffff;
+    border: none;
+  }
+
+  /* Body */
+  .st-drawer-body {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background: #ffffff;
+  }
+
+  /* Sleek Footer */
+  .st-drawer-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    background: #F8FAFC;
+    border-top: 1px solid #E2E8F0;
+    gap: 10px;
+  }
+
+  .st-link-full {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: #003B73;
+    font-weight: 600;
+    font-size: 0.84rem;
+    text-decoration: none;
+  }
+
+  .st-close-bottom {
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    background: #003B73;
+    color: #fff;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+  }
+</style>
+
+<script>
+  function initSubtabDrawer() {
+    const overlay = document.getElementById('subtab-drawer-overlay');
+    const closeBtn = document.getElementById('close-subtab-drawer');
+    const closeBottom = document.getElementById('close-subtab-bottom');
+    const container = document.getElementById('st-dynamic-container');
+    const titleEl = document.getElementById('st-drawer-title');
+    const headerBg = document.getElementById('st-drawer-header-bg');
+    const fullLink = document.getElementById('st-full-page-link') as HTMLAnchorElement | null;
+    const dataScript = document.getElementById('packages-data-json');
+
+    let allPackages: any[] = [];
+    if (dataScript && dataScript.textContent) {
+      try {
+        allPackages = JSON.parse(dataScript.textContent);
+      } catch (e) {}
+    }
+
+    function openDrawer(pkgId: string) {
+      let pkg = allPackages.find(p => p.id === pkgId);
+      if (!pkg) {
+        const query = pkgId.toLowerCase();
+        pkg = allPackages.find(p => p.id.toLowerCase() === query || p.title.toLowerCase().includes(query) || p.destination.toLowerCase().includes(query));
+      }
+      if (!pkg || !container || !titleEl || !overlay) return;
+
+      titleEl.textContent = pkg.title;
+      if (headerBg) {
+        headerBg.style.backgroundImage = `url('${pkg.image}')`;
+      }
+
+      if (fullLink) fullLink.href = `/packages/${pkg.id}`;
+
+      // Render Compact Subtab Content
+      const highlightsHtml = (pkg.highlights || []).map((h: string) => `
+        <div style="display:flex;align-items:flex-start;gap:8px;background:#F8FAFC;border:1px solid #E2E8F0;padding:8px 12px;border-radius:8px;font-size:0.85rem;color:#0F172A;line-height:1.4;">
+          <span style="color:#10B981;font-weight:700;">✓</span>
+          <span>${h}</span>
+        </div>
+      `).join('');
+
+      const galleryHtml = (pkg.gallery || [pkg.image]).map((imgUrl: string) => `
+        <div style="height:90px;border-radius:8px;overflow:hidden;background:#E2E8F0;">
+          <img src="${imgUrl}" alt="${pkg.title}" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+      `).join('');
+
+      const roadmapHtml = (pkg.itinerary || []).map((day: any) => `
+        <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;">
+          <div style="width:28px;height:28px;border-radius:50%;background:#003B73;color:#fff;font-weight:700;font-size:0.75rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            ${day.day}
+          </div>
+          <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:10px;padding:12px;flex-grow:1;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+              <span style="font-size:0.75rem;font-weight:700;color:#F26419;">Day ${day.day}</span>
+              <span style="background:#FEF3C7;color:#92400E;font-size:0.72rem;font-weight:600;padding:2px 6px;border-radius:4px;">${day.meals || 'Meals'}</span>
+            </div>
+            <h4 style="font-size:0.95rem;font-weight:700;color:#0F172A;margin-bottom:4px;">${day.title}</h4>
+            <p style="font-size:0.84rem;color:#475569;line-height:1.4;margin-bottom:6px;">${day.desc}</p>
+            ${(day.spots || []).length > 0 ? `
+              <div style="display:flex;gap:4px;flex-wrap:wrap;">
+                ${day.spots.map((s: string) => `<span style="background:#fff;border:1px solid #CBD5E1;font-size:0.72rem;padding:2px 6px;border-radius:4px;color:#334155;">${s}</span>`).join('')}
+              </div>
+            ` : ''}
+          </div>
+        </div>
+      `).join('');
+
+      const transportHtml = `
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;">
+          <div style="background:#F8FAFC;border:1px solid #E2E8F0;padding:12px;border-radius:10px;font-size:0.82rem;">
+            <h4 style="color:#003B73;font-size:0.9rem;font-weight:700;margin-bottom:6px;">Transport</h4>
+            <p style="margin-bottom:4px;"><strong>Mode:</strong> ${pkg.transport?.mode || 'Flight / Train'}</p>
+            <p style="margin-bottom:4px;"><strong>Pickup:</strong> ${pkg.transport?.pickup || 'Airport / Station'}</p>
+            <p><strong>Cab:</strong> ${pkg.transport?.vehicle || 'Private AC Cab'}</p>
+          </div>
+          <div style="background:#F8FAFC;border:1px solid #E2E8F0;padding:12px;border-radius:10px;font-size:0.82rem;">
+            <h4 style="color:#003B73;font-size:0.9rem;font-weight:700;margin-bottom:6px;">Hotel & Meals</h4>
+            <p style="margin-bottom:4px;"><strong>Grade:</strong> ${pkg.accommodation?.category || '3-Star Deluxe'}</p>
+            <p><strong>Meals:</strong> ${pkg.accommodation?.meals || 'Breakfast & Dinner'}</p>
+          </div>
+        </div>
+      `;
+
+      const pricingHtml = `
+        <div style="background:#003B73;color:#fff;padding:16px;border-radius:12px;margin-bottom:18px;display:flex;justify-content:space-between;align-items:center;">
+          <div>
+            <span style="font-size:0.72rem;opacity:0.8;text-transform:uppercase;">Price Per Person</span>
+            <h3 style="font-size:1.4rem;color:#FFD166;font-weight:800;margin:0;">${pkg.price}</h3>
+          </div>
+          <a href="https://wa.me/919830905332?text=Hi%2C%20I%20want%20to%20book%20the%20${encodeURIComponent(pkg.title)}%20package!" target="_blank" style="background:#25D366;color:#fff;font-weight:700;padding:8px 14px;border-radius:8px;text-decoration:none;font-size:0.82rem;">Book on WhatsApp</a>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;">
+          <div style="background:#F0FDF4;border:1px solid #BBF7D0;padding:12px;border-radius:10px;font-size:0.8rem;">
+            <h4 style="color:#166534;font-size:0.85rem;font-weight:700;margin-bottom:6px;">✓ Inclusions</h4>
+            <ul style="list-style:none;color:#15803D;display:flex;flex-direction:column;gap:4px;padding:0;line-height:1.4;">
+              ${(pkg.pricingDetails?.inclusions || ['Private cab', 'Deluxe hotel stay', 'Breakfast & Dinner']).map((inc: string) => `<li>• ${inc}</li>`).join('')}
+            </ul>
+          </div>
+          <div style="background:#FEF2F2;border:1px solid #FECACA;padding:12px;border-radius:10px;font-size:0.8rem;">
+            <h4 style="color:#991B1B;font-size:0.85rem;font-weight:700;margin-bottom:6px;">✕ Exclusions</h4>
+            <ul style="list-style:none;color:#B91C1C;display:flex;flex-direction:column;gap:4px;padding:0;line-height:1.4;">
+              ${(pkg.pricingDetails?.exclusions || ['Airfare / Train fare', 'Monument tickets', 'Personal expenses']).map((exc: string) => `<li>• ${exc}</li>`).join('')}
+            </ul>
+          </div>
+        </div>
+      `;
+
+      container.innerHTML = `
+        <!-- Compact Summary Header -->
+        <div style="display:flex;gap:12px;align-items:center;background:#F8FAFC;border:1px solid #E2E8F0;padding:12px;border-radius:12px;margin-bottom:20px;">
+          <img src="${pkg.image}" alt="${pkg.title}" style="width:90px;height:70px;object-fit:cover;border-radius:8px;" />
+          <div>
+            <div style="font-size:0.75rem;color:#64748B;margin-bottom:2px;font-weight:600;">
+              <span>${pkg.destination}</span> • <span>${pkg.duration}</span>
+            </div>
+            <h3 style="font-size:1.05rem;font-weight:800;color:#0F172A;margin-bottom:2px;">${pkg.title}</h3>
+            <p style="font-size:0.82rem;color:#475569;line-height:1.3;">${pkg.shortDescription}</p>
+          </div>
+        </div>
+
+        <!-- Section: Highlights -->
+        <div id="st-sec-overview" style="margin-bottom:20px;">
+          <h3 style="font-size:1rem;font-weight:700;color:#003B73;margin-bottom:10px;">Highlights</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            ${highlightsHtml}
+          </div>
+        </div>
+
+        <!-- Section: Photo Gallery -->
+        <div id="st-sec-gallery" style="margin-bottom:20px;">
+          <h3 style="font-size:1rem;font-weight:700;color:#003B73;margin-bottom:10px;">Photo Gallery</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;">
+            ${galleryHtml}
+          </div>
+        </div>
+
+        <!-- Section: Roadmap -->
+        <div id="st-sec-roadmap" style="margin-bottom:20px;">
+          <h3 style="font-size:1rem;font-weight:700;color:#003B73;margin-bottom:10px;">Journey Roadmap</h3>
+          <div>${roadmapHtml}</div>
+        </div>
+
+        <!-- Section: Transport & Stay -->
+        <div id="st-sec-stay" style="margin-bottom:20px;">
+          <h3 style="font-size:1rem;font-weight:700;color:#003B73;margin-bottom:10px;">Transport & Hotel</h3>
+          ${transportHtml}
+        </div>
+
+        <!-- Section: Pricing & Inclusions -->
+        <div id="st-sec-price" style="margin-bottom:20px;">
+          <h3 style="font-size:1rem;font-weight:700;color:#003B73;margin-bottom:10px;">Tariff & Inclusions</h3>
+          ${pricingHtml}
+        </div>
+      `;
+
+      overlay.classList.add('open');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      if (!overlay) return;
+      overlay.classList.remove('open');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    // Event Listeners for Open Subtab Buttons
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement | null;
+      const btn = target?.closest('.open-subtab-btn') as HTMLElement | null;
+      if (btn) {
+        e.preventDefault();
+        const pkgId = btn.getAttribute('data-id');
+        if (pkgId) {
+          openDrawer(pkgId);
+        }
+      }
+    });
+
+    closeBtn?.addEventListener('click', closeDrawer);
+    closeBottom?.addEventListener('click', closeDrawer);
+    overlay?.addEventListener('click', (e) => {
+      if (e.target === overlay) closeDrawer();
+    });
+  }
+
+  document.addEventListener('astro:page-load', initSubtabDrawer);
+  initSubtabDrawer();
+</script>

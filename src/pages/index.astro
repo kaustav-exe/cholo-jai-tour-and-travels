@@ -4,7 +4,7 @@ import HeroSlider from '../components/HeroSlider.astro';
 import PackageCard from '../components/PackageCard.astro';
 import { packages } from '../data/packages';
 import { aboutData } from '../data/siteConfig';
-import { Shield, Award, Map, Users } from 'lucide-astro';
+import { Shield, Award, Map, Users, ArrowRight } from 'lucide-astro';
 
 const allPackages = packages;
 ---
@@ -110,77 +110,89 @@ const allPackages = packages;
 
     <div class="dest-scroll-wrap">
       <div class="dest-scroll-track">
-        <div class="ds-card" style="--i:0">
+        <a href="/packages/pkg-1" class="ds-card" style="--i:0">
           <img src="/images/tour-1.jpeg" alt="Kashmir" />
           <div class="ds-overlay">
             <span class="ds-tag">North India</span>
             <div class="ds-bottom">
               <h3>Kashmir</h3>
-              <p class="ds-sub">From ₹12,999 / person</p>
-              <a href="https://wa.me/919830905332?text=Hi%2C%20I%20want%20to%20book%20the%20Kashmir%20tour!" target="_blank" rel="noopener" class="ds-book">Book Now</a>
+              <p class="ds-sub">From ₹18,500 / person</p>
+              <div class="ds-actions">
+                <span class="ds-btn ds-btn-details">Explore Tour →</span>
+              </div>
             </div>
           </div>
-        </div>
+        </a>
 
-        <div class="ds-card" style="--i:1">
+        <a href="/packages/pkg-4" class="ds-card" style="--i:1">
           <img src="/images/tour-4.png" alt="Rajasthan" />
           <div class="ds-overlay">
             <span class="ds-tag">Heritage</span>
             <div class="ds-bottom">
               <h3>Rajasthan</h3>
-              <p class="ds-sub">From ₹10,999 / person</p>
-              <a href="https://wa.me/919830905332?text=Hi%2C%20I%20want%20to%20book%20the%20Rajasthan%20tour!" target="_blank" rel="noopener" class="ds-book">Book Now</a>
+              <p class="ds-sub">From ₹25,000 / person</p>
+              <div class="ds-actions">
+                <span class="ds-btn ds-btn-details">Explore Tour →</span>
+              </div>
             </div>
           </div>
-        </div>
+        </a>
 
-        <div class="ds-card" style="--i:2">
+        <a href="/packages/pkg-3" class="ds-card" style="--i:2">
           <img src="/images/tour-3.png" alt="Andaman" />
           <div class="ds-overlay">
             <span class="ds-tag">Island</span>
             <div class="ds-bottom">
               <h3>Andaman</h3>
-              <p class="ds-sub">From ₹13,999 / person</p>
-              <a href="https://wa.me/919830905332?text=Hi%2C%20I%20want%20to%20book%20the%20Andaman%20tour!" target="_blank" rel="noopener" class="ds-book">Book Now</a>
+              <p class="ds-sub">From ₹22,000 / person</p>
+              <div class="ds-actions">
+                <span class="ds-btn ds-btn-details">Explore Tour →</span>
+              </div>
             </div>
           </div>
-        </div>
+        </a>
 
-        <div class="ds-card" style="--i:3">
+        <a href="/packages/pkg-5" class="ds-card" style="--i:3">
           <img src="/images/tour-5.png" alt="Kerala" />
           <div class="ds-overlay">
             <span class="ds-tag">South India</span>
             <div class="ds-bottom">
               <h3>Kerala</h3>
-              <p class="ds-sub">From ₹10,999 / person</p>
-              <a href="https://wa.me/919830905332?text=Hi%2C%20I%20want%20to%20book%20the%20Kerala%20tour!" target="_blank" rel="noopener" class="ds-book">Book Now</a>
+              <p class="ds-sub">From ₹16,500 / person</p>
+              <div class="ds-actions">
+                <span class="ds-btn ds-btn-details">Explore Tour →</span>
+              </div>
             </div>
           </div>
-        </div>
+        </a>
 
-        <div class="ds-card" style="--i:4">
+        <a href="/packages/pkg-9" class="ds-card" style="--i:4">
           <img src="/images/tour-10.png" alt="Leh Ladakh" />
           <div class="ds-overlay">
             <span class="ds-tag">Adventure</span>
             <div class="ds-bottom">
               <h3>Leh Ladakh</h3>
               <p class="ds-sub">From ₹28,000 / person</p>
-              <a href="https://wa.me/919830905332?text=Hi%2C%20I%20want%20to%20book%20the%20Leh%20Ladakh%20tour!" target="_blank" rel="noopener" class="ds-book">Book Now</a>
+              <div class="ds-actions">
+                <span class="ds-btn ds-btn-details">Explore Tour →</span>
+              </div>
             </div>
           </div>
-        </div>
+        </a>
 
-        <div class="ds-card" style="--i:5">
+        <a href="/packages/pkg-10" class="ds-card" style="--i:5">
           <img src="/images/tour-9.png" alt="Golden Triangle" />
           <div class="ds-overlay">
             <span class="ds-tag">Heritage</span>
             <div class="ds-bottom">
               <h3>Golden Triangle</h3>
               <p class="ds-sub">From ₹19,000 / person</p>
-              <a href="https://wa.me/919830905332?text=Hi%2C%20I%20want%20to%20book%20the%20Golden%20Triangle%20tour!" target="_blank" rel="noopener" class="ds-book">Book Now</a>
+              <div class="ds-actions">
+                <span class="ds-btn ds-btn-details">Explore Tour →</span>
+              </div>
             </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -198,6 +210,12 @@ const allPackages = packages;
             <PackageCard pkg={pkg} />
           </div>
         ))}
+      </div>
+      <div class="featured-footer scroll-anim">
+        <a href="/packages" class="btn-explore-more">
+          <span>Explore More Tours</span>
+          <ArrowRight size={16} />
+        </a>
       </div>
     </div>
   </section>
@@ -557,9 +575,65 @@ const allPackages = packages;
     padding: 5px 10px;
     border-radius: 20px;
     text-decoration: none;
-    align-self: flex-start;
-    margin-top: 5px;
-    transition: background 0.2s;
+    width: fit-content;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .ds-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 4px;
+  }
+
+  .ds-btn {
+    border: none;
+    cursor: pointer;
+    font-family: var(--f-heading);
+    transition: transform 0.2s, filter 0.2s;
+  }
+
+  .ds-btn-details {
+    background: #F26419;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 20px;
+  }
+
+  .ds-btn-details:hover {
+    background: #e05510;
+    transform: translateY(-1px);
+  }
+
+  /* Featured Footer Explore More */
+  .featured-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 32px;
+  }
+
+  .btn-explore-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #003B73;
+    color: #ffffff;
+    padding: 12px 26px;
+    border-radius: 12px;
+    font-family: var(--f-heading);
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(0, 59, 115, 0.2);
+    transition: all 0.25s ease;
+  }
+
+  .btn-explore-more:hover {
+    background: #F26419;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(242, 100, 25, 0.35);
   }
 
   .ds-book:hover { background: #1aa84f; }

@@ -1,0 +1,1042 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { packages, type TourPackage } from '../../data/packages';
+import { MapPin, Clock, Star, Calendar, CheckCircle, XCircle, Bus, Hotel, CreditCard, PhoneCall, ChevronRight, ChevronDown, Sparkles, Compass, MessageSquare, Camera, Play, Video, Send } from 'lucide-astro';
+
+export async function getStaticPaths() {
+  return packages.map((pkg) => ({
+    params: { id: pkg.id },
+    props: { pkg },
+  }));
+}
+
+const { pkg } = Astro.props as { pkg: TourPackage };
+const rating = pkg.rating || 4.8;
+const reviews = pkg.reviewsCount || 100;
+const highlights = pkg.highlights || ["Guided sightseeing", "Private vehicle transfers", "Deluxe accommodation", "Daily breakfast"];
+const galleryPhotos = pkg.gallery || [pkg.image];
+---
+
+<BaseLayout title={`${pkg.title} | Cholo Jai Tour & Travels`}>
+
+  <!-- ═══ HERO ═══════════════════════════════════════════════════════ -->
+  <header class="t-hero">
+    <div class="t-hero__bg" style={`background-image:url('${pkg.image}')`}></div>
+    <div class="t-hero__overlay"></div>
+    <div class="t-inner">
+      <nav class="t-crumb">
+        <a href="/">Home</a><ChevronRight size={11}/><a href="/packages">Packages</a><ChevronRight size={11}/><span>{pkg.title}</span>
+      </nav>
+      <div class="t-hero__body">
+        <div class="t-hero__text">
+          <div class="t-tags">
+            <span class="t-tag t-tag--loc"><MapPin size={11}/> {pkg.destination}</span>
+            <span class="t-tag t-tag--dur"><Clock size={11}/> {pkg.duration}</span>
+            <span class="t-tag t-tag--star"><Star size={11} fill="#F59E0B" color="#F59E0B"/> {rating} ({reviews})</span>
+            <span class="t-tag t-tag--date"><Calendar size={11}/> Next: {pkg.nextDate || '25 Aug'} 🔥</span>
+          </div>
+          <h1 class="t-hero__h1">{pkg.title}</h1>
+          <p class="t-hero__sub">{pkg.shortDescription}</p>
+        </div>
+
+        <!-- Price Card -->
+        <div class="t-pcard">
+          <div class="t-batch-highlight">
+            <Calendar size={12} class="tb-ico" />
+            <span>Next Batch: <strong>{pkg.nextDate || '25 Aug'}</strong></span>
+            <span class="tb-badge">Fast Filling 🔥</span>
+          </div>
+          <p class="t-pcard__lbl">Per Person</p>
+          <div class="t-pcard__row">
+            <span class="t-pcard__price">{pkg.price}</span>
+            {pkg.pricingDetails?.originalPrice && <span class="t-pcard__old">{pkg.pricingDetails.originalPrice}</span>}
+          </div>
+          <div class="t-pcard__btns">
+            <a href="#booking-form" class="t-btn t-btn--orange">Book Online</a>
+            <a href={`https://wa.me/919830905332?text=Hi%20I%20want%20to%20book%20${encodeURIComponent(pkg.title)}`} target="_blank" rel="noopener" class="t-btn t-btn--wa">
+              <MessageSquare size={12}/> WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ STICKY NAV ══════════════════════════════════════════════════ -->
+  <nav class="t-snav" id="t-snav">
+    <div class="t-inner t-snav__row" id="t-snav-row">
+      <a href="#overview"      class="t-sn" data-section="overview">Highlights</a>
+      <a href="#gallery"       class="t-sn" data-section="gallery">Gallery</a>
+      <a href="#journey"       class="t-sn" data-section="journey">Journey</a>
+      <a href="#stay"          class="t-sn" data-section="stay">Stay &amp; Cab</a>
+      <a href="#pricing"       class="t-sn" data-section="pricing">Tariff</a>
+      <a href="#booking-form"  class="t-sn t-sn--cta" data-section="booking-form">Book Now</a>
+    </div>
+  </nav>
+
+  <!-- ═══ PAGE BODY ════════════════════════════════════════════════ -->
+  <div class="t-inner t-page">
+    <div class="t-layout">
+
+      <!-- ── MAIN COL ─────────────────────────────────────────── -->
+      <main class="t-main">
+
+        <!-- HIGHLIGHTS -->
+        <section class="t-card t-card--toggleable" id="overview">
+          <div class="t-card__head t-card__head--toggle" data-toggle="overview">
+            <div class="t-card__head-title">
+              <Sparkles size={15} class="t-card__ico"/>
+              <h2>Highlights</h2>
+            </div>
+            <button class="t-card__toggle-btn" aria-label="Toggle section">
+              <ChevronDown size={14} class="t-toggle-icon"/>
+            </button>
+          </div>
+          <div class="t-collapsible-body" id="collapsible-overview">
+            <div class="t-hl-grid">
+              {highlights.map(h => (
+                <div class="t-hl-item">
+                  <CheckCircle size={13} class="t-hl-chk"/>
+                  <span>{h}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <!-- GALLERY -->
+        <section class="t-card t-card--toggleable" id="gallery">
+          <div class="t-card__head t-card__head--toggle" data-toggle="gallery">
+            <div class="t-card__head-title">
+              <Camera size={15} class="t-card__ico"/>
+              <h2>Gallery</h2>
+            </div>
+            <button class="t-card__toggle-btn" aria-label="Toggle section">
+              <ChevronDown size={14} class="t-toggle-icon"/>
+            </button>
+          </div>
+          <div class="t-collapsible-body" id="collapsible-gallery">
+            <div class="t-gal">
+              {galleryPhotos.map((img, i) => (
+                <div class="t-gal__thumb">
+                  <img src={img} alt={`${pkg.title} ${i+1}`} loading="lazy"/>
+                </div>
+              ))}
+            </div>
+            <div class="t-vstrip">
+              <span class="t-vstrip__txt"><Video size={13}/> Video tour preview</span>
+              <a href={`https://wa.me/919830905332?text=Send%20video%20tour%20for%20${encodeURIComponent(pkg.title)}`} target="_blank" rel="noopener" class="t-btn t-btn--sm t-btn--orange">
+                <Play size={11}/> Get Video
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- JOURNEY ROADMAP + SCHEDULE (merged) -->
+        {pkg.itinerary && pkg.itinerary.length > 0 && (
+          <section class="t-card t-journey" id="journey">
+            <div class="t-card__head"><Compass size={15} class="t-card__ico"/><h2>Journey Roadmap &amp; Schedule</h2></div>
+
+            <div class="t-track">
+              <!-- Vertical connector line -->
+              <div class="t-track__line" aria-hidden="true">
+                <div class="t-track__line-fill" id="t-line-fill"></div>
+                <!-- Moving Tour Bus Badge -->
+                <div class="t-track__beacon" id="t-bus-beacon" title="Traveling...">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M8 6v6M16 6v6M2 12h20M4 18v2a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-2M17 18v2a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-2M4 11l1.5-4.5A2 2 0 0 1 7.4 5h9.2a2 2 0 0 1 1.9 1.5L20 11M3 11h18a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-5a1 1 0 0 1 1-1z"/>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Start -->
+              <div class="t-node t-node--start t-anim" style="--d:0ms">
+                <div class="t-dot t-dot--start">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2"/></svg>
+                </div>
+                <div class="t-node__lbl">
+                  <span class="t-node__badge">Pickup</span>
+                  <p>{pkg.transport?.pickup?.split('or')[0]?.trim() || 'Pickup & Arrival'}</p>
+                </div>
+              </div>
+
+              <!-- Day nodes -->
+              {pkg.itinerary.map((day, idx) => (
+                <div class="t-node t-node--day t-anim" style={`--d:${(idx+1)*60}ms`} data-day={day.day}>
+                  <div class="t-dot t-dot--day"><span>{day.day}</span></div>
+                  <div class="t-day-card" id={`day-${day.day}`}>
+                    <div class="t-day-card__top">
+                      <div>
+                        <span class="t-day-card__label">Day {day.day}</span>
+                        <h3 class="t-day-card__title">{day.title}</h3>
+                      </div>
+                      <div class="t-meals" data-meals={day.meals}></div>
+                    </div>
+                    <p class="t-day-card__desc">{day.desc}</p>
+                    {day.spots && day.spots.length > 0 && (
+                      <div class="t-spots">
+                        {day.spots.map(s => <span class="t-spot"><MapPin size={9}/> {s}</span>)}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+
+              <!-- Finish -->
+              <div class="t-node t-node--finish t-anim" style={`--d:${(pkg.itinerary.length+1)*60}ms`}>
+                <div class="t-dot t-dot--finish">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="t-node__lbl t-node__lbl--fin">
+                  <span class="t-node__badge t-node__badge--fin">Complete</span>
+                  <p>Safe return drop-off</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
+        <!-- TRANSPORT & HOTEL -->
+        <section class="t-card" id="stay">
+          <div class="t-card__head"><Bus size={15} class="t-card__ico"/><h2>Transport &amp; Hotel</h2></div>
+          <div class="t-spec-grid">
+            <div class="t-spec-box">
+              <p class="t-spec-title">Transport</p>
+              <p><span class="t-sl">Mode:</span> {pkg.transport?.mode || 'Flight / Train'}</p>
+              <p><span class="t-sl">Pickup:</span> {pkg.transport?.pickup || 'Airport / Station'}</p>
+              <p><span class="t-sl">Vehicle:</span> {pkg.transport?.vehicle || 'Private Sedan'}</p>
+            </div>
+            <div class="t-spec-box">
+              <p class="t-spec-title">Hotel &amp; Meals</p>
+              <p><span class="t-sl">Grade:</span> {pkg.accommodation?.category || '3-Star Deluxe'}</p>
+              <p><span class="t-sl">Meals:</span> {pkg.accommodation?.meals || 'Breakfast & Dinner'}</p>
+              <p><span class="t-sl">Stay:</span> {(pkg.accommodation?.description || 'Handpicked premium rooms').slice(0,60)}…</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- TARIFF -->
+        <section class="t-card" id="pricing">
+          <div class="t-card__head"><CreditCard size={15} class="t-card__ico"/><h2>Tariff &amp; Inclusions</h2></div>
+
+          <div class="t-pstrip">
+            <div>
+              <span class="t-pstrip__lbl">Package Rate</span>
+              <span class="t-pstrip__val">{pkg.pricingDetails?.perHead || pkg.price + ' / person'}</span>
+            </div>
+            <a href="#booking-form" class="t-btn t-btn--gold">Best Price</a>
+          </div>
+
+          <div class="t-ie">
+            <div class="t-ie-inc">
+              <div class="t-ie-head t-ie-head--inc"><CheckCircle size={13}/><span>Included</span></div>
+              <ul>
+                {(pkg.pricingDetails?.inclusions || ['Private cab transfers','Deluxe hotel stay','Daily Breakfast & Dinner','Driver tolls & taxes']).map(i => <li>— {i}</li>)}
+              </ul>
+            </div>
+            <div class="t-ie-exc">
+              <div class="t-ie-head t-ie-head--exc"><XCircle size={13}/><span>Excluded</span></div>
+              <ul>
+                {(pkg.pricingDetails?.exclusions || ['Airfare / Train fare','Entry tickets','Personal expenses']).map(e => <li>— {e}</li>)}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- BOOKING FORM -->
+        <section class="t-card t-card--book" id="booking-form">
+          <div class="t-card__head"><Send size={15} class="t-card__ico"/><h2>WhatsApp Reservation</h2></div>
+          <form id="t-book-form" class="t-form">
+            <input type="hidden" name="package_name" value={pkg.title}/>
+            <div class="t-form__r2">
+              <div class="t-fg"><label>Full Name *</label><input type="text" name="name" placeholder="Your name" required/></div>
+              <div class="t-fg"><label>WhatsApp No. *</label><input type="tel" name="phone" placeholder="+91 98xxx xxxxx" required/></div>
+            </div>
+            <div class="t-form__r3">
+              <div class="t-fg"><label>Travel Date *</label><input type="date" name="date" required/></div>
+              <div class="t-fg"><label>Passengers *</label><input id="t-guests" type="number" name="guests" min="1" max="40" value="2" required/></div>
+              <div class="t-fg"><label>Hotel Type</label>
+                <select name="hotel"><option>3-Star Deluxe</option><option>4-Star Premium</option><option>Luxury Resort</option></select>
+              </div>
+            </div>
+            <div class="t-estimator">
+              <span>Estimated Total:</span>
+              <strong id="t-est"></strong>
+            </div>
+            <button type="submit" class="t-submit"><Send size={13}/> Send via WhatsApp</button>
+          </form>
+        </section>
+
+      </main>
+
+      <!-- ── SIDEBAR ──────────────────────────────────────────── -->
+      <aside class="t-sidebar">
+        <div class="t-sb">
+          <div class="t-sb__head">
+            <span class="t-sb__from">Starting From</span>
+            <span class="t-sb__price">{pkg.price} <span class="t-sb__pp">/ person</span></span>
+          </div>
+          <div class="t-sb__specs">
+            <div class="t-sb__row"><span>Duration</span><strong>{pkg.duration}</strong></div>
+            <div class="t-sb__row"><span>Destination</span><strong>{pkg.destination}</strong></div>
+            <div class="t-sb__row"><span>Hotel</span><strong>{(pkg.accommodation?.category || '3-Star').split(' ')[0]}</strong></div>
+          </div>
+          <a href="#booking-form" class="t-btn t-btn--blue t-btn--full">Book Online</a>
+          <a href={`https://wa.me/919830905332?text=Hi%20I%20want%20to%20book%20${encodeURIComponent(pkg.title)}`} target="_blank" rel="noopener" class="t-btn t-btn--wa t-btn--full" style="margin-top:6px">
+            <MessageSquare size={12}/> WhatsApp Inquiry
+          </a>
+          <div class="t-sb__call">
+            <PhoneCall size={12}/> Call: <strong>+91 98309 05332</strong>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <!-- ═══ MOBILE BAR ═══════════════════════════════════════════ -->
+  <div class="t-mobbar">
+    <div class="t-mobbar__price">
+      <span>From</span>
+      <strong>{pkg.price}</strong>
+    </div>
+    <a href="#booking-form" class="t-btn t-btn--blue">Book Now</a>
+  </div>
+
+</BaseLayout>
+
+<style>
+/* ══════════════════════════════════════════════════════════════
+   RESET & SCOPE — keep all detail-page styles tightly scoped
+══════════════════════════════════════════════════════════════ */
+.t-inner {
+  width: 100%;
+  max-width: 1100px;
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   HERO
+══════════════════════════════════════════════════════════════ */
+.t-hero {
+  position: relative;
+  min-height: 280px;
+  display: flex;
+  align-items: flex-end;
+  padding-top: 40px;
+  padding-bottom: 24px;
+  overflow: hidden;
+}
+.t-hero__bg {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+}
+.t-hero__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(175deg, rgba(0,20,40,.3) 0%, rgba(0,25,55,.9) 100%);
+}
+.t-hero > .t-inner { position: relative; z-index: 2; }
+
+.t-crumb {
+  display: flex; align-items: center; gap: 4px;
+  font-size: .73rem; color: rgba(255,255,255,.75); margin-bottom: 10px;
+}
+.t-crumb a { color: #FFD166; text-decoration: none; }
+.t-crumb a:hover { text-decoration: underline; }
+
+.t-hero__body {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.t-hero__text { flex: 1; min-width: 200px; max-width: 580px; }
+@media (max-width: 600px) {
+  .t-hero__body { flex-direction: column; align-items: stretch; }
+  .t-pcard { max-width: 100% !important; min-width: 0 !important; width: 100%; }
+  .t-pcard__btns { display: grid; grid-template-columns: 1fr 1fr; }
+  .t-btn { justify-content: center; }
+  .t-hero { min-height: auto; padding-bottom: 16px; }
+}
+
+/* Pills */
+.t-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 7px; }
+.t-tag {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px 9px; border-radius: 10px;
+  font-size: .72rem; font-weight: 600; line-height: 1;
+  white-space: nowrap; flex-shrink: 0;
+}
+.t-tag svg { width: 11px !important; height: 11px !important; flex-shrink: 0; display: block; }
+.t-tag--loc { background: rgba(255,255,255,.18); color: #fff; }
+.t-tag--dur { background: #F26419; color: #fff; }
+.t-tag--star { background: #fff; color: #1E293B; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+.t-tag--date {
+  background: linear-gradient(135deg, #F26419, #e05510);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(242,100,25,0.35);
+}
+
+.t-batch-highlight {
+  background: #FFF7ED;
+  border: 1px solid #FFEDD5;
+  border-radius: 8px;
+  padding: 5px 8px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: .73rem;
+  color: #9A3412;
+  font-weight: 600;
+}
+.tb-badge {
+  margin-left: auto;
+  background: #F26419;
+  color: #fff;
+  font-size: .62rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+
+.t-hero__h1 {
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-weight: 800; color: #fff;
+  line-height: 1.25; margin-bottom: 5px;
+}
+.t-hero__sub {
+  font-size: .84rem; color: rgba(255,255,255,.85); line-height: 1.5;
+}
+
+/* Price Card */
+.t-pcard {
+  background: #fff; border-radius: 12px;
+  padding: 12px 14px; min-width: 210px; max-width: 260px;
+  box-shadow: 0 6px 24px rgba(0,0,0,.2);
+  flex-shrink: 0;
+}
+.t-pcard__lbl { font-size: .68rem; text-transform: uppercase; color: #64748B; font-weight: 600; }
+.t-pcard__row { display: flex; align-items: baseline; gap: 6px; margin: 2px 0 10px; }
+.t-pcard__price { font-size: 1.35rem; font-weight: 800; color: #F26419; font-family: var(--f-heading); }
+.t-pcard__old { font-size: .76rem; text-decoration: line-through; color: #94A3B8; }
+.t-pcard__btns { display: flex; gap: 6px; }
+
+/* ── Buttons (fixed compact sizes — no .btn inheritance) ── */
+.t-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 4px; font-size: .78rem; font-weight: 700;
+  padding: 0 12px; height: 30px; border-radius: 7px;
+  text-decoration: none; white-space: nowrap;
+  border: none; cursor: pointer; line-height: 1;
+  font-family: var(--f-heading);
+  transition: filter .2s, transform .15s;
+}
+.t-btn:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.t-btn:active { transform: translateY(0); }
+.t-btn--orange { background: #F26419; color: #fff; }
+.t-btn--wa    { background: #25D366; color: #fff; }
+.t-btn--blue  { background: #003B73; color: #fff; }
+.t-btn--gold  { background: #FFD166; color: #003B73; }
+.t-btn--sm    { height: 26px; font-size: .72rem; padding: 0 10px; border-radius: 5px; }
+.t-btn--full  { width: 100%; }
+.t-btn svg    { width: 12px; height: 12px; flex-shrink: 0; }
+
+/* ══════════════════════════════════════════════════════════════
+   STICKY NAV — auto-sliding active highlight
+══════════════════════════════════════════════════════════════ */
+.t-snav {
+  position: sticky; top: 0; z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid #E2E8F0;
+  box-shadow: 0 1px 6px rgba(0,0,0,.05);
+}
+.t-snav__row {
+  display: flex; gap: 2px; overflow-x: auto;
+  scrollbar-width: none; padding: 7px 16px;
+  scroll-behavior: smooth;
+}
+.t-snav__row::-webkit-scrollbar { display: none; }
+.t-sn {
+  font-size: .79rem; font-weight: 600; color: #64748B;
+  text-decoration: none; padding: 4px 10px;
+  border-radius: 6px; white-space: nowrap; flex-shrink: 0;
+  transition: color .25s, background .25s;
+}
+.t-sn:hover { color: #003B73; background: #F1F5F9; }
+.t-sn.is-active { color: #003B73; background: #EFF6FF; font-weight: 700; }
+.t-sn--cta { color: #F26419 !important; font-weight: 700; }
+.t-sn--cta.is-active { background: #FFF7ED; }
+
+/* ══════════════════════════════════════════════════════════════
+   PAGE LAYOUT
+══════════════════════════════════════════════════════════════ */
+.t-page {
+  padding-top: 18px;
+  padding-bottom: 80px;
+}
+.t-layout {
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: 18px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .t-layout { grid-template-columns: 1fr; }
+  .t-sidebar { display: none; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   CARDS
+══════════════════════════════════════════════════════════════ */
+.t-card {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+.t-card__head {
+  display: flex; align-items: center; gap: 6px;
+  margin-bottom: 12px; padding-bottom: 9px;
+  border-bottom: 1px solid #F1F5F9;
+}
+.t-card__head--toggle {
+  cursor: pointer;
+  user-select: none;
+  justify-content: space-between;
+}
+.t-card__head-title {
+  display: flex; align-items: center; gap: 6px;
+}
+.t-card__toggle-btn {
+  background: #F1F5F9;
+  border: none;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #003B73;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease;
+}
+.t-card__head--toggle:hover .t-card__toggle-btn {
+  background: #E2E8F0;
+}
+.t-card.is-expanded .t-toggle-icon {
+  transform: rotate(180deg);
+}
+
+/* Collapsible body with peek preview */
+.t-collapsible-body {
+  max-height: 52px;
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.t-collapsible-body::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 24px;
+  background: linear-gradient(transparent, #fff);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.t-card.is-expanded .t-collapsible-body {
+  max-height: 1500px !important;
+}
+.t-card.is-expanded .t-collapsible-body::after {
+  opacity: 0 !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   HIGHLIGHTS
+══════════════════════════════════════════════════════════════ */
+.t-hl-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+}
+@media (max-width: 500px) { .t-hl-grid { grid-template-columns: 1fr; } }
+.t-hl-item {
+  display: flex; align-items: flex-start; gap: 7px;
+  background: #F8FAFC; border: 1px solid #E2E8F0;
+  padding: 8px 10px; border-radius: 8px;
+  font-size: .8rem; color: #1E293B; line-height: 1.4;
+}
+.t-hl-chk { color: #10B981; flex-shrink: 0; margin-top: 1px; width: 13px; height: 13px; }
+.t-hl-item svg { width: 13px !important; height: 13px !important; }
+
+/* ══════════════════════════════════════════════════════════════
+   GALLERY
+══════════════════════════════════════════════════════════════ */
+.t-gal {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 7px; margin-bottom: 9px;
+}
+@media (max-width: 480px) { .t-gal { grid-template-columns: repeat(2, 1fr); } }
+.t-gal__thumb { height: 72px; border-radius: 7px; overflow: hidden; background: #E2E8F0; }
+.t-gal__thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+.t-gal__thumb:hover img { transform: scale(1.06); }
+
+.t-vstrip {
+  display: flex; align-items: center; justify-content: space-between;
+  background: #F8FAFC; border: 1px solid #E2E8F0;
+  border-radius: 7px; padding: 7px 10px; gap: 8px; flex-wrap: wrap;
+}
+.t-vstrip__txt {
+  display: flex; align-items: center; gap: 5px;
+  font-size: .77rem; color: #475569;
+}
+.t-vstrip__txt svg { width: 13px !important; height: 13px !important; }
+
+/* ══════════════════════════════════════════════════════════════
+   JOURNEY ROADMAP + SCHEDULE (merged)
+══════════════════════════════════════════════════════════════ */
+.t-journey .t-card__head h2 { font-size: .95rem; }
+
+.t-track {
+  position: relative;
+  padding-left: 40px;
+}
+
+/* Vertical line */
+.t-track__line {
+  position: absolute;
+  left: 12px; top: 14px; bottom: 14px;
+  width: 3px;
+  background: #E2E8F0;
+  border-radius: 3px;
+}
+.t-track__line-fill {
+  width: 100%;
+  height: 0%;
+  background: linear-gradient(180deg, #003B73 0%, #F26419 50%, #10B981 100%);
+  border-radius: 3px;
+  transition: height 0.15s ease-out;
+  position: relative;
+}
+/* Moving Bus / Vehicle Beacon — smooth 60fps lerp via JS */
+.t-track__beacon {
+  position: absolute;
+  left: 1.5px;
+  top: 0%;
+  width: 26px;
+  height: 24px;
+  background: #F26419;
+  border: 2px solid #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(242,100,25,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  z-index: 60;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  will-change: top;
+}
+.t-track__beacon svg,
+.t-track__beacon > svg {
+  width: 14px !important;
+  height: 14px !important;
+  max-width: 14px !important;
+  max-height: 14px !important;
+  color: #fff !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+}
+
+/* Node — 3D card-flip & glow reveal */
+.t-node {
+  position: relative;
+  margin-bottom: 16px;
+  opacity: 0;
+  transform: perspective(600px) rotateX(-20deg) translateY(20px);
+  transform-origin: top center;
+  transition:
+    opacity 0.6s ease var(--d, 0ms),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 0ms);
+  will-change: opacity, transform;
+}
+.t-node.visible {
+  opacity: 1;
+  transform: perspective(600px) rotateX(0deg) translateY(0);
+}
+
+/* Dot */
+.t-dot {
+  position: absolute;
+  left: -34px; top: 7px;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .7rem; font-weight: 700;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+.t-node.visible .t-dot--day {
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+@keyframes pulse-dot {
+  0% { box-shadow: 0 0 0 0 rgba(242,100,25,0.4); }
+  70% { box-shadow: 0 0 0 8px rgba(242,100,25,0); }
+  100% { box-shadow: 0 0 0 0 rgba(242,100,25,0); }
+}
+.t-dot svg { width: 12px !important; height: 12px !important; }
+.t-dot--start  { background: #003B73; color: #fff; box-shadow: 0 0 0 3px rgba(0,59,115,.15); }
+.t-dot--day    { background: #fff; border: 2px solid #F26419; color: #F26419; box-shadow: 0 0 0 2px rgba(242,100,25,.12); }
+.t-dot--finish { background: #10B981; color: #fff; box-shadow: 0 0 0 3px rgba(16,185,129,.15); }
+
+/* Start / Finish label */
+.t-node__lbl {
+  background: #F8FAFC; border: 1px solid #E2E8F0;
+  border-radius: 8px; padding: 7px 10px;
+}
+.t-node__lbl p { font-size: .8rem; color: #334155; margin: 0; }
+.t-node__badge {
+  display: inline-block;
+  font-size: .68rem; font-weight: 700;
+  color: #003B73; text-transform: uppercase;
+  letter-spacing: .4px; margin-bottom: 2px;
+}
+.t-node__badge--fin { color: #10B981; }
+.t-node__lbl--fin { border-color: #BBF7D0; background: #F0FDF4; }
+
+/* Day card */
+.t-day-card {
+  background: #fff; border: 1.5px solid #E2E8F0;
+  border-radius: 10px; padding: 11px 13px;
+  transition: border-color .2s, box-shadow .2s;
+  cursor: default;
+}
+.t-day-card:hover {
+  border-color: #F26419;
+  box-shadow: 0 3px 12px rgba(242,100,25,.08);
+}
+.t-day-card__top {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; gap: 8px; margin-bottom: 5px;
+}
+.t-day-card__label {
+  display: block; font-size: .68rem; font-weight: 700;
+  color: #F26419; text-transform: uppercase;
+  letter-spacing: .4px; margin-bottom: 2px;
+}
+.t-day-card__title { font-size: .9rem; font-weight: 700; color: #0F172A; margin: 0; line-height: 1.3; }
+.t-day-card__desc { font-size: .79rem; color: #475569; line-height: 1.5; margin-bottom: 7px; }
+
+/* Meal icons — utensil repeated N times, no text, no label */
+.t-meals { display: flex; gap: 2px; flex-shrink: 0; align-items: center; }
+.t-meal-icon {
+  width: 16px; height: 16px; border-radius: 3px;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; flex-shrink: 0;
+  background: #F1F5F9; color: #64748B;
+}
+.t-meal-icon svg,
+.t-meal-icon > svg {
+  width: 9px !important; height: 9px !important;
+  max-width: 9px !important; max-height: 9px !important;
+  display: block; flex-shrink: 0;
+}
+
+/* No tooltip — icon only */
+
+/* Spots */
+.t-spots { display: flex; flex-wrap: wrap; gap: 3px; }
+.t-spot {
+  display: inline-flex; align-items: center; gap: 2px;
+  background: #F1F5F9; border: 1px solid #CBD5E1;
+  font-size: .7rem; padding: 2px 5px; border-radius: 4px; color: #334155;
+}
+.t-spot svg { width: 9px !important; height: 9px !important; }
+
+/* ══════════════════════════════════════════════════════════════
+   SPECS
+══════════════════════════════════════════════════════════════ */
+.t-spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+@media (max-width: 520px) { .t-spec-grid { grid-template-columns: 1fr; } }
+.t-spec-box {
+  background: #F8FAFC; border: 1px solid #E2E8F0;
+  border-radius: 9px; padding: 11px;
+  font-size: .79rem; color: #334155; line-height: 1.65;
+}
+.t-spec-title { font-weight: 700; color: #003B73; font-size: .84rem; margin-bottom: 6px; }
+.t-sl { color: #64748B; }
+
+/* ══════════════════════════════════════════════════════════════
+   TARIFF
+══════════════════════════════════════════════════════════════ */
+.t-pstrip {
+  display: flex; justify-content: space-between; align-items: center;
+  background: #003B73; border-radius: 9px; padding: 11px 14px;
+  margin-bottom: 12px; gap: 10px;
+}
+.t-pstrip__lbl { font-size: .68rem; text-transform: uppercase; color: rgba(255,255,255,.7); display: block; }
+.t-pstrip__val { font-size: 1.05rem; font-weight: 800; color: #FFD166; font-family: var(--f-heading); }
+
+.t-ie { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+@media (max-width: 520px) { .t-ie { grid-template-columns: 1fr; } }
+.t-ie-inc { background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 9px; padding: 11px; }
+.t-ie-exc { background: #FEF2F2; border: 1px solid #FECACA; border-radius: 9px; padding: 11px; }
+.t-ie-head { display: flex; align-items: center; gap: 5px; font-weight: 700; font-size: .8rem; margin-bottom: 7px; }
+.t-ie-head svg { width: 13px !important; height: 13px !important; }
+.t-ie-head--inc { color: #166534; }
+.t-ie-head--exc { color: #991B1B; }
+.t-ie-inc ul, .t-ie-exc ul { list-style: none; font-size: .76rem; line-height: 1.5; display: flex; flex-direction: column; gap: 3px; }
+.t-ie-inc li { color: #15803D; }
+.t-ie-exc li { color: #B91C1C; }
+
+/* ══════════════════════════════════════════════════════════════
+   BOOKING FORM
+══════════════════════════════════════════════════════════════ */
+.t-card--book { border: 1.5px solid #003B73; }
+.t-form { display: flex; flex-direction: column; gap: 9px; }
+.t-form__r2 { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+.t-form__r3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 9px; }
+@media (max-width: 520px) { .t-form__r2, .t-form__r3 { grid-template-columns: 1fr; } }
+.t-fg { display: flex; flex-direction: column; gap: 3px; }
+.t-fg label { font-size: .73rem; font-weight: 600; color: #1E293B; }
+.t-fg input, .t-fg select {
+  border: 1px solid #CBD5E1; border-radius: 7px;
+  padding: 6px 9px; font-size: .82rem;
+  background: #F8FAFC; color: #0F172A;
+  transition: border-color .2s;
+  font-family: var(--f-body);
+}
+.t-fg input:focus, .t-fg select:focus { outline: none; border-color: #003B73; background: #fff; }
+
+.t-estimator {
+  background: #F0FDF4; border: 1px dashed #4ADE80;
+  border-radius: 7px; padding: 6px 10px;
+  font-size: .77rem; color: #166534;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.t-submit {
+  display: flex; align-items: center; justify-content: center; gap: 5px;
+  background: #25D366; color: #fff;
+  font-weight: 700; font-size: .85rem;
+  padding: 0 16px; height: 36px; border: none;
+  border-radius: 8px; cursor: pointer;
+  font-family: var(--f-heading);
+  transition: background .2s;
+}
+.t-submit svg { width: 13px !important; height: 13px !important; }
+.t-submit:hover { background: #1ea952; }
+
+/* ══════════════════════════════════════════════════════════════
+   SIDEBAR
+══════════════════════════════════════════════════════════════ */
+.t-sb {
+  position: sticky; top: 54px;
+  background: #fff; border: 1px solid #E2E8F0;
+  border-radius: 12px; padding: 14px;
+}
+.t-sb__head { text-align: center; padding-bottom: 10px; border-bottom: 1px solid #F1F5F9; margin-bottom: 10px; }
+.t-sb__from { font-size: .68rem; text-transform: uppercase; color: #64748B; display: block; }
+.t-sb__price { font-size: 1.3rem; font-weight: 800; color: #F26419; font-family: var(--f-heading); }
+.t-sb__pp { font-size: .7rem; color: #94A3B8; font-weight: 400; }
+.t-sb__specs { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
+.t-sb__row { display: flex; justify-content: space-between; font-size: .77rem; padding-bottom: 4px; border-bottom: 1px solid #F8FAFC; }
+.t-sb__row span { color: #64748B; }
+.t-sb__row strong { color: #0F172A; }
+.t-sb__call {
+  display: flex; align-items: center; gap: 5px;
+  font-size: .74rem; color: #64748B;
+  background: #F8FAFC; padding: 6px 8px; border-radius: 6px; margin-top: 8px;
+}
+.t-sb__call strong { color: #003B73; }
+.t-sb svg { width: 12px !important; height: 12px !important; }
+
+/* ══════════════════════════════════════════════════════════════
+   MOBILE BAR
+══════════════════════════════════════════════════════════════ */
+.t-mobbar {
+  display: none;
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: #fff; border-top: 1px solid #E2E8F0;
+  padding: 8px 16px; z-index: 900;
+  align-items: center; justify-content: space-between;
+  height: 50px; box-shadow: 0 -2px 8px rgba(0,0,0,.07);
+}
+@media (max-width: 900px) { .t-mobbar { display: flex; } }
+.t-mobbar__price { display: flex; flex-direction: column; line-height: 1.2; }
+.t-mobbar__price span { font-size: .65rem; color: #64748B; text-transform: uppercase; }
+.t-mobbar__price strong { font-size: 1.05rem; font-weight: 800; color: #F26419; font-family: var(--f-heading); }
+</style>
+
+<script>
+  /* ─── Meal Icons ───────────────────────────────────────────── */
+  /* Utensils icon — fork+knife (standard meal symbol) */
+  const SZ = 'width="9" height="9" style="display:block;flex-shrink:0"';
+  const UTENSIL_SVG = `<svg ${SZ} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>`;
+
+  function renderMeals() {
+    document.querySelectorAll('.t-meals[data-meals]').forEach(el => {
+      const raw = (el.getAttribute('data-meals') || '').toLowerCase();
+      let count = 0;
+      if (raw.includes('breakfast') || raw.includes('welcome') || raw.includes('tea')) count++;
+      if (raw.includes('lunch')) count++;
+      if (raw.includes('dinner') || raw.includes('gala')) count++;
+      if (count === 0 && raw.trim().length > 0) count = 1; // fallback
+      // Render `count` identical utensil icons — no text
+      el.innerHTML = Array.from({ length: count })
+        .map(() => `<div class="t-meal-icon">${UTENSIL_SVG}</div>`)
+        .join('');
+    });
+  }
+
+  /* ─── Roadmap Animation & Smooth 60fps Lerp Bus Icon ───────── */
+  function initRoadmap() {
+    const lineTrack = document.querySelector<HTMLElement>('.t-track__line');
+    const lineFill  = document.getElementById('t-line-fill');
+    const beacon    = document.getElementById('t-bus-beacon');
+    const nodes     = document.querySelectorAll('.t-node');
+
+    if (!lineTrack || !lineFill) return;
+
+    let currentPct = 0;
+    let targetPct = 0;
+
+    function updateTarget() {
+      const rect = lineTrack.getBoundingClientRect();
+      const windowH = window.innerHeight;
+      const start = windowH * 0.75;
+      const current = start - rect.top;
+      const total = rect.height;
+      targetPct = Math.min(Math.max((current / total) * 100, 0), 100);
+    }
+
+    // 60fps Smooth Lerp Animation Loop
+    function animLoop() {
+      currentPct += (targetPct - currentPct) * 0.12;
+      lineFill.style.height = `${currentPct.toFixed(2)}%`;
+      if (beacon) {
+        beacon.style.top = `${currentPct.toFixed(2)}%`;
+      }
+      requestAnimationFrame(animLoop);
+    }
+
+    window.addEventListener('scroll', updateTarget, { passive: true });
+    updateTarget();
+    requestAnimationFrame(animLoop);
+
+    // IntersectionObserver to trigger node reveals
+    const nodeIO = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    nodes.forEach(n => nodeIO.observe(n));
+  }
+
+  /* ─── Auto-sliding sticky nav ──────────────────────────────── */
+  function initStickyNav() {
+    const navRow  = document.getElementById('t-snav-row');
+    const links   = document.querySelectorAll<HTMLAnchorElement>('.t-sn[data-section]');
+    const sections = Array.from(links).map(l => document.getElementById(l.dataset.section!)).filter(Boolean) as HTMLElement[];
+    if (!navRow || !links.length || !sections.length) return;
+
+    function setActive(id: string) {
+      links.forEach(l => l.classList.toggle('is-active', l.dataset.section === id));
+      // Auto-scroll the nav to show the active pill
+      const activeLink = navRow.querySelector<HTMLElement>('.t-sn.is-active');
+      if (activeLink) {
+        const rowRect = navRow.getBoundingClientRect();
+        const linkRect = activeLink.getBoundingClientRect();
+        const offset = linkRect.left - rowRect.left - (rowRect.width / 2) + (linkRect.width / 2);
+        navRow.scrollBy({ left: offset, behavior: 'smooth' });
+      }
+    }
+
+    // Set first active on load
+    if (sections[0]) setActive(sections[0].id);
+
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) setActive((e.target as HTMLElement).id);
+      });
+    }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+
+    sections.forEach(s => io.observe(s));
+  }
+
+  /* ─── Estimator ────────────────────────────────────────────── */
+  function initEstimator() {
+    const gInput = document.getElementById('t-guests') as HTMLInputElement | null;
+    const estEl  = document.getElementById('t-est');
+    const priceEl = document.querySelector('.t-pcard__price');
+    const base = parseInt((priceEl?.textContent || '').replace(/[^0-9]/g, '')) || 15000;
+    const fmt = (n: number) => n.toLocaleString('en-IN');
+    function update() {
+      if (!gInput || !estEl) return;
+      const c = Math.max(1, parseInt(gInput.value) || 1);
+      estEl.textContent = `₹${fmt(base)} × ${c} = ₹${fmt(base * c)}`;
+    }
+    gInput?.addEventListener('input', update);
+    update();
+  }
+
+  /* ─── Form ─────────────────────────────────────────────────── */
+  function initForm() {
+    const form = document.getElementById('t-book-form') as HTMLFormElement | null;
+    const priceEl = document.querySelector('.t-pcard__price');
+    const base = parseInt((priceEl?.textContent || '').replace(/[^0-9]/g, '')) || 15000;
+
+    form?.addEventListener('submit', e => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      const guests = parseInt(fd.get('guests') as string || '1') || 1;
+      const total = base * guests;
+      const txt = encodeURIComponent(
+        `Hello Cholo Jai Tour & Travels!\n\n`+
+        `Package: ${fd.get('package_name')}\nName: ${fd.get('name')}\nPhone: ${fd.get('phone')}\n`+
+        `Date: ${fd.get('date')}\nPassengers: ${guests}\nHotel: ${fd.get('hotel')}\n`+
+        `Estimated: ₹${total.toLocaleString('en-IN')}\n\nPlease confirm availability!`
+      );
+      window.open(`https://wa.me/919830905332?text=${txt}`, '_blank');
+    });
+  }
+
+  /* ─── Collapsible Section Toggles ─────────────────────────── */
+  function initCollapsibleToggles() {
+    document.querySelectorAll<HTMLElement>('.t-card__head--toggle').forEach(head => {
+      head.onclick = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const card = head.closest('.t-card');
+        const body = card?.querySelector<HTMLElement>('.t-collapsible-body');
+        if (!card || !body) return;
+
+        const isExpanded = card.classList.contains('is-expanded');
+        if (isExpanded) {
+          card.classList.remove('is-expanded');
+          body.style.maxHeight = '52px';
+        } else {
+          card.classList.add('is-expanded');
+          body.style.maxHeight = '1500px';
+        }
+      };
+    });
+  }
+
+  function boot() {
+    renderMeals();
+    initRoadmap();
+    initStickyNav();
+    initCollapsibleToggles();
+    initEstimator();
+    initForm();
+  }
+  document.addEventListener('astro:page-load', boot);
+  boot();
+</script>
