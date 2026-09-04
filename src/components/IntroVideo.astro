@@ -1,5 +1,5 @@
 ---
-/* IntroVideo.astro - First-load video hook component with Bengali CTA and curtain reveal */
+/* IntroVideo.astro - First-load video hook component with Bengali CTA and smooth curtain reveal */
 ---
 
 <div id="intro-hook-container" class="intro-container">
@@ -9,17 +9,11 @@
 
   <div class="intro-overlay"></div>
 
-  <!-- Sound Toggle Pill -->
-  <button id="intro-sound-toggle" class="intro-sound-btn" aria-label="Toggle Audio" type="button">
-    <span class="sound-text sound-text-off">🔇 Tap for sound</span>
-    <span class="sound-text sound-text-on">🔊 Sound on</span>
-  </button>
-
-  <!-- Bengali CTA Button -->
+  <!-- Bengali Natural CTA Button (No AI Slop, No AI Gradient) -->
   <div class="intro-cta-wrapper">
-    <button id="intro-enter-btn" class="intro-cta-btn" type="button" aria-label="চলুন ঘুরে আসা যাক - ওয়েবসাইটে প্রবেশ করুন">
+    <button id="intro-enter-btn" class="intro-cta-btn" type="button" aria-label="চলুন ঘুরে আসা যাক">
       <span class="cta-text">চলুন ঘুরে আসা যাক</span>
-      <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
         <line x1="5" y1="12" x2="19" y2="12"></line>
         <polyline points="12 5 19 12 12 19"></polyline>
       </svg>
@@ -38,12 +32,13 @@
     justify-content: center;
     overflow: hidden;
     will-change: transform, opacity;
-    transition: transform 0.75s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.7s ease;
+    transition: transform 0.75s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.75s cubic-bezier(0.77, 0, 0.175, 1);
   }
 
+  /* Smooth Curtain Lift Reveal Animation */
   .intro-container.is-revealing {
     transform: translateY(-100%);
-    opacity: 0;
+    opacity: 0.95;
     pointer-events: none;
   }
 
@@ -62,48 +57,13 @@
     background: linear-gradient(
       to top,
       rgba(0, 0, 0, 0.75) 0%,
-      rgba(0, 0, 0, 0.15) 50%,
-      rgba(0, 0, 0, 0.35) 100%
+      rgba(0, 0, 0, 0.2) 40%,
+      rgba(0, 0, 0, 0.3) 100%
     );
     pointer-events: none;
   }
 
-  /* Sound Indicator Pill */
-  .intro-sound-btn {
-    position: absolute;
-    top: max(20px, env(safe-area-inset-top));
-    right: 20px;
-    z-index: 10;
-    background: rgba(15, 23, 42, 0.65);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    color: #ffffff;
-    padding: 8px 16px;
-    border-radius: 30px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.82rem;
-    font-weight: 500;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: all 0.25s ease;
-  }
-
-  .intro-sound-btn:hover {
-    background: rgba(15, 23, 42, 0.85);
-    border-color: rgba(255, 255, 255, 0.5);
-    transform: translateY(-1px);
-  }
-
-  .sound-text-on { display: none; }
-  .sound-text-off { display: inline-block; }
-
-  .intro-sound-btn.is-unmuted .sound-text-on { display: inline-block; }
-  .intro-sound-btn.is-unmuted .sound-text-off { display: none; }
-
-  /* CTA Wrapper & Button */
+  /* CTA Wrapper & Clean Natural Solid Button (NO AI Gradient, NO AI Glow) */
   .intro-cta-wrapper {
     position: absolute;
     bottom: calc(clamp(32px, 8vh, 70px) + env(safe-area-inset-bottom, 0px));
@@ -119,39 +79,31 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    padding: 16px 36px;
-    background: linear-gradient(135deg, #003B73 0%, #002447 100%);
+    gap: 10px;
+    padding: 15px 36px;
+    background-color: #003B73; /* Solid Ocean Blue */
     color: #FFFFFF;
     font-family: 'Hind Siliguri', 'Poppins', sans-serif;
     font-size: clamp(1.15rem, 2.4vw, 1.35rem);
     font-weight: 600;
-    letter-spacing: 0.5px;
-    border-radius: 50px;
-    border: 1.5px solid rgba(255, 255, 255, 0.4);
-    box-shadow: 
-      0 12px 32px rgba(0, 0, 0, 0.5),
-      0 0 0 1px rgba(255, 255, 255, 0.15) inset,
-      0 0 20px rgba(242, 100, 25, 0.25);
+    border-radius: 8px;
+    border: 1px solid #002347;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
     cursor: pointer;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
     white-space: nowrap;
     outline: none;
   }
 
   .intro-cta-btn:hover, .intro-cta-btn:focus-visible {
-    transform: scale(1.04) translateY(-2px);
-    background: linear-gradient(135deg, #004b93 0%, #002d5a 100%);
-    border-color: rgba(255, 255, 255, 0.75);
-    box-shadow: 
-      0 18px 40px rgba(0, 59, 115, 0.65),
-      0 0 25px rgba(242, 100, 25, 0.45);
+    background-color: #E05510; /* Solid Warm Accent Orange */
+    border-color: #c44607;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
   }
 
   .intro-cta-btn:active {
-    transform: scale(0.98) translateY(0);
+    transform: translateY(0);
   }
 
   .cta-text {
@@ -161,7 +113,7 @@
   .cta-arrow {
     width: 22px;
     height: 22px;
-    transition: transform 0.3s ease;
+    transition: transform 0.25s ease;
   }
 
   .intro-cta-btn:hover .cta-arrow {
@@ -170,7 +122,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     .intro-container {
-      transition: opacity 0.3s ease;
+      transition: opacity 0.4s ease;
     }
     .intro-container.is-revealing {
       transform: none;
@@ -180,8 +132,8 @@
 
   @media (max-width: 480px) {
     .intro-cta-btn {
-      padding: 14px 28px;
-      font-size: 1.08rem;
+      padding: 13px 26px;
+      font-size: 1.05rem;
     }
   }
 </style>
@@ -190,7 +142,6 @@
   function initIntroHook() {
     const container = document.getElementById('intro-hook-container');
     const video = document.getElementById('intro-hook-video') as HTMLVideoElement | null;
-    const soundToggle = document.getElementById('intro-sound-toggle');
     const enterBtn = document.getElementById('intro-enter-btn');
 
     if (!container || !video) return;
@@ -204,23 +155,19 @@
       }
     } catch (e) {}
 
-    // Attempt unmuted play first per requirements
+    // Default audio ON per client instructions
     video.muted = false;
     video.volume = 1.0;
 
     const playPromise = video.play();
     if (playPromise !== undefined) {
-      playPromise.then(() => {
-        soundToggle?.classList.add('is-unmuted');
-      }).catch(() => {
-        // Browser autoplay policy blocked sound -> play muted & unmute on tap
+      playPromise.catch(() => {
+        // If browser blocks unmuted autoplay, start muted and unmute immediately on user touch/click anywhere
         video.muted = true;
         video.play().catch(() => {});
-        soundToggle?.classList.remove('is-unmuted');
 
         const unmuteOnInteraction = () => {
           video.muted = false;
-          soundToggle?.classList.add('is-unmuted');
           ['click', 'touchstart', 'keydown'].forEach(ev => {
             window.removeEventListener(ev, unmuteOnInteraction);
           });
@@ -232,27 +179,16 @@
       });
     }
 
-    // Sound toggle listener
-    soundToggle?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      video.muted = !video.muted;
-      soundToggle.classList.toggle('is-unmuted', !video.muted);
-    });
-
-    // Enter animation & reveal transition
+    // Reveal transition function
     let isRevealing = false;
     function revealWebsite() {
       if (isRevealing) return;
       isRevealing = true;
 
-      try {
-        sessionStorage.setItem('cholo_jai_intro_seen', '1');
-      } catch (e) {}
-      document.documentElement.classList.add('intro-done');
-
+      // 1. Play the smooth curtain lift animation FIRST
       container?.classList.add('is-revealing');
 
-      // Smoothly fade audio volume
+      // 2. Smoothly fade audio volume
       const fadeInterval = setInterval(() => {
         if (video && video.volume > 0.1) {
           video.volume = Math.max(0, video.volume - 0.15);
@@ -262,7 +198,12 @@
         }
       }, 50);
 
+      // 3. ONLY after 750ms animation finishes, set session flag and hide container
       setTimeout(() => {
+        try {
+          sessionStorage.setItem('cholo_jai_intro_seen', '1');
+        } catch (e) {}
+        document.documentElement.classList.add('intro-done');
         if (container) container.style.display = 'none';
       }, 750);
     }

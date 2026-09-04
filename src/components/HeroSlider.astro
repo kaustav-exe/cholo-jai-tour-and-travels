@@ -64,6 +64,9 @@ const taglines: Record<string, string> = {
     max-height: 640px;
     overflow: hidden;
     background: #111;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-drag: none;
   }
 
   .hs-slide {
@@ -307,6 +310,70 @@ const taglines: Record<string, string> = {
       resetAuto();
     });
   });
+
+  // Touch Swipe & Mouse Drag Left/Right Functionality
+  const wrap = document.getElementById('hero-slider');
+  let startX = 0;
+  let isDragging = false;
+
+  if (wrap) {
+    // Touch Events
+    wrap.addEventListener('touchstart', (e: TouchEvent) => {
+      if (e.touches && e.touches.length > 0) {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+      }
+    }, { passive: true });
+
+    wrap.addEventListener('touchend', (e: TouchEvent) => {
+      if (!isDragging) return;
+      isDragging = false;
+      if (e.changedTouches && e.changedTouches.length > 0) {
+        const endX = e.changedTouches[0].clientX;
+        const diffX = startX - endX;
+
+        if (Math.abs(diffX) > 35) {
+          if (diffX > 0) {
+            goTo(current + 1); // Drag Left -> Next Slide
+          } else {
+            goTo(current - 1); // Drag Right -> Previous Slide
+          }
+          resetAuto();
+        }
+      }
+    }, { passive: true });
+
+    // Mouse Drag Events
+    wrap.addEventListener('mousedown', (e: MouseEvent) => {
+      startX = e.clientX;
+      isDragging = true;
+      wrap.style.cursor = 'grabbing';
+    });
+
+    wrap.addEventListener('mouseup', (e: MouseEvent) => {
+      if (!isDragging) return;
+      isDragging = false;
+      wrap.style.cursor = 'grab';
+      const endX = e.clientX;
+      const diffX = startX - endX;
+
+      if (Math.abs(diffX) > 35) {
+        if (diffX > 0) {
+          goTo(current + 1); // Drag Left -> Next Slide
+        } else {
+          goTo(current - 1); // Drag Right -> Previous Slide
+        }
+        resetAuto();
+      }
+    });
+
+    wrap.addEventListener('mouseleave', () => {
+      if (isDragging) {
+        isDragging = false;
+        wrap.style.cursor = 'grab';
+      }
+    });
+  }
 
   startAuto();
 </script>
