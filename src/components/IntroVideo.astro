@@ -9,14 +9,10 @@
 
   <div class="intro-overlay"></div>
 
-  <!-- Bengali Natural CTA Button (No AI Slop, No AI Gradient) -->
+  <!-- Bengali Natural CTA Button (Wider, Premium, No Arrow Icon) -->
   <div class="intro-cta-wrapper">
     <button id="intro-enter-btn" class="intro-cta-btn" type="button" aria-label="চলুন ঘুরে আসা যাক">
       <span class="cta-text">চলুন ঘুরে আসা যাক</span>
-      <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="5" y1="12" x2="19" y2="12"></line>
-        <polyline points="12 5 19 12 12 19"></polyline>
-      </svg>
     </button>
   </div>
 </div>
@@ -63,15 +59,15 @@
     pointer-events: none;
   }
 
-  /* CTA Wrapper & Clean Natural Solid Button (NO AI Gradient, NO AI Glow) */
+  /* CTA Wrapper & Wider Premium Natural Button (No Arrow Icon, No AI Slop) */
   .intro-cta-wrapper {
     position: absolute;
-    bottom: calc(clamp(32px, 8vh, 70px) + env(safe-area-inset-bottom, 0px));
+    bottom: calc(clamp(36px, 9vh, 75px) + env(safe-area-inset-bottom, 0px));
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
     width: auto;
-    max-width: calc(100vw - 40px);
+    max-width: calc(100vw - 32px);
     text-align: center;
   }
 
@@ -79,45 +75,36 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    padding: 15px 36px;
+    min-width: clamp(280px, 50vw, 420px);
+    padding: 18px 56px;
     background-color: #003B73; /* Solid Ocean Blue */
     color: #FFFFFF;
     font-family: 'Hind Siliguri', 'Poppins', sans-serif;
-    font-size: clamp(1.15rem, 2.4vw, 1.35rem);
-    font-weight: 600;
-    border-radius: 8px;
-    border: 1px solid #002347;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    font-size: clamp(1.25rem, 2.8vw, 1.5rem);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-radius: 10px;
+    border: 1.5px solid rgba(255, 255, 255, 0.45);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
     cursor: pointer;
-    transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+    transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
     white-space: nowrap;
     outline: none;
   }
 
   .intro-cta-btn:hover, .intro-cta-btn:focus-visible {
     background-color: #E05510; /* Solid Warm Accent Orange */
-    border-color: #c44607;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+    border-color: #ffffff;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
   }
 
   .intro-cta-btn:active {
-    transform: translateY(0);
+    transform: translateY(0) scale(0.99);
   }
 
   .cta-text {
-    line-height: 1.2;
-  }
-
-  .cta-arrow {
-    width: 22px;
-    height: 22px;
-    transition: transform 0.25s ease;
-  }
-
-  .intro-cta-btn:hover .cta-arrow {
-    transform: translateX(4px);
+    line-height: 1.25;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -132,8 +119,9 @@
 
   @media (max-width: 480px) {
     .intro-cta-btn {
-      padding: 13px 26px;
-      font-size: 1.05rem;
+      min-width: calc(100vw - 48px);
+      padding: 16px 32px;
+      font-size: 1.15rem;
     }
   }
 </style>
@@ -149,7 +137,12 @@
     // Check if user already completed intro in this session
     try {
       if (sessionStorage.getItem('cholo_jai_intro_seen') === '1') {
+        video.pause();
+        video.muted = true;
+        video.removeAttribute('src');
+        video.load();
         container.style.display = 'none';
+        container.remove();
         document.documentElement.classList.add('intro-done');
         return;
       }
@@ -167,7 +160,7 @@
         video.play().catch(() => {});
 
         const unmuteOnInteraction = () => {
-          video.muted = false;
+          if (video) video.muted = false;
           ['click', 'touchstart', 'keydown'].forEach(ev => {
             window.removeEventListener(ev, unmuteOnInteraction);
           });
@@ -185,26 +178,28 @@
       if (isRevealing) return;
       isRevealing = true;
 
-      // 1. Play the smooth curtain lift animation FIRST
+      // 1. IMMEDIATELY pause and unload video audio pipeline
+      if (video) {
+        video.pause();
+        video.muted = true;
+        video.currentTime = 0;
+        video.removeAttribute('src');
+        video.load();
+      }
+
+      // 2. Play the smooth curtain lift animation FIRST
       container?.classList.add('is-revealing');
 
-      // 2. Smoothly fade audio volume
-      const fadeInterval = setInterval(() => {
-        if (video && video.volume > 0.1) {
-          video.volume = Math.max(0, video.volume - 0.15);
-        } else {
-          clearInterval(fadeInterval);
-          if (video) video.pause();
-        }
-      }, 50);
-
-      // 3. ONLY after 750ms animation finishes, set session flag and hide container
+      // 3. AFTER 750ms curtain lift animation, set session flag, hide & unmount container node completely
       setTimeout(() => {
         try {
           sessionStorage.setItem('cholo_jai_intro_seen', '1');
         } catch (e) {}
         document.documentElement.classList.add('intro-done');
-        if (container) container.style.display = 'none';
+        if (container) {
+          container.style.display = 'none';
+          container.remove(); // Completely unmount element from DOM
+        }
       }, 750);
     }
 
