@@ -320,13 +320,23 @@ import {
         </div>
       `;
 
+      const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      const curMonth = months[new Date().getMonth()];
+      let activeFare = pkg.price;
+      if (pkg.seasonalPricing && pkg.seasonalPricing[curMonth]) {
+        activeFare = '₹' + pkg.seasonalPricing[curMonth].toLocaleString('en-IN');
+      }
+
+      const waMessage = encodeURIComponent(`Hello Cholo Jai Tour & Travels, I am interested in the ${pkg.title} package for ${curMonth} departure (${activeFare}/person). Please share availability.`);
+      const waDrawerUrl = `https://wa.me/919830905332?text=${waMessage}`;
+
       const pricingHtml = `
         <div style="background:#003B73;color:#fff;padding:16px;border-radius:12px;margin-bottom:18px;display:flex;justify-content:space-between;align-items:center;">
           <div>
-            <span style="font-size:0.72rem;opacity:0.8;text-transform:uppercase;">Price Per Person</span>
-            <h3 style="font-size:1.4rem;color:#FFD166;font-weight:800;margin:0;">${pkg.price}</h3>
+            <span style="font-size:0.72rem;opacity:0.8;text-transform:uppercase;">${curMonth} Departure Fare</span>
+            <h3 style="font-size:1.4rem;color:#FFD166;font-weight:800;margin:0;">${activeFare} <span style="font-size:0.78rem;color:#fff;font-weight:400;">/ person</span></h3>
           </div>
-          <a href="https://wa.me/919830905332?text=Hi%2C%20I%20want%20to%20book%20the%20${encodeURIComponent(pkg.title)}%20package!" target="_blank" style="background:#25D366;color:#fff;font-weight:700;padding:8px 14px;border-radius:8px;text-decoration:none;font-size:0.82rem;">Book on WhatsApp</a>
+          <a href="${waDrawerUrl}" target="_blank" style="background:#25D366;color:#fff;font-weight:700;padding:8px 14px;border-radius:8px;text-decoration:none;font-size:0.82rem;">Book on WhatsApp</a>
         </div>
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;">

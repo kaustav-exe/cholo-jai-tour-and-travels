@@ -1,69 +1,55 @@
 ---
-const slides = [
-  {
-    image: "/images/hero_kashmir_1783678442997.png",
-    destination: "Kashmir",
-    price: "₹12,999",
-    duration: "5 Days / 4 Nights",
-    tagline: "Paradise on Earth"
-  },
-  {
-    image: "/images/hero_goa_1783678456678.png",
-    destination: "Goa",
-    price: "₹9,999",
-    duration: "3 Days / 2 Nights",
-    tagline: "Sun, Sand & Sea"
-  },
-  {
-    image: "/images/hero_darjeeling_1783678472536.png",
-    destination: "Darjeeling",
-    price: "₹11,499",
-    duration: "4 Days / 3 Nights",
-    tagline: "Queen of the Hills"
-  },
-  {
-    image: "/images/hero_andaman_1783678485939.png",
-    destination: "Andaman",
-    price: "₹13,999",
-    duration: "6 Days / 5 Nights",
-    tagline: "Island Life Awaits"
-  },
-  {
-    image: "/images/hero_kerala_1783678518411.png",
-    destination: "Kerala",
-    price: "₹10,999",
-    duration: "4 Days / 3 Nights",
-    tagline: "God's Own Country"
-  }
-];
+import { packages } from '../data/packages';
+import { getPackagePriceForMonth, getWhatsAppBookingUrl } from '../utils/pricing';
+
+// Select 5 key featured packages for the hero slider
+const featuredIds = ['andaman-6n7d', 'pkg-1', 'pkg-2', 'pkg-5', 'pkg-4'];
+const heroPackages = featuredIds
+  .map(id => packages.find(p => p.id === id))
+  .filter(Boolean);
+
+const taglines: Record<string, string> = {
+  'andaman-6n7d': 'Emerald Islands & Coral Reefs',
+  'pkg-1': 'Paradise on Earth',
+  'pkg-2': 'Queen of the Hills',
+  'pkg-5': "God's Own Country",
+  'pkg-4': 'Royal Palaces & Desert Dunes'
+};
 ---
 
 <section class="hero-slider-wrap" id="hero-slider">
   <div class="hs-track" id="hs-track">
-    {slides.map((slide, i) => (
-      <div class={`hs-slide ${i === 0 ? 'active' : ''}`} data-index={i}>
-        <img src={slide.image} alt={slide.destination} class="hs-bg" loading={i === 0 ? "eager" : "lazy"} />
-        <div class="hs-overlay"></div>
-        <div class="hs-caption">
-          <span class="hs-tagline">{slide.tagline}</span>
-          <h1 class="hs-destination">{slide.destination}</h1>
-          <div class="hs-meta">
-            <span class="hs-price">{slide.price} <em>per person</em></span>
-            <span class="hs-sep">•</span>
-            <span class="hs-duration">{slide.duration}</span>
-          </div>
-          <div class="hs-btns">
-            <a href="/packages" class="hs-btn hs-btn-primary">Explore Package</a>
-            <a href="https://wa.me/919830905332?text=Hi%2C%20I%20want%20to%20book%20a%20tour%20from%20Cholo%20Jai%20Tour%20%26%20Travels!" target="_blank" rel="noopener" class="hs-btn hs-btn-outline">Book on WhatsApp</a>
+    {heroPackages.map((pkg, i) => {
+      if (!pkg) return null;
+      const pricing = getPackagePriceForMonth(pkg);
+      const waUrl = getWhatsAppBookingUrl(pkg.title, pricing.monthName, pricing.formattedPrice);
+      const tagline = taglines[pkg.id] || 'Curated Travel Experience';
+
+      return (
+        <div class={`hs-slide ${i === 0 ? 'active' : ''}`} data-index={i}>
+          <img src={pkg.image} alt={pkg.title} class="hs-bg" loading={i === 0 ? "eager" : "lazy"} />
+          <div class="hs-overlay"></div>
+          <div class="hs-caption">
+            <span class="hs-tagline">{tagline}</span>
+            <h1 class="hs-destination">{pkg.title}</h1>
+            <div class="hs-meta">
+              <span class="hs-price">{pricing.formattedPrice} <em>/ person ({pricing.monthName})</em></span>
+              <span class="hs-sep">•</span>
+              <span class="hs-duration">{pkg.duration}</span>
+            </div>
+            <div class="hs-btns">
+              <a href={`/packages/${pkg.id}`} class="hs-btn hs-btn-primary">View Package Details</a>
+              <a href={waUrl} target="_blank" rel="noopener" class="hs-btn hs-btn-outline">Book on WhatsApp</a>
+            </div>
           </div>
         </div>
-      </div>
-    ))}
+      );
+    })}
   </div>
 
   <!-- Dot pagination only -->
   <div class="hs-dots" id="hs-dots">
-    {slides.map((_, i) => (
+    {heroPackages.map((_, i) => (
       <button class={`hs-dot ${i === 0 ? 'active' : ''}`} data-dot={i} aria-label={`Go to slide ${i + 1}`}></button>
     ))}
   </div>

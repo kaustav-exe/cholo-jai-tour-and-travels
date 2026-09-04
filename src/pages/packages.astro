@@ -16,45 +16,75 @@ import { Search, Filter } from 'lucide-astro';
   <section class="section">
     <div class="container">
       
-      <!-- Static Filter & Search UI -->
+      <!-- Filter & Search UI -->
       <div class="filter-bar">
         <div class="search-box">
           <Search size={20} class="icon" />
-          <input type="text" placeholder="Search destinations..." class="search-input" />
+          <input type="text" id="pkg-search-input" placeholder="Search destinations (e.g. Andaman, Kashmir)..." class="search-input" />
         </div>
         
         <div class="filter-actions">
           <div class="filter-dropdown">
             <Filter size={18} class="icon" />
-            <select class="select-input">
+            <select id="pkg-dest-select" class="select-input">
               <option value="">All Destinations</option>
-              <option value="kashmir">Kashmir</option>
-              <option value="darjeeling">Darjeeling</option>
               <option value="andaman">Andaman</option>
+              <option value="kashmir">Kashmir</option>
+              <option value="darjeeling">Darjeeling &amp; Sikkim</option>
               <option value="rajasthan">Rajasthan</option>
               <option value="kerala">Kerala</option>
               <option value="goa">Goa</option>
-            </select>
-          </div>
-          <div class="filter-dropdown">
-            <select class="select-input">
-              <option value="">Sort By</option>
-              <option value="price-low">Price: Low to High</option>
-              <option value="price-high">Price: High to Low</option>
-              <option value="duration">Duration</option>
+              <option value="meghalaya">Meghalaya</option>
+              <option value="ladakh">Leh Ladakh</option>
+              <option value="sundarbans">Sundarbans</option>
             </select>
           </div>
         </div>
       </div>
 
-      <div class="grid grid-3">
+      <div class="grid grid-3" id="packages-grid">
         {packages.map(pkg => (
-          <PackageCard pkg={pkg} />
+          <div class="pkg-card-wrapper" data-destination={pkg.destination.toLowerCase()} data-title={pkg.title.toLowerCase()}>
+            <PackageCard pkg={pkg} />
+          </div>
         ))}
       </div>
       
     </div>
   </section>
+
+  <script>
+    function initFilter() {
+      const searchInput = document.getElementById('pkg-search-input') as HTMLInputElement | null;
+      const destSelect = document.getElementById('pkg-dest-select') as HTMLSelectElement | null;
+      const cardWrappers = document.querySelectorAll<HTMLElement>('.pkg-card-wrapper');
+
+      function filterCards() {
+        const query = (searchInput?.value || '').toLowerCase().trim();
+        const dest = (destSelect?.value || '').toLowerCase();
+
+        cardWrappers.forEach(wrap => {
+          const title = wrap.dataset.title || '';
+          const destination = wrap.dataset.destination || '';
+
+          const matchesQuery = !query || title.includes(query) || destination.includes(query);
+          const matchesDest = !dest || destination.includes(dest) || title.includes(dest);
+
+          if (matchesQuery && matchesDest) {
+            wrap.style.display = 'block';
+          } else {
+            wrap.style.display = 'none';
+          }
+        });
+      }
+
+      searchInput?.addEventListener('input', filterCards);
+      destSelect?.addEventListener('change', filterCards);
+    }
+
+    document.addEventListener('astro:page-load', initFilter);
+    initFilter();
+  </script>
 </BaseLayout>
 
 <style>

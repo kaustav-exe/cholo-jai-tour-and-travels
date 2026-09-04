@@ -1,7 +1,18 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { packages, type TourPackage } from '../../data/packages';
-import { MapPin, Clock, Star, Calendar, CheckCircle, XCircle, Bus, Hotel, CreditCard, PhoneCall, ChevronRight, ChevronDown, Sparkles, Compass, MessageSquare, Camera, Play, Video, Send } from 'lucide-astro';
+import { 
+  getPackagePriceForMonth, 
+  getSeasonalMonthlyBreakdown, 
+  getWhatsAppBookingUrl, 
+  getCurrentMonthName,
+  formatCurrency
+} from '../../utils/pricing';
+import { 
+  MapPin, Clock, Star, Calendar, CheckCircle, XCircle, Bus, Hotel, 
+  CreditCard, PhoneCall, ChevronRight, ChevronDown, Sparkles, Compass, 
+  MessageSquare, Camera, Play, Video, Send, Tag, Info
+} from 'lucide-astro';
 
 export async function getStaticPaths() {
   return packages.map((pkg) => ({
@@ -15,9 +26,15 @@ const rating = pkg.rating || 4.8;
 const reviews = pkg.reviewsCount || 100;
 const highlights = pkg.highlights || ["Guided sightseeing", "Private vehicle transfers", "Deluxe accommodation", "Daily breakfast"];
 const galleryPhotos = pkg.gallery || [pkg.image];
+
+// Seasonal pricing calculations
+const currentMonth = getCurrentMonthName();
+const initialPricing = getPackagePriceForMonth(pkg);
+const monthlyBreakdown = getSeasonalMonthlyBreakdown(pkg);
+const initialWaUrl = getWhatsAppBookingUrl(pkg.title, currentMonth, initialPricing.formattedPrice);
 ---
 
-<BaseLayout title={`${pkg.title} | Cholo Jai Tour & Travels`}>
+<BaseLayout title={`${pkg.title} (${pkg.duration}) | Cholo Jai Tour & Travels`}>
 
   <!-- ═══ HERO ═══════════════════════════════════════════════════════ -->
   <header class="t-hero">
@@ -33,9 +50,14 @@ const galleryPhotos = pkg.gallery || [pkg.image];
             <span class="t-tag t-tag--loc"><MapPin size={11}/> {pkg.destination}</span>
             <span class="t-tag t-tag--dur"><Clock size={11}/> {pkg.duration}</span>
             <span class="t-tag t-tag--star"><Star size={11} fill="#F59E0B" color="#F59E0B"/> {rating} ({reviews})</span>
-            <span class="t-tag t-tag--date"><Calendar size={11}/> Next: {pkg.nextDate || '25 Aug'} 🔥</span>
+            <span class="t-tag t-tag--date hero-active-month-badge"><Calendar size={11}/> {initialPricing.periodLabel} 🔥</span>
           </div>
           <h1 class="t-hero__h1">{pkg.title}</h1>
+          {pkg.stayBreakdown && (
+            <p class="t-hero__stay-breakdown">
+              <strong>Stay:</strong> {pkg.stayBreakdown}
+            </p>
+          )}
           <p class="t-hero__sub">{pkg.shortDescription}</p>
         </div>
 
@@ -43,17 +65,17 @@ const galleryPhotos = pkg.gallery || [pkg.image];
         <div class="t-pcard">
           <div class="t-batch-highlight">
             <Calendar size={12} class="tb-ico" />
-            <span>Next Batch: <strong>{pkg.nextDate || '25 Aug'}</strong></span>
-            <span class="tb-badge">Fast Filling 🔥</span>
+            <span>Active Month: <strong id="active-month-label">{currentMonth}</strong></span>
+            <span class="tb-badge">Dynamic Fare</span>
           </div>
-          <p class="t-pcard__lbl">Per Person</p>
+          <p class="t-pcard__lbl" id="price-card-label">Applicable Rate per person</p>
           <div class="t-pcard__row">
-            <span class="t-pcard__price">{pkg.price}</span>
+            <span class="t-pcard__price" id="active-price-val">{initialPricing.formattedPrice}</span>
             {pkg.pricingDetails?.originalPrice && <span class="t-pcard__old">{pkg.pricingDetails.originalPrice}</span>}
           </div>
           <div class="t-pcard__btns">
             <a href="#booking-form" class="t-btn t-btn--orange">Book Online</a>
-            <a href={`https://wa.me/919830905332?text=Hi%20I%20want%20to%20book%20${encodeURIComponent(pkg.title)}`} target="_blank" rel="noopener" class="t-btn t-btn--wa">
+            <a href={initialWaUrl} id="hero-wa-btn" target="_blank" rel="noopener" class="t-btn t-btn--wa">
               <MessageSquare size={12}/> WhatsApp
             </a>
           </div>
@@ -65,12 +87,13 @@ const galleryPhotos = pkg.gallery || [pkg.image];
   <!-- ═══ STICKY NAV ══════════════════════════════════════════════════ -->
   <nav class="t-snav" id="t-snav">
     <div class="t-inner t-snav__row" id="t-snav-row">
-      <a href="#overview"      class="t-sn" data-section="overview">Highlights</a>
-      <a href="#gallery"       class="t-sn" data-section="gallery">Gallery</a>
-      <a href="#journey"       class="t-sn" data-section="journey">Journey</a>
-      <a href="#stay"          class="t-sn" data-section="stay">Stay &amp; Cab</a>
-      <a href="#pricing"       class="t-sn" data-section="pricing">Tariff</a>
-      <a href="#booking-form"  class="t-sn t-sn--cta" data-section="booking-form">Book Now</a>
+      <a href="#overview"          class="t-sn" data-section="overview">Highlights</a>
+      <a href="#seasonal-pricing" class="t-sn" data-section="seasonal-pricing">Seasonal Rates</a>
+      <a href="#gallery"           class="t-sn" data-section="gallery">Gallery</a>
+      <a href="#journey"           class="t-sn" data-section="journey">Journey</a>
+      <a href="#stay"              class="t-sn" data-section="stay">Stay &amp; Cab</a>
+      <a href="#pricing"           class="t-sn" data-section="pricing">Tariff</a>
+      <a href="#booking-form"      class="t-sn t-sn--cta" data-section="booking-form">Book Now</a>
     </div>
   </nav>
 
@@ -101,6 +124,40 @@ const galleryPhotos = pkg.gallery || [pkg.image];
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        <!-- SEASONAL PRICING VISUALIZATION -->
+        <section class="t-card" id="seasonal-pricing">
+          <div class="t-card__head">
+            <Calendar size={15} class="t-card__ico"/>
+            <h2>Seasonal Pricing &amp; Departure Fares</h2>
+          </div>
+          <p class="sp-subtext">
+            Select your preferred travel month below to view applicable fares. Rates automatically update across all booking links.
+          </p>
+
+          <div class="sp-grid" id="sp-grid">
+            {monthlyBreakdown.map((item) => (
+              <button
+                type="button"
+                class={`sp-month-card ${item.isCurrentMonth ? 'active' : ''} ${item.isPeak ? 'peak' : ''}`}
+                data-month={item.month}
+                data-price={item.price}
+                data-formatted-price={item.formattedPrice}
+                title={`Click to select ${item.month} departure fare (${item.formattedPrice})`}
+              >
+                <span class="sp-month-name">{item.shortMonth}</span>
+                <span class="sp-month-price">{item.formattedPrice}</span>
+                {item.isCurrentMonth && <span class="sp-current-badge">Current Month</span>}
+                {item.isPeak && !item.isCurrentMonth && <span class="sp-peak-badge">Peak Season</span>}
+              </button>
+            ))}
+          </div>
+
+          <div class="sp-footer-note">
+            <Info size={13} class="info-ico" />
+            <span>Prices may vary based on travel date, availability, and final booking confirmation.</span>
           </div>
         </section>
 
@@ -871,24 +928,144 @@ const galleryPhotos = pkg.gallery || [pkg.image];
 .t-mobbar__price strong { font-size: 1.05rem; font-weight: 800; color: #F26419; font-family: var(--f-heading); }
 </style>
 
-<script>
-  /* ─── Meal Icons ───────────────────────────────────────────── */
-  /* Utensils icon — fork+knife (standard meal symbol) */
-  const SZ = 'width="9" height="9" style="display:block;flex-shrink:0"';
-  const UTENSIL_SVG = `<svg ${SZ} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>`;
+<style>
+  /* Seasonal Pricing Grid */
+  .sp-subtext {
+    font-size: 0.85rem;
+    color: #64748B;
+    margin-bottom: 16px;
+    line-height: 1.45;
+  }
 
+  .sp-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  @media (max-width: 768px) {
+    .sp-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .sp-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .sp-month-card {
+    background: #F8FAFC;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 10px;
+    padding: 8px 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    position: relative;
+    user-select: none;
+  }
+
+  .sp-month-card:hover {
+    border-color: #003B73;
+    background: #EFF6FF;
+    transform: translateY(-2px);
+  }
+
+  .sp-month-card.active {
+    background: #003B73;
+    border-color: #003B73;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 59, 115, 0.25);
+  }
+
+  .sp-month-card.active .sp-month-name {
+    color: #FFD166;
+  }
+
+  .sp-month-card.active .sp-month-price {
+    color: #ffffff;
+  }
+
+  .sp-month-name {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #64748B;
+    letter-spacing: 0.03em;
+  }
+
+  .sp-month-price {
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: #0F172A;
+    margin-top: 2px;
+    font-family: var(--f-heading);
+  }
+
+  .sp-current-badge {
+    font-size: 0.62rem;
+    font-weight: 700;
+    background: #F26419;
+    color: #fff;
+    padding: 1px 5px;
+    border-radius: 6px;
+    margin-top: 4px;
+    white-space: nowrap;
+  }
+
+  .sp-peak-badge {
+    font-size: 0.62rem;
+    font-weight: 700;
+    background: #FEF3C7;
+    color: #92400E;
+    padding: 1px 5px;
+    border-radius: 6px;
+    margin-top: 4px;
+    white-space: nowrap;
+  }
+
+  .sp-footer-note {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    color: #64748B;
+    background: #F1F5F9;
+    padding: 8px 12px;
+    border-radius: 8px;
+  }
+
+  .sp-footer-note .info-ico {
+    color: #003B73;
+    flex-shrink: 0;
+  }
+
+  .t-hero__stay-breakdown {
+    font-size: 0.84rem;
+    color: #FFD166;
+    background: rgba(0, 0, 0, 0.35);
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+    border: 1px solid rgba(255, 209, 102, 0.3);
+  }
+</style>
+
+<script>
+  /* ─── Meal Badges ───────────────────────────────────────────── */
   function renderMeals() {
-    document.querySelectorAll('.t-meals[data-meals]').forEach(el => {
-      const raw = (el.getAttribute('data-meals') || '').toLowerCase();
-      let count = 0;
-      if (raw.includes('breakfast') || raw.includes('welcome') || raw.includes('tea')) count++;
-      if (raw.includes('lunch')) count++;
-      if (raw.includes('dinner') || raw.includes('gala')) count++;
-      if (count === 0 && raw.trim().length > 0) count = 1; // fallback
-      // Render `count` identical utensil icons — no text
-      el.innerHTML = Array.from({ length: count })
-        .map(() => `<div class="t-meal-icon">${UTENSIL_SVG}</div>`)
-        .join('');
+    document.querySelectorAll<HTMLElement>('.t-meals[data-meals]').forEach(el => {
+      const text = el.dataset.meals || '';
+      if (!text) return;
+      el.innerHTML = `<span class="t-meal-pill">${text}</span>`;
     });
   }
 
@@ -913,7 +1090,6 @@ const galleryPhotos = pkg.gallery || [pkg.image];
       targetPct = Math.min(Math.max((current / total) * 100, 0), 100);
     }
 
-    // 60fps Smooth Lerp Animation Loop
     function animLoop() {
       currentPct += (targetPct - currentPct) * 0.12;
       lineFill.style.height = `${currentPct.toFixed(2)}%`;
@@ -927,7 +1103,6 @@ const galleryPhotos = pkg.gallery || [pkg.image];
     updateTarget();
     requestAnimationFrame(animLoop);
 
-    // IntersectionObserver to trigger node reveals
     const nodeIO = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) {
@@ -948,7 +1123,6 @@ const galleryPhotos = pkg.gallery || [pkg.image];
 
     function setActive(id: string) {
       links.forEach(l => l.classList.toggle('is-active', l.dataset.section === id));
-      // Auto-scroll the nav to show the active pill
       const activeLink = navRow.querySelector<HTMLElement>('.t-sn.is-active');
       if (activeLink) {
         const rowRect = navRow.getBoundingClientRect();
@@ -958,7 +1132,6 @@ const galleryPhotos = pkg.gallery || [pkg.image];
       }
     }
 
-    // Set first active on load
     if (sections[0]) setActive(sections[0].id);
 
     const io = new IntersectionObserver(entries => {
@@ -970,18 +1143,64 @@ const galleryPhotos = pkg.gallery || [pkg.image];
     sections.forEach(s => io.observe(s));
   }
 
+  /* ─── Interactive Month Selector for Seasonal Pricing ──────── */
+  function initSeasonalMonthSelector() {
+    const monthCards = document.querySelectorAll<HTMLButtonElement>('.sp-month-card');
+    const activePriceVal = document.getElementById('active-price-val');
+    const activeMonthLabel = document.getElementById('active-month-label');
+    const heroActiveBadge = document.querySelector('.hero-active-month-badge');
+    const heroWaBtn = document.getElementById('hero-wa-btn') as HTMLAnchorElement | null;
+    const tariffVal = document.querySelector('.t-pstrip__val');
+    const sidebarPrice = document.querySelector('.t-sb__price');
+
+    if (!monthCards.length) return;
+
+    const pkgTitle = document.querySelector('.t-hero__h1')?.textContent?.trim() || 'Tour Package';
+
+    monthCards.forEach(card => {
+      card.addEventListener('click', () => {
+        monthCards.forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
+
+        const month = card.dataset.month || 'Current';
+        const price = parseInt(card.dataset.price || '0', 10);
+        const formattedPrice = card.dataset.formattedPrice || `₹${price.toLocaleString('en-IN')}`;
+
+        if (activePriceVal) activePriceVal.textContent = formattedPrice;
+        if (activeMonthLabel) activeMonthLabel.textContent = month;
+        if (heroActiveBadge) heroActiveBadge.textContent = `📅 ${month} Departure Fare 🔥`;
+        if (tariffVal) tariffVal.textContent = `${formattedPrice} / person (${month})`;
+        if (sidebarPrice) sidebarPrice.innerHTML = `${formattedPrice} <span class="t-sb__pp">/ person</span>`;
+
+        // Update WhatsApp link context
+        if (heroWaBtn) {
+          const msg = `Hello Cholo Jai Tour & Travels, I am interested in the ${pkgTitle} package for ${month} departure (${formattedPrice}/person). Please share availability and booking details.`;
+          heroWaBtn.href = `https://wa.me/919830905332?text=${encodeURIComponent(msg)}`;
+        }
+
+        // Trigger recalculation of total estimate
+        const gInput = document.getElementById('t-guests') as HTMLInputElement | null;
+        if (gInput) {
+          gInput.dispatchEvent(new Event('input'));
+        }
+      });
+    });
+  }
+
   /* ─── Estimator ────────────────────────────────────────────── */
   function initEstimator() {
     const gInput = document.getElementById('t-guests') as HTMLInputElement | null;
     const estEl  = document.getElementById('t-est');
-    const priceEl = document.querySelector('.t-pcard__price');
-    const base = parseInt((priceEl?.textContent || '').replace(/[^0-9]/g, '')) || 15000;
-    const fmt = (n: number) => n.toLocaleString('en-IN');
+
     function update() {
       if (!gInput || !estEl) return;
+      const priceEl = document.getElementById('active-price-val');
+      const base = parseInt((priceEl?.textContent || '').replace(/[^0-9]/g, '')) || 15000;
       const c = Math.max(1, parseInt(gInput.value) || 1);
-      estEl.textContent = `₹${fmt(base)} × ${c} = ₹${fmt(base * c)}`;
+      const total = base * c;
+      estEl.textContent = `₹${base.toLocaleString('en-IN')} × ${c} = ₹${total.toLocaleString('en-IN')}`;
     }
+
     gInput?.addEventListener('input', update);
     update();
   }
@@ -989,19 +1208,28 @@ const galleryPhotos = pkg.gallery || [pkg.image];
   /* ─── Form ─────────────────────────────────────────────────── */
   function initForm() {
     const form = document.getElementById('t-book-form') as HTMLFormElement | null;
-    const priceEl = document.querySelector('.t-pcard__price');
-    const base = parseInt((priceEl?.textContent || '').replace(/[^0-9]/g, '')) || 15000;
 
     form?.addEventListener('submit', e => {
       e.preventDefault();
       const fd = new FormData(form);
+      const priceEl = document.getElementById('active-price-val');
+      const base = parseInt((priceEl?.textContent || '').replace(/[^0-9]/g, '')) || 15000;
       const guests = parseInt(fd.get('guests') as string || '1') || 1;
       const total = base * guests;
+      const activeMonth = document.getElementById('active-month-label')?.textContent || '';
+
       const txt = encodeURIComponent(
         `Hello Cholo Jai Tour & Travels!\n\n`+
-        `Package: ${fd.get('package_name')}\nName: ${fd.get('name')}\nPhone: ${fd.get('phone')}\n`+
-        `Date: ${fd.get('date')}\nPassengers: ${guests}\nHotel: ${fd.get('hotel')}\n`+
-        `Estimated: ₹${total.toLocaleString('en-IN')}\n\nPlease confirm availability!`
+        `Package: ${fd.get('package_name')}\n`+
+        `Departure Month: ${activeMonth}\n`+
+        `Rate per person: ₹${base.toLocaleString('en-IN')}\n`+
+        `Name: ${fd.get('name')}\n`+
+        `Phone: ${fd.get('phone')}\n`+
+        `Travel Date: ${fd.get('date')}\n`+
+        `Passengers: ${guests}\n`+
+        `Hotel Type: ${fd.get('hotel')}\n`+
+        `Estimated Total: ₹${total.toLocaleString('en-IN')}\n\n`+
+        `Please confirm availability!`
       );
       window.open(`https://wa.me/919830905332?text=${txt}`, '_blank');
     });
@@ -1034,6 +1262,7 @@ const galleryPhotos = pkg.gallery || [pkg.image];
     initRoadmap();
     initStickyNav();
     initCollapsibleToggles();
+    initSeasonalMonthSelector();
     initEstimator();
     initForm();
   }

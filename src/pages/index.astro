@@ -3,29 +3,76 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroSlider from '../components/HeroSlider.astro';
 import PackageCard from '../components/PackageCard.astro';
 import { packages } from '../data/packages';
-import { aboutData } from '../data/siteConfig';
-import { Shield, Award, Map, Users, ArrowRight } from 'lucide-astro';
+import { aboutData, siteConfig } from '../data/siteConfig';
+import { getPackagePriceForMonth, getCurrentMonthName, getWhatsAppBookingUrl } from '../utils/pricing';
+import { Shield, Award, Map, Users, ArrowRight, Calendar, Sparkles } from 'lucide-astro';
 
 const allPackages = packages;
+
+// Resolve Andaman 6N/7D package for dynamic seasonal banner
+const andamanPkg = packages.find(p => p.id === 'andaman-6n7d') || packages[0];
+const andamanPricing = getPackagePriceForMonth(andamanPkg);
+const currentMonth = getCurrentMonthName();
+const andamanWaUrl = getWhatsAppBookingUrl(andamanPkg.title, currentMonth, andamanPricing.formattedPrice);
+
+// Popular destinations mapping with live pricing
+const popularIds = ['andaman-6n7d', 'pkg-1', 'pkg-4', 'pkg-5', 'pkg-10', 'pkg-9'];
+const popularDestinations = popularIds.map(id => {
+  const pkg = packages.find(p => p.id === id);
+  if (!pkg) return null;
+  const pricing = getPackagePriceForMonth(pkg);
+  return { pkg, pricing };
+}).filter(Boolean);
+
+// JSON-LD Schema for SEO
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  "name": siteConfig.name,
+  "description": "Government Registered Travel Agency in Kolkata offering curated tour packages for Andaman, Kashmir, Sikkim, Rajasthan, Kerala, and Ladakh.",
+  "url": "https://cholo-jai-tour-and-travels.vercel.app/",
+  "telephone": "+919830905332",
+  "email": siteConfig.email,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "R.N. Avenue, Sodepur",
+    "addressLocality": "Kolkata",
+    "addressRegion": "West Bengal",
+    "postalCode": "700110",
+    "addressCountry": "IN"
+  },
+  "priceRange": "₹8,500 - ₹40,000"
+};
 ---
 
 <BaseLayout>
+  <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+
   <!-- Hero Slider -->
   <HeroSlider />
 
-  <!--  Book Your Tour Banner -->
+  <!-- Dynamic Seasonal Promotional Banner -->
   <div class="book-banner">
     <div class="container book-banner-inner">
       <div class="book-banner-text">
-        <span class="book-banner-icon"></span>
+        <span class="book-banner-icon"><Sparkles size={20} class="sparkle-icon" /></span>
         <div>
-          <strong>Book Your Tour Online</strong>
-          <span>Fill a quick form — we'll call you back within 2 hours!</span>
+          <strong class="banner-headline">
+            {currentMonth} Special Offer — {andamanPkg.title} ({andamanPkg.duration})
+          </strong>
+          <span class="banner-subtext">
+            {currentMonth} departures available from <strong>{andamanPricing.formattedPrice} / person</strong> (Includes Flight, AC Hotels, Cruise & Meals)
+          </span>
         </div>
       </div>
-      <button class="book-banner-btn" id="open-booking-modal" type="button">
-        Book Now →
-      </button>
+      <div class="banner-actions">
+        <a href={`/packages/${andamanPkg.id}`} class="book-banner-btn-secondary">
+          View Package
+        </a>
+        <a href={andamanWaUrl} target="_blank" rel="noopener" class="book-banner-btn">
+          Book {currentMonth} Fare →
+        </a>
+      </div>
     </div>
   </div>
 
@@ -51,9 +98,9 @@ const allPackages = packages;
             <label for="bf-dest">Destination *</label>
             <select id="bf-dest" name="destination" required>
               <option value="">Select destination</option>
+              <option>Andaman 6N/7D (Flight Included)</option>
               <option>Kashmir</option>
               <option>Darjeeling &amp; Sikkim</option>
-              <option>Andaman</option>
               <option>Rajasthan</option>
               <option>Kerala</option>
               <option>Goa</option>
@@ -69,7 +116,7 @@ const allPackages = packages;
             </select>
           </div>
           <div class="form-group">
-            <label for="bf-date">Travel Date</label>
+            <label for="bf-date">Travel Month / Date</label>
             <input type="date" id="bf-date" name="date" />
           </div>
         </div>
@@ -82,10 +129,10 @@ const allPackages = packages;
             <label for="bf-budget">Budget (per person)</label>
             <select id="bf-budget" name="budget">
               <option value="">Select budget</option>
-              <option>Under ₹10,000</option>
-              <option>₹10,000 – ₹20,000</option>
-              <option>₹20,000 – ₹35,000</option>
-              <option>Above ₹35,000</option>
+              <option>Under ₹15,000</option>
+              <option>₹15,000 – ₹30,000</option>
+              <option>₹30,000 – ₹45,000</option>
+              <option>Above ₹45,000</option>
             </select>
           </div>
         </div>
@@ -93,7 +140,7 @@ const allPackages = packages;
           <label for="bf-msg">Message (optional)</label>
           <textarea id="bf-msg" name="message" rows="3" placeholder="Any special requirements..."></textarea>
         </div>
-        <button type="submit" class="form-submit">Send via WhatsApp</button>
+        <button type="submit" class="form-submit">Send Enquiry via WhatsApp</button>
       </form>
     </div>
   </div>
@@ -103,96 +150,28 @@ const allPackages = packages;
     <div class="dest-header container">
       <div>
         <h2>Popular Destinations</h2>
-        <p>Swipe to explore our most loved spots</p>
+        <p>Dynamic seasonal rates for {currentMonth} departures</p>
       </div>
-      <a href="/packages" class="dest-all-link">View All →</a>
+      <a href="/packages" class="dest-all-link">View All Tours →</a>
     </div>
 
     <div class="dest-scroll-wrap">
       <div class="dest-scroll-track">
-        <a href="/packages/pkg-1" class="ds-card" style="--i:0">
-          <img src="/images/tour-1.jpeg" alt="Kashmir" />
-          <div class="ds-overlay">
-            <span class="ds-tag">North India</span>
-            <div class="ds-bottom">
-              <h3>Kashmir</h3>
-              <p class="ds-sub">From ₹18,500 / person</p>
-              <div class="ds-actions">
-                <span class="ds-btn ds-btn-details">Explore Tour →</span>
+        {popularDestinations.map(({ pkg, pricing }, idx) => (
+          <a href={`/packages/${pkg.id}`} class="ds-card" style={`--i:${idx}`}>
+            <img src={pkg.image} alt={pkg.title} loading="lazy" />
+            <div class="ds-overlay">
+              <span class="ds-tag">{pkg.duration}</span>
+              <div class="ds-bottom">
+                <h3>{pkg.title}</h3>
+                <p class="ds-sub">{currentMonth} Fare: {pricing.formattedPrice} / person</p>
+                <div class="ds-actions">
+                  <span class="ds-btn ds-btn-details">View Details &amp; Pricing →</span>
+                </div>
               </div>
             </div>
-          </div>
-        </a>
-
-        <a href="/packages/pkg-4" class="ds-card" style="--i:1">
-          <img src="/images/tour-4.png" alt="Rajasthan" />
-          <div class="ds-overlay">
-            <span class="ds-tag">Heritage</span>
-            <div class="ds-bottom">
-              <h3>Rajasthan</h3>
-              <p class="ds-sub">From ₹25,000 / person</p>
-              <div class="ds-actions">
-                <span class="ds-btn ds-btn-details">Explore Tour →</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <a href="/packages/pkg-3" class="ds-card" style="--i:2">
-          <img src="/images/tour-3.png" alt="Andaman" />
-          <div class="ds-overlay">
-            <span class="ds-tag">Island</span>
-            <div class="ds-bottom">
-              <h3>Andaman</h3>
-              <p class="ds-sub">From ₹22,000 / person</p>
-              <div class="ds-actions">
-                <span class="ds-btn ds-btn-details">Explore Tour →</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <a href="/packages/pkg-5" class="ds-card" style="--i:3">
-          <img src="/images/tour-5.png" alt="Kerala" />
-          <div class="ds-overlay">
-            <span class="ds-tag">South India</span>
-            <div class="ds-bottom">
-              <h3>Kerala</h3>
-              <p class="ds-sub">From ₹16,500 / person</p>
-              <div class="ds-actions">
-                <span class="ds-btn ds-btn-details">Explore Tour →</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <a href="/packages/pkg-9" class="ds-card" style="--i:4">
-          <img src="/images/tour-10.png" alt="Leh Ladakh" />
-          <div class="ds-overlay">
-            <span class="ds-tag">Adventure</span>
-            <div class="ds-bottom">
-              <h3>Leh Ladakh</h3>
-              <p class="ds-sub">From ₹28,000 / person</p>
-              <div class="ds-actions">
-                <span class="ds-btn ds-btn-details">Explore Tour →</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <a href="/packages/pkg-10" class="ds-card" style="--i:5">
-          <img src="/images/tour-9.png" alt="Golden Triangle" />
-          <div class="ds-overlay">
-            <span class="ds-tag">Heritage</span>
-            <div class="ds-bottom">
-              <h3>Golden Triangle</h3>
-              <p class="ds-sub">From ₹19,000 / person</p>
-              <div class="ds-actions">
-                <span class="ds-btn ds-btn-details">Explore Tour →</span>
-              </div>
-            </div>
-          </div>
-        </a>
+          </a>
+        ))}
       </div>
     </div>
   </section>
@@ -304,28 +283,53 @@ const allPackages = packages;
     color: #fff;
   }
 
-  .book-banner-icon { font-size: 1.8rem; }
-
-  .book-banner-text strong {
-    display: block;
-    font-size: 1rem;
-    font-weight: 700;
-    font-family: var(--f-heading);
+  .book-banner-icon { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+    color: #FFD166;
+    flex-shrink: 0;
   }
 
-  .book-banner-text span {
-    font-size: 0.82rem;
-    opacity: 0.85;
+  .banner-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .book-banner-btn-secondary {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    font-weight: 600;
+    font-family: var(--f-heading);
+    padding: 9px 18px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.4);
+    text-decoration: none;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+
+  .book-banner-btn-secondary:hover {
+    background: rgba(255,255,255,0.25);
+    color: #fff;
   }
 
   .book-banner-btn {
-    background: #fff;
-    color: var(--c-primary);
+    background: #F26419;
+    color: #fff;
     font-weight: 700;
     font-family: var(--f-heading);
-    padding: 10px 24px;
+    padding: 10px 22px;
     border-radius: 8px;
     border: none;
+    text-decoration: none;
     cursor: pointer;
     font-size: 0.95rem;
     white-space: nowrap;
@@ -333,8 +337,9 @@ const allPackages = packages;
   }
 
   .book-banner-btn:hover {
+    background: #e05510;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 12px rgba(242, 100, 25, 0.35);
   }
 
   /* ── Modal ── */

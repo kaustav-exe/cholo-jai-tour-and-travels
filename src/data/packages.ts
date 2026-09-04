@@ -44,10 +44,13 @@ export interface TourPackage {
   shortDescription: string;
   featured?: boolean;
   
-  // Extended Details
+  // Extended Details & Seasonal Pricing
   rating?: number;
   reviewsCount?: number;
   nextDate?: string;
+  stayBreakdown?: string;
+  seasonalPricing?: Record<string, number>;
+  pricingNote?: string;
   gallery?: string[];
   videoUrl?: string;
   highlights?: string[];
@@ -61,6 +64,143 @@ export interface TourPackage {
 
 export const packages: TourPackage[] = [
   {
+    id: "andaman-6n7d",
+    title: "Andaman Island Paradise",
+    destination: "Andaman Islands, India",
+    duration: "6 Nights / 7 Days",
+    price: "₹32,000",
+    image: "/images/hero_andaman_1783678485939.png",
+    shortDescription: "Complete 6N/7D Andaman holiday with flight tickets, private island cruise, 3-star AC hotels, private AC car, all meals, and Cellular Jail entry.",
+    featured: true,
+    rating: 4.9,
+    reviewsCount: 184,
+    nextDate: "10 Sep",
+    stayBreakdown: "Port Blair — 4 Nights | Havelock — 1 Night | Neil Island — 1 Night",
+    seasonalPricing: {
+      January: 38000,
+      February: 38000,
+      March: 38000,
+      April: 30000,
+      May: 30000,
+      June: 30000,
+      July: 30000,
+      August: 30000,
+      September: 32000,
+      October: 38000,
+      November: 35000,
+      December: 40000
+    },
+    pricingNote: "Prices vary by travel month based on flight availability & peak season cruise tariffs.",
+    gallery: [
+      "/images/hero_andaman_1783678485939.png",
+      "/images/tour-3.png",
+      "/images/hero_goa_1783678456678.png",
+      "/images/tour-6.png"
+    ],
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    highlights: [
+      "Return Flight Ticket included in complete package fare",
+      "Stay breakdown: Port Blair (4N) + Havelock (1N) + Neil Island (1N)",
+      "Private Catamaran Cruise (Makruzz / Green Ocean) between islands",
+      "Radhanagar Beach (Asia's #1 Beach) & Elephant Beach Snorkeling",
+      "Cellular Jail Light & Sound Show + Natural Bridge Neil Island",
+      "All Meals Included: Daily Breakfast, Lunch & Dinner"
+    ],
+    transport: {
+      mode: "Return Flight Tickets + Private Catamaran Cruise + AC Car",
+      pickup: "Veer Savarkar International Airport, Port Blair (IXZ)",
+      vehicle: "Private AC Sedan / SUV reserved for all land transfers & tours",
+      details: "Seamless flight, island catamaran ferry tickets, and chauffeur-driven AC car throughout."
+    },
+    accommodation: {
+      category: "3-Star AC Deluxe Hotels & Island Resorts",
+      description: "4 Nights Port Blair AC Deluxe Hotel + 1 Night Havelock Beachside Resort + 1 Night Neil Island Cottage",
+      meals: "Daily Breakfast, Lunch & Dinner Included (Complete Meal Plan)",
+      features: ["Air Conditioned Rooms", "Private Bathroom with Geyser", "In-house Restaurant", "24/7 Power Backup"]
+    },
+    pricingDetails: {
+      perHead: "₹32,000 / person (September Fare)",
+      originalPrice: "₹42,000",
+      groupDiscount: "Special discount for family bookings of 4+ travelers",
+      inclusions: [
+        "Flight ticket",
+        "AC hotel accommodation (6 Nights)",
+        "AC car for all land transfers",
+        "Private cruise tickets (Port Blair - Havelock - Neil - Port Blair)",
+        "Daily Breakfast",
+        "Daily Lunch",
+        "Daily Dinner",
+        "All entry fees and permits (Cellular Jail, Natural Bridge, etc.)"
+      ],
+      exclusions: [
+        "Personal expenses (shopping, tips, laundry)",
+        "Optional water sports activities (Scuba diving, Sea Walk, Jet Ski)",
+        "Camera fees at monuments if applicable"
+      ]
+    },
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Port Blair & Cellular Jail Tour",
+        desc: "Land at Port Blair Airport. Driver greeting and transfer to hotel. Visit Corbyn's Cove Beach and witness historic Cellular Jail Light & Sound Show.",
+        spots: ["Port Blair Airport", "Corbyn's Cove Beach", "Cellular Jail"],
+        meals: "Lunch & Dinner Included"
+      },
+      {
+        day: 2,
+        title: "Private Catamaran Cruise to Havelock & Radhanagar Beach",
+        desc: "Board high-speed private cruise to Havelock Island. Check-in to your beach resort. Relax at Radhanagar Beach, rated Asia's finest.",
+        spots: ["Havelock Island", "Radhanagar Beach"],
+        meals: "Breakfast, Lunch & Dinner Included"
+      },
+      {
+        day: 3,
+        title: "Elephant Beach Coral Reefs & Cruise to Neil Island",
+        desc: "Morning speed-boat trip to Elephant Beach for water sports & coral reef snorkeling. In the afternoon, board private cruise to scenic Neil Island.",
+        spots: ["Elephant Beach", "Neil Island"],
+        meals: "Breakfast, Lunch & Dinner Included"
+      },
+      {
+        day: 4,
+        title: "Neil Island Natural Bridge & Return Cruise to Port Blair",
+        desc: "Explore the famous Natural Bridge (Howrah Bridge rock formation) and Laxmanpur Beach. Take evening cruise back to Port Blair.",
+        spots: ["Natural Bridge", "Laxmanpur Beach", "Port Blair"],
+        meals: "Breakfast, Lunch & Dinner Included"
+      },
+      {
+        day: 5,
+        title: "Port Blair City Tour & Chidiya Tapu Sunset",
+        desc: "Visit Samudrika Marine Museum, Anthropological Museum, and enjoy dramatic sunset views at Chidiya Tapu (Bird Island).",
+        spots: ["Samudrika Museum", "Chidiya Tapu Sunset Point"],
+        meals: "Breakfast, Lunch & Dinner Included"
+      },
+      {
+        day: 6,
+        title: "Baratang Island Excursion or Local Heritage Shopping",
+        desc: "Day trip to Baratang Island to explore ancient Limestone Caves and Mangrove Creeks, or enjoy a relaxed shopping tour in Aberdeen Bazaar.",
+        spots: ["Baratang Limestone Caves", "Aberdeen Bazaar"],
+        meals: "Breakfast, Lunch & Dinner Included"
+      },
+      {
+        day: 7,
+        title: "Departure from Port Blair",
+        desc: "After breakfast, drop off at Port Blair International Airport for your flight back home with memories of the emerald islands.",
+        spots: ["Port Blair Airport"],
+        meals: "Breakfast Included"
+      }
+    ],
+    bookingProcess: [
+      { step: 1, title: "Select Departure Month", desc: "Choose your travel month to see exact seasonal fare." },
+      { step: 2, title: "Flight & Cruise Lock", desc: "We reserve your flight tickets and private catamaran cruise seats." },
+      { step: 3, title: "Instant Vouchers", desc: "Receive official hotel, flight, and cruise vouchers on WhatsApp/Email." }
+    ],
+    importantNotes: [
+      "Carry valid Govt photo ID (Aadhaar / Passport / Voter ID).",
+      "Ferry tickets are subject to availability; early booking recommended.",
+      "Water sports activities depend on weather and sea conditions."
+    ]
+  },
+  {
     id: "pkg-1",
     title: "Enchanting Kashmir",
     destination: "Kashmir, India",
@@ -72,6 +212,20 @@ export const packages: TourPackage[] = [
     rating: 4.9,
     reviewsCount: 142,
     nextDate: "25 Aug",
+    seasonalPricing: {
+      January: 22000,
+      February: 22000,
+      March: 20000,
+      April: 20000,
+      May: 19500,
+      June: 19500,
+      July: 18500,
+      August: 18500,
+      September: 18500,
+      October: 21000,
+      November: 19500,
+      December: 23000
+    },
     gallery: [
       "/images/hero_kashmir_1783678442997.png",
       "/images/tour-1.jpeg",
@@ -315,6 +469,12 @@ export const packages: TourPackage[] = [
     rating: 4.9,
     reviewsCount: 160,
     nextDate: "12 Sep",
+    seasonalPricing: {
+      January: 28000, February: 27000, March: 24000, April: 21000,
+      May: 19000, June: 18000, July: 18000, August: 19000,
+      September: 22000, October: 26000, November: 28000, December: 30000
+    },
+    pricingNote: "Peak season Oct–Feb. Desert nights are cold; warm layers recommended.",
     gallery: [
       "/images/tour-4.png",
       "/images/tour-9.png",
@@ -377,6 +537,12 @@ export const packages: TourPackage[] = [
     rating: 4.8,
     reviewsCount: 110,
     nextDate: "05 Sep",
+    seasonalPricing: {
+      January: 18000, February: 18500, March: 17500, April: 16000,
+      May: 14500, June: 13500, July: 13500, August: 14000,
+      September: 15500, October: 17000, November: 18000, December: 19000
+    },
+    pricingNote: "Off-peak Jun–Aug (monsoon). Houseboat availability may vary.",
     gallery: [
       "/images/hero_kerala_1783678518411.png",
       "/images/tour-5.png",
@@ -436,6 +602,12 @@ export const packages: TourPackage[] = [
     rating: 4.7,
     reviewsCount: 88,
     nextDate: "20 Aug",
+    seasonalPricing: {
+      January: 15000, February: 15000, March: 13500, April: 11000,
+      May: 9500, June: 9000, July: 9000, August: 9500,
+      September: 11000, October: 13000, November: 15000, December: 17000
+    },
+    pricingNote: "Peak season Nov–Feb. Great value Jun–Sep (off-peak).",
     gallery: [
       "/images/hero_goa_1783678456678.png",
       "/images/tour-6.png",
@@ -488,6 +660,12 @@ export const packages: TourPackage[] = [
     rating: 4.9,
     reviewsCount: 104,
     nextDate: "15 Sep",
+    seasonalPricing: {
+      January: 16000, February: 16000, March: 16000, April: 16500,
+      May: 17000, June: 19000, July: 20000, August: 19500,
+      September: 18500, October: 17500, November: 16000, December: 15000
+    },
+    pricingNote: "Best visited Jun–Sep for iconic monsoon waterfalls.",
     gallery: [
       "/images/tour-7.png",
       "/images/tour-13.png",
@@ -542,6 +720,12 @@ export const packages: TourPackage[] = [
     rating: 4.7,
     reviewsCount: 76,
     nextDate: "22 Aug",
+    seasonalPricing: {
+      January: 14500, February: 14500, March: 13000, April: 12000,
+      May: 11500, June: 11000, July: 11000, August: 11500,
+      September: 13000, October: 14000, November: 14500, December: 15000
+    },
+    pricingNote: "Cool climate year-round. Jul–Aug best for misty hills.",
     gallery: [
       "/images/tour-8.png",
       "/images/tour-12.png",
@@ -573,6 +757,12 @@ export const packages: TourPackage[] = [
     featured: true,
     rating: 4.8,
     reviewsCount: 130,
+    seasonalPricing: {
+      January: 21000, February: 21000, March: 20000, April: 18000,
+      May: 17000, June: 16500, July: 16500, August: 17000,
+      September: 18500, October: 21000, November: 22000, December: 23000
+    },
+    pricingNote: "Taj Mahal is closed on Fridays. Best Oct–Mar.",
     gallery: [
       "/images/tour-9.png",
       "/images/tour-4.png",
@@ -605,6 +795,12 @@ export const packages: TourPackage[] = [
     featured: true,
     rating: 4.9,
     reviewsCount: 155,
+    seasonalPricing: {
+      January: 0, February: 0, March: 0, April: 0,
+      May: 28000, June: 30000, July: 32000, August: 32000,
+      September: 30000, October: 28000, November: 0, December: 0
+    },
+    pricingNote: "Open only May–October. Road closed in winter.",
     gallery: [
       "/images/tour-10.png",
       "/images/tour-13.png",
@@ -639,6 +835,12 @@ export const packages: TourPackage[] = [
     featured: false,
     rating: 4.8,
     reviewsCount: 64,
+    seasonalPricing: {
+      January: 12000, February: 12000, March: 11000, April: 10000,
+      May: 9500, June: 9000, July: 9000, August: 9500,
+      September: 10500, October: 12000, November: 12500, December: 13000
+    },
+    pricingNote: "Dev Deepawali festival in November is peak season.",
     gallery: [
       "/images/tour-11.png",
       "/images/tour-9.png",
@@ -669,6 +871,12 @@ export const packages: TourPackage[] = [
     featured: false,
     rating: 4.7,
     reviewsCount: 52,
+    seasonalPricing: {
+      January: 12000, February: 12000, March: 11500, April: 10500,
+      May: 10000, June: 10000, July: 10500, August: 11000,
+      September: 11500, October: 12000, November: 12500, December: 13000
+    },
+    pricingNote: "Best visited Oct–Mar. Avoid heavy monsoon Jul–Aug.",
     gallery: [
       "/images/tour-12.png",
       "/images/hero_kerala_1783678518411.png",
@@ -699,6 +907,12 @@ export const packages: TourPackage[] = [
     featured: false,
     rating: 4.9,
     reviewsCount: 92,
+    seasonalPricing: {
+      January: 0, February: 0, March: 0, April: 0,
+      May: 32000, June: 34000, July: 36000, August: 35000,
+      September: 34000, October: 32000, November: 0, December: 0
+    },
+    pricingNote: "Open only Jun–Oct. Road closes Nov–Apr (heavy snowfall).",
     gallery: [
       "/images/tour-13.png",
       "/images/tour-10.png",
@@ -734,6 +948,12 @@ export const packages: TourPackage[] = [
     featured: false,
     rating: 4.8,
     reviewsCount: 78,
+    seasonalPricing: {
+      January: 9500, February: 9500, March: 9000, April: 8000,
+      May: 7500, June: 7500, July: 8000, August: 8000,
+      September: 8500, October: 9000, November: 9500, December: 10000
+    },
+    pricingNote: "Tiger sighting highest Nov–Feb. Monsoon Jul–Sep has lush greenery.",
     gallery: [
       "/images/tour-14.png",
       "/images/hero_kerala_1783678518411.png",
