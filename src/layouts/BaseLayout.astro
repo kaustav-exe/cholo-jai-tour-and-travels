@@ -44,6 +44,20 @@ const {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="/images/tour-1.jpeg" />
 
+    <!-- Preconnect & Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" />
+
+    <!-- Instant Session Check for Intro Video -->
+    <script is:inline>
+      try {
+        if (sessionStorage.getItem('cholo_jai_intro_seen') === '1') {
+          document.documentElement.classList.add('intro-done');
+        }
+      } catch (e) {}
+    </script>
+
     <!-- Client-side SPA navigation -->
     <ClientRouter />
   </head>

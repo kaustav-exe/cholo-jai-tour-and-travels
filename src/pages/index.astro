@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroSlider from '../components/HeroSlider.astro';
+import IntroVideo from '../components/IntroVideo.astro';
 import PackageCard from '../components/PackageCard.astro';
 import { packages } from '../data/packages';
 import { aboutData, siteConfig } from '../data/siteConfig';
@@ -46,6 +47,7 @@ const schemaData = {
 ---
 
 <BaseLayout>
+  <IntroVideo />
   <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
 
   <!-- Hero Slider -->
