@@ -44,8 +44,7 @@ export const facebookReels: FacebookReel[] = [
     title: "Snowfall magic in Gulmarg & Gondola Cable Car ride ❄️🏔️",
     destination: "Kashmir",
     thumbnail: "/images/hero_kashmir_1783678442997.png",
-    // ⚠️ Replace with direct Kashmir reel URL — e.g. https://www.facebook.com/reel/XXXXXXXXXX
-    facebookUrl: "https://www.facebook.com/profile.php?id=61577840137646&sk=reels_tab",
+    facebookUrl: "https://www.facebook.com/reel/4633620303628812",
     views: "18.4K",
     likes: "2.1K",
     duration: "0:45",
@@ -56,8 +55,7 @@ export const facebookReels: FacebookReel[] = [
     title: "Crystal clear turquoise waters of Radhanagar Beach & Havelock Island 🌴🌊",
     destination: "Andaman",
     thumbnail: "/images/hero_andaman_1783678485939.png",
-    // ⚠️ Replace with direct Andaman reel URL — e.g. https://www.facebook.com/reel/XXXXXXXXXX
-    facebookUrl: "https://www.facebook.com/profile.php?id=61577840137646&sk=reels_tab",
+    facebookUrl: "https://www.facebook.com/reel/1509073040496286",
     views: "24.6K",
     likes: "3.4K",
     duration: "0:30",
@@ -68,8 +66,7 @@ export const facebookReels: FacebookReel[] = [
     title: "Dreamy Himalayan Toy Train journey from Kalka to Shimla 🚂🌲",
     destination: "Himachal Pradesh",
     thumbnail: "/images/hero_darjeeling_1783678472536.png",
-    // ⚠️ Replace with direct Himachal reel URL — e.g. https://www.facebook.com/reel/XXXXXXXXXX
-    facebookUrl: "https://www.facebook.com/profile.php?id=61577840137646&sk=reels_tab",
+    facebookUrl: "https://www.facebook.com/reel/1837187470928852",
     views: "15.2K",
     likes: "1.9K",
     duration: "0:50",
@@ -80,8 +77,7 @@ export const facebookReels: FacebookReel[] = [
     title: "Evening Ganga Aarti vibes at Har Ki Pauri ghats, Haridwar 🙏✨",
     destination: "Haridwar",
     thumbnail: "/images/hero_goa_1783678456678.png",
-    // ⚠️ Replace with direct Haridwar reel URL — e.g. https://www.facebook.com/reel/XXXXXXXXXX
-    facebookUrl: "https://www.facebook.com/profile.php?id=61577840137646&sk=reels_tab",
+    facebookUrl: "https://www.facebook.com/reel/1116749940884772",
     views: "31.8K",
     likes: "4.7K",
     duration: "0:40",
@@ -92,8 +88,8 @@ export const facebookReels: FacebookReel[] = [
     title: "Cruising through the tranquil emerald backwaters of Alleppey ⛵🌴",
     destination: "Kerala",
     thumbnail: "/images/hero_kerala_1783678518411.png",
-    // ⚠️ Replace with direct Kerala reel URL — e.g. https://www.facebook.com/reel/XXXXXXXXXX
-    facebookUrl: "https://www.facebook.com/profile.php?id=61577840137646&sk=reels_tab",
+    // ⚠️ NOTE: Same URL as Reel 4 — please provide the correct Kerala reel URL
+    facebookUrl: "https://www.facebook.com/reel/1116749940884772",
     views: "21.3K",
     likes: "2.8K",
     duration: "0:35",
