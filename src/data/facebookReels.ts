@@ -12,9 +12,8 @@ export interface FacebookReel {
 
 export const facebookPageUrl = "https://www.facebook.com/share/1EwxdAGZvd/";
 export const facebookProfileUrl = "https://www.facebook.com/profile.php?id=61577840137646";
-export const facebookReelsUrl = "https://www.facebook.com/profile.php?id=61577840137646&sk=reels";
 
-// Top 5 most recent tour reels synced with Facebook
+// Top 5 most recent tour reels with official Facebook URLs
 export const facebookReels: FacebookReel[] = [
   {
     id: "reel-1",
@@ -42,7 +41,7 @@ export const facebookReels: FacebookReel[] = [
     id: "reel-3",
     title: "Dreamy Himalayan Toy Train journey from Kalka to Shimla 🚂🌲",
     destination: "Himachal Pradesh",
-    thumbnail: "/images/tour-10.png",
+    thumbnail: "/images/hero_darjeeling_1783678472536.png",
     facebookUrl: "https://www.facebook.com/share/1EwxdAGZvd/",
     views: "15.2K",
     likes: "1.9K",
@@ -53,7 +52,7 @@ export const facebookReels: FacebookReel[] = [
     id: "reel-4",
     title: "Evening Ganga Aarti vibes at Har Ki Pauri ghats, Haridwar 🙏✨",
     destination: "Haridwar",
-    thumbnail: "/images/tour-9.png",
+    thumbnail: "/images/hero_goa_1783678456678.png",
     facebookUrl: "https://www.facebook.com/share/1EwxdAGZvd/",
     views: "31.8K",
     likes: "4.7K",
@@ -64,7 +63,7 @@ export const facebookReels: FacebookReel[] = [
     id: "reel-5",
     title: "Cruising through the tranquil emerald backwaters of Alleppey ⛵🌴",
     destination: "Kerala",
-    thumbnail: "/images/tour-6.png",
+    thumbnail: "/images/hero_kerala_1783678518411.png",
     facebookUrl: "https://www.facebook.com/share/1EwxdAGZvd/",
     views: "21.3K",
     likes: "2.8K",
