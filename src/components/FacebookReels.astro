@@ -1,6 +1,6 @@
 ---
 import { facebookReels, facebookPageUrl } from '../data/facebookReels';
-import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCircle2 } from 'lucide-astro';
+import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCircle2, MonitorPlay, ArrowLeft } from 'lucide-astro';
 ---
 
 <section class="section fb-reels-section" id="facebook-reels">
@@ -14,15 +14,15 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
             <svg class="fb-svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
               <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
             </svg>
-            <span>Official Facebook Reels</span>
+            <span>Facebook Reels</span>
           </span>
           <span class="fb-live-dot" title="Active on Facebook">
-            <span class="pulse-dot"></span> In-Site Player
+            <span class="pulse-dot"></span> Live on Facebook
           </span>
         </div>
         <h2 class="fb-section-title">Watch Our Travel Stories &amp; Reels</h2>
         <p class="fb-section-desc">
-          Click any card to watch the original Facebook Reel directly inside our website.
+          Click any card to preview the Reel — then play it directly here or watch on Facebook.
         </p>
       </div>
 
@@ -69,7 +69,7 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
             data-duration={reel.duration}
             tabindex="0"
             role="button"
-            aria-label={`Play ${reel.destination} Facebook Reel`}
+            aria-label={`Preview ${reel.destination} Facebook Reel`}
           >
             <div class="reel-card-inner">
               <img 
@@ -122,74 +122,120 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
   </div>
 </section>
 
-<!-- In-Site Original Facebook Reel Player Modal -->
+<!-- Reel Modal — Two Panels: Preview (default) & Embed Player (on request) -->
 <div class="reel-modal-overlay" id="reel-modal" aria-hidden="true">
   <div class="reel-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="reel-modal-title">
-    <button class="reel-modal-close" id="reel-modal-close" aria-label="Close Reel Player" type="button">
+
+    <!-- Close Button -->
+    <button class="reel-modal-close" id="reel-modal-close" aria-label="Close Reel Preview" type="button">
       <X size={20} />
     </button>
 
-    <div class="reel-player-container">
-      <!-- Original Facebook Embedded Video Player Container -->
-      <div class="reel-embed-frame" id="reel-embed-frame">
-        <!-- Facebook Video Iframe (Injected Lazily on Click) -->
-        <iframe 
-          id="reel-fb-iframe" 
-          src="" 
-          width="100%" 
-          height="100%" 
-          style="border:none;overflow:hidden;width:100%;height:100%;" 
-          scrolling="no" 
-          frameborder="0" 
-          allowfullscreen="true" 
-          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-          loading="lazy"
-          title="Facebook Reel Player"
-        ></iframe>
+    <!-- PANEL 1: Preview State (default, never broken) -->
+    <div class="modal-panel preview-panel" id="modal-preview-panel">
+      <!-- Thumbnail Background -->
+      <div class="preview-bg" id="preview-bg"></div>
+      <div class="preview-overlay"></div>
 
-        <!-- Loading Spinner Placeholder -->
-        <div class="reel-loading-spinner" id="reel-loading-spinner">
-          <div class="spinner-ring"></div>
-          <span>Loading Facebook Reel...</span>
-        </div>
-      </div>
-
-      <!-- In-Modal Footer Info & Direct Facebook Action -->
-      <div class="reel-modal-footer">
-        <div class="reel-modal-info">
-          <div class="reel-author-row">
-            <span class="modal-dest-tag" id="reel-modal-dest">Kashmir</span>
-            <div class="author-tag">
-              <span class="author-name">চলো যাই ট্যুর &amp; ট্রাভেলস</span>
-              <CheckCircle2 size={13} class="verified-icon" />
-            </div>
-          </div>
-
-          <h3 class="modal-video-title" id="reel-modal-title">Reel Title</h3>
-          
-          <div class="modal-stats-row">
-            <span id="reel-modal-views"><Eye size={13}/> 18.4K views</span>
-            <span id="reel-modal-likes"><Heart size={13} fill="#ef4444" color="#ef4444"/> 2.1K likes</span>
-          </div>
-        </div>
-
-        <div class="modal-actions-row">
-          <a 
-            href={facebookPageUrl} 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="btn-modal-fb-direct"
-            id="reel-modal-fb-link"
-          >
-            <svg viewBox="0 0 24 24" width="15" height="15" fill="#ffffff">
+      <!-- Content -->
+      <div class="preview-content">
+        <!-- Destination + Brand -->
+        <div class="preview-top-row">
+          <span class="preview-dest-tag" id="preview-dest-tag">Kashmir</span>
+          <div class="preview-brand">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="#1877f2">
               <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
             </svg>
-            <span>Follow on Facebook</span>
+            <span>চলো যাই ট্যুর &amp; ট্রাভেলস</span>
+            <CheckCircle2 size={13} class="verified-icon" />
+          </div>
+        </div>
+
+        <!-- Title -->
+        <h3 class="preview-title" id="reel-modal-title">Reel Title</h3>
+
+        <!-- Stats -->
+        <div class="preview-stats-row">
+          <span id="preview-views">👁️ 18.4K views</span>
+          <span id="preview-likes">❤️ 2.1K likes</span>
+          <span id="preview-duration" class="preview-dur-pill">0:45</span>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="preview-actions">
+          <!-- Try in-site embed -->
+          <button type="button" class="btn-try-embed" id="btn-try-embed" aria-label="Try playing this reel inside the website">
+            <MonitorPlay size={18} />
+            <span>Try Playing Here</span>
+          </button>
+
+          <!-- Direct reel link — ALWAYS points to exact reel URL -->
+          <a 
+            href="#" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="btn-watch-fb" 
+            id="btn-watch-fb"
+            aria-label="Watch original reel on Facebook"
+          >
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+            <span>Watch on Facebook</span>
             <ExternalLink size={13} />
           </a>
         </div>
+
+        <p class="preview-hint">Click "Try Playing Here" to embed the original Facebook Reel inline.</p>
       </div>
     </div>
+
+    <!-- PANEL 2: Embed Player State (shown only when user requests) -->
+    <div class="modal-panel player-panel hidden" id="modal-player-panel">
+      <!-- Back to preview button -->
+      <button type="button" class="btn-back-preview" id="btn-back-preview" aria-label="Back to preview">
+        <ArrowLeft size={16} />
+        <span>Back</span>
+      </button>
+
+      <!-- Embed container -->
+      <div class="embed-container" id="embed-container">
+        <div class="embed-spinner" id="embed-spinner">
+          <div class="spinner-ring"></div>
+          <span>Loading Facebook Reel...</span>
+        </div>
+        <iframe
+          id="reel-fb-iframe"
+          src=""
+          width="100%"
+          height="100%"
+          style="border:none;overflow:hidden;width:100%;height:100%;display:block;"
+          scrolling="no"
+          frameborder="0"
+          allowfullscreen="true"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+          title="Facebook Reel Player"
+        ></iframe>
+      </div>
+
+      <!-- Footer with fallback link (always visible in player state) -->
+      <div class="player-footer">
+        <span class="player-footer-label">Not playing?</span>
+        <a 
+          href="#" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="btn-player-fb-link" 
+          id="btn-player-fb-link"
+        >
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+          Watch this Reel on Facebook →
+        </a>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -200,17 +246,31 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
     const nextBtn = document.getElementById('fb-reels-next');
     const modal = document.getElementById('reel-modal');
     const modalClose = document.getElementById('reel-modal-close');
+
+    // Preview panel elements
+    const previewPanel = document.getElementById('modal-preview-panel');
+    const previewBg = document.getElementById('preview-bg');
+    const previewDestTag = document.getElementById('preview-dest-tag');
+    const previewTitle = document.getElementById('reel-modal-title');
+    const previewViews = document.getElementById('preview-views');
+    const previewLikes = document.getElementById('preview-likes');
+    const previewDuration = document.getElementById('preview-duration');
+    const btnTryEmbed = document.getElementById('btn-try-embed');
+    const btnWatchFb = document.getElementById('btn-watch-fb') as HTMLAnchorElement | null;
+
+    // Player panel elements
+    const playerPanel = document.getElementById('modal-player-panel');
+    const embedSpinner = document.getElementById('embed-spinner');
     const fbIframe = document.getElementById('reel-fb-iframe') as HTMLIFrameElement | null;
-    const spinner = document.getElementById('reel-loading-spinner');
-    const modalTitle = document.getElementById('reel-modal-title');
-    const modalDest = document.getElementById('reel-modal-dest');
-    const modalViews = document.getElementById('reel-modal-views');
-    const modalLikes = document.getElementById('reel-modal-likes');
-    const fbLink = document.getElementById('reel-modal-fb-link') as HTMLAnchorElement | null;
+    const btnBackPreview = document.getElementById('btn-back-preview');
+    const btnPlayerFbLink = document.getElementById('btn-player-fb-link') as HTMLAnchorElement | null;
 
     if (!track) return;
 
-    // 1. Horizontal Carousel Smooth Arrow Navigation
+    // Store current reel URL
+    let currentReelUrl = '';
+
+    // ── Carousel Navigation ──────────────────────────────────────
     if (prevBtn && nextBtn) {
       const scrollStep = 300;
       prevBtn.addEventListener('click', () => {
@@ -221,7 +281,7 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
       });
     }
 
-    // 2. Desktop Mouse Drag to Scroll
+    // ── Desktop Mouse Drag ───────────────────────────────────────
     let isDown = false;
     let startX = 0;
     let scrollLeft = 0;
@@ -242,9 +302,7 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
 
     track.addEventListener('mouseup', () => {
       isDown = false;
-      setTimeout(() => {
-        track.classList.remove('is-dragging');
-      }, 50);
+      setTimeout(() => { track.classList.remove('is-dragging'); }, 50);
     });
 
     track.addEventListener('mousemove', (e) => {
@@ -252,90 +310,131 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
       e.preventDefault();
       const x = e.pageX - track.offsetLeft;
       const walk = (x - startX) * 1.5;
-      if (Math.abs(walk) > 5) {
-        hasMoved = true;
-      }
+      if (Math.abs(walk) > 5) hasMoved = true;
       track.scrollLeft = scrollLeft - walk;
     });
 
-    // 3. In-Site Original Facebook Reel Player Modal Interactions
+    // ── Show Modal in Preview State ──────────────────────────────
+    function showPreviewPanel() {
+      previewPanel?.classList.remove('hidden');
+      playerPanel?.classList.add('hidden');
+    }
+
+    function showPlayerPanel() {
+      previewPanel?.classList.add('hidden');
+      playerPanel?.classList.remove('hidden');
+    }
+
+    // ── Open Modal ───────────────────────────────────────────────
+    function openModal(card: HTMLElement) {
+      const title = card.dataset.title || '';
+      const destination = card.dataset.destination || '';
+      const poster = card.dataset.poster || '';
+      const fbUrl = card.dataset.fbUrl || '';
+      const views = card.dataset.views || '';
+      const likes = card.dataset.likes || '';
+      const duration = card.dataset.duration || '';
+
+      currentReelUrl = fbUrl;
+
+      // Populate preview panel
+      if (previewBg) previewBg.style.backgroundImage = `url('${poster}')`;
+      if (previewDestTag) previewDestTag.textContent = destination;
+      if (previewTitle) previewTitle.textContent = title;
+      if (previewViews) previewViews.textContent = `👁️ ${views} views`;
+      if (previewLikes) previewLikes.textContent = `❤️ ${likes} likes`;
+      if (previewDuration) previewDuration.textContent = duration;
+
+      // Set direct reel links
+      if (btnWatchFb) btnWatchFb.href = fbUrl;
+      if (btnPlayerFbLink) btnPlayerFbLink.href = fbUrl;
+
+      // Reset to preview state
+      showPreviewPanel();
+      resetEmbedState();
+
+      // Show modal
+      modal?.setAttribute('aria-hidden', 'false');
+      modal?.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // ── Try Embed ────────────────────────────────────────────────
+    function tryEmbed() {
+      if (!currentReelUrl) return;
+
+      showPlayerPanel();
+
+      // Show spinner, hide iframe
+      if (embedSpinner) embedSpinner.style.display = 'flex';
+      if (fbIframe) {
+        fbIframe.style.opacity = '0';
+
+        // Construct Facebook official video embed URL
+        const embedUrl = `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(currentReelUrl)}&show_text=false&autoplay=true&mute=false&width=340`;
+
+        fbIframe.src = embedUrl;
+
+        fbIframe.onload = () => {
+          if (embedSpinner) embedSpinner.style.display = 'none';
+          if (fbIframe) fbIframe.style.opacity = '1';
+        };
+      }
+    }
+
+    // ── Reset Embed State ────────────────────────────────────────
+    function resetEmbedState() {
+      if (fbIframe) {
+        fbIframe.src = '';
+        fbIframe.style.opacity = '0';
+      }
+      if (embedSpinner) embedSpinner.style.display = 'flex';
+    }
+
+    // ── Close Modal ──────────────────────────────────────────────
+    function closeModal() {
+      modal?.setAttribute('aria-hidden', 'true');
+      modal?.classList.remove('active');
+      document.body.style.overflow = '';
+      resetEmbedState();
+      currentReelUrl = '';
+    }
+
+    // ── Reel Card Click ──────────────────────────────────────────
     const reelCards = document.querySelectorAll<HTMLElement>('.reel-card');
     reelCards.forEach((card) => {
       card.addEventListener('click', (e) => {
-        if (hasMoved) return; // Ignore drag clicks
+        if (hasMoved) return;
         e.preventDefault();
-
-        const title = card.dataset.title || '';
-        const destination = card.dataset.destination || '';
-        const fbUrl = card.dataset.fbUrl || 'https://www.facebook.com/share/1EwxdAGZvd/';
-        const views = card.dataset.views || '';
-        const likes = card.dataset.likes || '';
-
-        if (modalTitle) modalTitle.textContent = title;
-        if (modalDest) modalDest.textContent = destination;
-        if (modalViews) modalViews.innerHTML = `<span>👁️ ${views} views</span>`;
-        if (modalLikes) modalLikes.innerHTML = `<span>❤️ ${likes} likes</span>`;
-        if (fbLink) fbLink.href = fbUrl;
-
-        // Construct Facebook's Official Video / Reel Embed URL
-        const embedUrl = `https://www.facebook.com/plugins/video.php?height=476&href=${encodeURIComponent(fbUrl)}&show_text=false&width=267&autoplay=true&t=0`;
-
-        if (spinner) spinner.style.display = 'flex';
-
-        if (fbIframe) {
-          fbIframe.src = embedUrl;
-          fbIframe.onload = () => {
-            if (spinner) spinner.style.display = 'none';
-          };
-        }
-
-        if (modal) {
-          modal.setAttribute('aria-hidden', 'false');
-          modal.classList.add('active');
-          document.body.style.overflow = 'hidden';
-        }
+        openModal(card);
       });
 
-      // Accessible keyboard enter trigger
       card.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          card.click();
+          openModal(card);
         }
       });
     });
 
-    function closeModal() {
-      if (modal) {
-        modal.setAttribute('aria-hidden', 'true');
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-      // Stop Facebook video playback and release memory
-      if (fbIframe) {
-        fbIframe.src = '';
-      }
-      if (spinner) {
-        spinner.style.display = 'flex';
-      }
-    }
+    // ── Try Embed Button ─────────────────────────────────────────
+    btnTryEmbed?.addEventListener('click', tryEmbed);
 
-    if (modalClose) {
-      modalClose.addEventListener('click', closeModal);
-    }
+    // ── Back to Preview ──────────────────────────────────────────
+    btnBackPreview?.addEventListener('click', () => {
+      showPreviewPanel();
+      resetEmbedState();
+    });
 
-    if (modal) {
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          closeModal();
-        }
-      });
-    }
+    // ── Close Controls ───────────────────────────────────────────
+    modalClose?.addEventListener('click', closeModal);
+
+    modal?.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
 
     window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
-        closeModal();
-      }
+      if (e.key === 'Escape' && modal?.classList.contains('active')) closeModal();
     });
   }
 
@@ -344,6 +443,7 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
 </script>
 
 <style>
+  /* ── Section ──────────────────────────────────────────────── */
   .fb-reels-section {
     background: linear-gradient(180deg, #f8fafc 0%, #eef2f6 100%);
     padding: 70px 0 80px;
@@ -351,7 +451,7 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
     overflow: hidden;
   }
 
-  /* Header */
+  /* ── Header ──────────────────────────────────────────────── */
   .fb-header-wrap {
     display: flex;
     justify-content: space-between;
@@ -381,9 +481,7 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
     letter-spacing: 0.3px;
   }
 
-  .fb-svg {
-    fill: #1877f2;
-  }
+  .fb-svg { fill: #1877f2; }
 
   .fb-live-dot {
     display: inline-flex;
@@ -407,18 +505,9 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
   }
 
   @keyframes pulse-green {
-    0% {
-      transform: scale(0.95);
-      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-    }
-    70% {
-      transform: scale(1);
-      box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
-    }
-    100% {
-      transform: scale(0.95);
-      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
-    }
+    0%   { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70%  { transform: scale(1);    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);  }
   }
 
   .fb-section-title {
@@ -464,10 +553,7 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
     box-shadow: 0 6px 18px rgba(24, 119, 242, 0.45);
   }
 
-  .carousel-nav-btns {
-    display: flex;
-    gap: 8px;
-  }
+  .carousel-nav-btns { display: flex; gap: 8px; }
 
   .nav-btn {
     width: 44px;
@@ -481,7 +567,7 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
     justify-content: center;
     cursor: pointer;
     transition: all 0.2s ease;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   }
 
   .nav-btn:hover {
@@ -491,11 +577,8 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
     transform: scale(1.05);
   }
 
-  /* Carousel Track */
-  .fb-carousel-container {
-    position: relative;
-    width: 100%;
-  }
+  /* ── Carousel ─────────────────────────────────────────────── */
+  .fb-carousel-container { position: relative; width: 100%; }
 
   .fb-reels-track {
     display: flex;
@@ -510,22 +593,11 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
     -webkit-overflow-scrolling: touch;
   }
 
-  .fb-reels-track.is-dragging {
-    cursor: grabbing;
-    user-select: none;
-    scroll-snap-type: none;
-  }
+  .fb-reels-track.is-dragging { cursor: grabbing; user-select: none; scroll-snap-type: none; }
+  .fb-reels-track::-webkit-scrollbar { height: 6px; }
+  .fb-reels-track::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
 
-  .fb-reels-track::-webkit-scrollbar {
-    height: 6px;
-  }
-
-  .fb-reels-track::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 10px;
-  }
-
-  /* Reel Card (9:16 Aspect Ratio) */
+  /* ── Reel Card ────────────────────────────────────────────── */
   .reel-card {
     flex: 0 0 240px;
     width: 240px;
@@ -537,7 +609,7 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
     background: #111827;
     cursor: pointer;
     text-decoration: none;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     outline: none;
   }
@@ -559,26 +631,21 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
 
   .reel-poster {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     object-fit: cover;
     transition: transform 0.6s ease;
   }
 
-  .reel-card:hover .reel-poster {
-    transform: scale(1.08);
-  }
+  .reel-card:hover .reel-poster { transform: scale(1.08); }
 
   .reel-overlay-gradient {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0.92) 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 35%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.92) 100%);
     pointer-events: none;
   }
 
-  /* Top tags */
   .reel-top-bar {
     position: relative;
     z-index: 2;
@@ -588,7 +655,7 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
   }
 
   .reel-dest-pill {
-    background: rgba(0, 0, 0, 0.65);
+    background: rgba(0,0,0,0.65);
     backdrop-filter: blur(8px);
     color: #ffffff;
     font-size: 0.75rem;
@@ -596,7 +663,7 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
     padding: 4px 10px;
     border-radius: 12px;
     letter-spacing: 0.3px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255,255,255,0.2);
   }
 
   .reel-fb-badge {
@@ -611,11 +678,9 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
     border-radius: 10px;
   }
 
-  /* Center Play Icon */
   .reel-center-play {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
     display: flex;
@@ -626,8 +691,7 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
   }
 
   .play-circle {
-    width: 54px;
-    height: 54px;
+    width: 54px; height: 54px;
     border-radius: 50%;
     background: #1877f2;
     display: flex;
@@ -637,26 +701,20 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
     transition: transform 0.3s ease;
   }
 
-  .reel-card:hover .play-circle {
-    transform: scale(1.15);
-  }
+  .reel-card:hover .play-circle { transform: scale(1.15); }
 
   .watch-hint {
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0,0,0,0.75);
     color: #ffffff;
     font-size: 0.72rem;
     font-weight: 700;
     padding: 3px 10px;
     border-radius: 12px;
     backdrop-filter: blur(4px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255,255,255,0.2);
   }
 
-  /* Bottom Content */
-  .reel-bottom-bar {
-    position: relative;
-    z-index: 2;
-  }
+  .reel-bottom-bar { position: relative; z-index: 2; }
 
   .reel-title {
     color: #ffffff;
@@ -668,7 +726,7 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
   }
 
   .reel-meta-row {
@@ -679,54 +737,32 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
     color: #d1d5db;
   }
 
-  .reel-stat {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-  }
+  .reel-stat { display: inline-flex; align-items: center; gap: 4px; }
 
   .reel-duration {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0,0,0,0.7);
     padding: 2px 6px;
     border-radius: 6px;
     font-weight: 600;
     color: #fbbf24;
   }
 
-  .swipe-hint-bar {
-    text-align: center;
-    font-size: 0.82rem;
-    color: #6b7280;
-    margin-top: 14px;
-  }
-
-  .mobile-only {
-    display: none;
-  }
+  .swipe-hint-bar { text-align: center; font-size: 0.82rem; color: #6b7280; margin-top: 14px; }
+  .mobile-only { display: none; }
 
   @media (max-width: 768px) {
-    .mobile-only {
-      display: block;
-    }
-    .carousel-nav-btns {
-      display: none;
-    }
-    .fb-section-title {
-      font-size: 1.7rem;
-    }
-    .reel-card {
-      flex: 0 0 210px;
-      width: 210px;
-      height: 380px;
-    }
+    .mobile-only { display: block; }
+    .carousel-nav-btns { display: none; }
+    .fb-section-title { font-size: 1.7rem; }
+    .reel-card { flex: 0 0 210px; width: 210px; height: 380px; }
   }
 
-  /* In-Site Reel Modal Player */
+  /* ── Modal Overlay ────────────────────────────────────────── */
   .reel-modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.9);
-    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.88);
+    backdrop-filter: blur(12px);
     z-index: 99999;
     display: flex;
     align-items: center;
@@ -737,73 +773,268 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
     padding: 20px;
   }
 
-  .reel-modal-overlay.active {
-    opacity: 1;
-    visibility: visible;
-  }
+  .reel-modal-overlay.active { opacity: 1; visibility: visible; }
 
   .reel-modal-dialog {
     position: relative;
     width: 100%;
-    max-width: 420px;
-    height: 90vh;
-    max-height: 740px;
-    background: #000000;
+    max-width: 400px;
+    height: 88vh;
+    max-height: 720px;
     border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.15);
-    display: flex;
-    flex-direction: column;
+    box-shadow: 0 30px 60px -12px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.12);
   }
 
+  /* ── Close Button ─────────────────────────────────────────── */
   .reel-modal-close {
     position: absolute;
-    top: 14px;
-    right: 14px;
-    width: 38px;
-    height: 38px;
+    top: 14px; right: 14px;
+    width: 38px; height: 38px;
     border-radius: 50%;
-    background: rgba(0, 0, 0, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.25);
     color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 25;
+    z-index: 100;
     transition: background 0.2s ease, transform 0.2s ease;
   }
 
-  .reel-modal-close:hover {
-    background: rgba(239, 68, 68, 0.9);
-    transform: scale(1.1);
-  }
+  .reel-modal-close:hover { background: rgba(239,68,68,0.9); transform: scale(1.1); }
 
-  .reel-player-container {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background: #000000;
-  }
-
-  .reel-embed-frame {
+  /* ── Panels ───────────────────────────────────────────────── */
+  .modal-panel {
     position: absolute;
     inset: 0;
     width: 100%;
-    height: calc(100% - 130px);
+    height: 100%;
+    transition: opacity 0.25s ease;
+  }
+
+  .modal-panel.hidden { display: none; }
+
+  /* ── Preview Panel ────────────────────────────────────────── */
+  .preview-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: #0d1117;
+  }
+
+  .preview-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scale(1.05);
+    transition: transform 0.4s ease;
+    filter: brightness(0.55);
+  }
+
+  .reel-modal-overlay.active .preview-bg { transform: scale(1); }
+
+  .preview-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      transparent 30%,
+      rgba(0,0,0,0.5) 55%,
+      rgba(0,0,0,0.97) 100%
+    );
+    pointer-events: none;
+  }
+
+  .preview-content {
+    position: relative;
+    z-index: 5;
+    padding: 24px 22px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .preview-top-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .preview-dest-tag {
+    background: #1877f2;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 10px;
+    letter-spacing: 0.3px;
+  }
+
+  .preview-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+
+  .preview-brand span {
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .verified-icon { color: #38bdf8; }
+
+  .preview-title {
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 800;
+    line-height: 1.4;
+    margin: 0;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .preview-stats-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    font-size: 0.82rem;
+    color: #d1d5db;
+    font-weight: 600;
+    flex-wrap: wrap;
+  }
+
+  .preview-dur-pill {
+    background: rgba(251, 191, 36, 0.2);
+    border: 1px solid rgba(251, 191, 36, 0.5);
+    color: #fbbf24;
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+
+  /* ── Preview Action Buttons ───────────────────────────────── */
+  .preview-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 4px;
+  }
+
+  .btn-try-embed {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 13px 20px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+  }
+
+  .btn-try-embed:hover {
+    background: rgba(255,255,255,0.25);
+    border-color: rgba(255,255,255,0.5);
+    transform: translateY(-1px);
+  }
+
+  .btn-watch-fb {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #1877f2;
+    color: #ffffff !important;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 13px 20px;
+    border-radius: 14px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 16px rgba(24, 119, 242, 0.5);
+    width: 100%;
+  }
+
+  .btn-watch-fb:hover {
+    background: #0d65d9;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(24, 119, 242, 0.6);
+  }
+
+  .preview-hint {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.45);
+    text-align: center;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* ── Player Panel ─────────────────────────────────────────── */
+  .player-panel {
     background: #000000;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .btn-back-preview {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    z-index: 50;
+    transition: background 0.2s ease;
+  }
+
+  .btn-back-preview:hover { background: rgba(255,255,255,0.15); }
+
+  .embed-container {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: calc(100% - 68px);
+    background: #000;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
   }
 
-  .reel-loading-spinner {
+  .embed-spinner {
     position: absolute;
     inset: 0;
-    background: #000000;
+    background: #000;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -817,112 +1048,47 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
   }
 
   .spinner-ring {
-    width: 36px;
-    height: 36px;
+    width: 36px; height: 36px;
     border: 3px solid rgba(24, 119, 242, 0.2);
     border-top-color: #1877f2;
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
   }
 
-  @keyframes spin {
-    to {
-      transform: rotate(360deg);
-    }
-  }
+  @keyframes spin { to { transform: rotate(360deg); } }
 
-  /* Footer & Actions */
-  .reel-modal-footer {
+  .player-footer {
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: 0; left: 0;
     width: 100%;
-    z-index: 10;
-    padding: 16px 20px 20px;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.8) 70%, transparent 100%);
+    height: 68px;
+    background: #0a0a0a;
+    border-top: 1px solid rgba(255,255,255,0.08);
     display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .reel-author-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 4px;
-  }
-
-  .modal-dest-tag {
-    display: inline-block;
-    background: #1877f2;
-    color: #ffffff;
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding: 3px 8px;
-    border-radius: 8px;
-  }
-
-  .author-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-  }
-
-  .author-name {
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: #ffffff;
-  }
-
-  .verified-icon {
-    color: #38bdf8;
-  }
-
-  .modal-video-title {
-    color: #ffffff;
-    font-size: 0.95rem;
-    font-weight: 700;
-    line-height: 1.35;
-    margin: 0;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .modal-stats-row {
-    display: flex;
-    gap: 14px;
-    color: #cbd5e1;
-    font-size: 0.78rem;
-    font-weight: 600;
-  }
-
-  .modal-actions-row {
-    display: flex;
-    gap: 10px;
-  }
-
-  .btn-modal-fb-direct {
-    width: 100%;
-    display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    background: #1877f2;
-    color: #ffffff !important;
-    text-decoration: none;
-    font-size: 0.88rem;
-    font-weight: 700;
-    padding: 10px 16px;
-    border-radius: 25px;
-    transition: background 0.2s ease, transform 0.2s ease;
-    box-shadow: 0 4px 12px rgba(24, 119, 242, 0.4);
+    gap: 10px;
+    padding: 0 20px;
   }
 
-  .btn-modal-fb-direct:hover {
-    background: #0d65d9;
-    transform: translateY(-1px);
+  .player-footer-label {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.4);
+    font-weight: 500;
+    white-space: nowrap;
   }
+
+  .btn-player-fb-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #1877f2 !important;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .btn-player-fb-link:hover { color: #4fa3f7 !important; }
 </style>
