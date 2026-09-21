@@ -1,6 +1,6 @@
 ---
 import { siteConfig } from '../data/siteConfig';
-import { MapPin, Phone, Mail, ChevronRight } from 'lucide-astro';
+import { MapPin, Phone, Mail, ChevronRight, Share2 } from 'lucide-astro';
 ---
 
 <footer class="footer">
@@ -28,7 +28,7 @@ import { MapPin, Phone, Mail, ChevronRight } from 'lucide-astro';
         <h3 class="footer-title">Top Destinations</h3>
         <ul class="footer-links">
           <li><a href="/packages"><ChevronRight size={14} /> Kashmir</a></li>
-          <li><a href="/packages"><ChevronRight size={14} /> Darjeeling</a></li>
+          <li><a href="/packages"><ChevronRight size={14} /> North Sikkim</a></li>
           <li><a href="/packages"><ChevronRight size={14} /> Andaman</a></li>
           <li><a href="/packages"><ChevronRight size={14} /> Kerala</a></li>
           <li><a href="/packages"><ChevronRight size={14} /> Rajasthan</a></li>
@@ -49,6 +49,10 @@ import { MapPin, Phone, Mail, ChevronRight } from 'lucide-astro';
           <li>
             <Mail size={18} class="icon" />
             <span>{siteConfig.email}</span>
+          </li>
+          <li>
+            <Share2 size={18} class="icon" />
+            <a href={siteConfig.socials.facebook} target="_blank" rel="noopener noreferrer" style="color: inherit; opacity: 0.9; text-decoration: none;">Facebook Page</a>
           </li>
         </ul>
       </div>

@@ -65,32 +65,32 @@ export interface TourPackage {
 export const packages: TourPackage[] = [
   {
     id: "andaman-6n7d",
-    title: "Andaman Island Paradise",
+    title: "Tropical Andaman Island Package",
     destination: "Andaman Islands, India",
     duration: "6 Nights / 7 Days",
-    price: "₹32,000",
+    price: "₹38,990",
     image: "/images/hero_andaman_1783678485939.png",
-    shortDescription: "Complete 6N/7D Andaman holiday with flight tickets, private island cruise, 3-star AC hotels, private AC car, all meals, and Cellular Jail entry.",
+    shortDescription: "Complete 6N/7D tropical Andaman holiday including Kolkata-to-Kolkata flight tickets, AC hotels, AC vehicles, inter-island cruise, all meals, and Havelock photoshoot.",
     featured: true,
     rating: 4.9,
     reviewsCount: 184,
-    nextDate: "10 Sep",
-    stayBreakdown: "Port Blair — 4 Nights | Havelock — 1 Night | Neil Island — 1 Night",
+    nextDate: "Available on Booking",
+    stayBreakdown: "Port Blair — 4 Nights | Havelock Island — 1 Night | Neil Island — 1 Night",
     seasonalPricing: {
-      January: 38000,
-      February: 38000,
-      March: 38000,
-      April: 30000,
-      May: 30000,
-      June: 30000,
-      July: 30000,
-      August: 30000,
-      September: 32000,
-      October: 38000,
-      November: 35000,
-      December: 40000
+      January: 38990,
+      February: 38990,
+      March: 38990,
+      April: 38990,
+      May: 38990,
+      June: 38990,
+      July: 38990,
+      August: 38990,
+      September: 38990,
+      October: 38990,
+      November: 38990,
+      December: 38990
     },
-    pricingNote: "Prices vary by travel month based on flight availability & peak season cruise tariffs.",
+    pricingNote: "Package includes roundtrip Kolkata to Kolkata flight tickets and cruise transfers.",
     gallery: [
       "/images/hero_andaman_1783678485939.png",
       "/images/tour-3.png",
@@ -99,133 +99,135 @@ export const packages: TourPackage[] = [
     ],
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     highlights: [
-      "Return Flight Ticket included in complete package fare",
-      "Stay breakdown: Port Blair (4N) + Havelock (1N) + Neil Island (1N)",
-      "Private Catamaran Cruise (Makruzz / Green Ocean) between islands",
-      "Radhanagar Beach (Asia's #1 Beach) & Elephant Beach Snorkeling",
-      "Cellular Jail Light & Sound Show + Natural Bridge Neil Island",
-      "All Meals Included: Daily Breakfast, Lunch & Dinner"
+      "Roundtrip Kolkata to Kolkata Flight Tickets Included",
+      "Stay breakdown: Port Blair (4N) + Havelock Island (1N) + Neil Island (1N)",
+      "Inter-island cruise transfer by Green Ocean / Sea Link",
+      "Cellular Jail Light & Sound Show, Corbyn's Cove Beach & Ross Island",
+      "Radhanagar Beach (Asia's #1 Beach), Kala Patthar Beach & Havelock Island Photoshoot",
+      "Neil Island Natural Bridge, Bharatpur Beach & Laxmanpur Beach",
+      "Baratang Island excursion with ancient Limestone Caves",
+      "All Meals: Daily Breakfast, Lunch & Dinner Included"
     ],
     transport: {
-      mode: "Return Flight Tickets + Private Catamaran Cruise + AC Car",
-      pickup: "Veer Savarkar International Airport, Port Blair (IXZ)",
-      vehicle: "Private AC Sedan / SUV reserved for all land transfers & tours",
-      details: "Seamless flight, island catamaran ferry tickets, and chauffeur-driven AC car throughout."
+      mode: "Kolkata to Kolkata Return Flight Tickets + Private Inter-Island Cruise + AC Vehicle",
+      pickup: "Veer Savarkar International Airport, Port Blair",
+      vehicle: "Dedicated AC Vehicle for all land transfers and sightseeing",
+      details: "Comprehensive flight, high-speed catamaran cruise, and private AC car transfers throughout."
     },
     accommodation: {
-      category: "3-Star AC Deluxe Hotels & Island Resorts",
-      description: "4 Nights Port Blair AC Deluxe Hotel + 1 Night Havelock Beachside Resort + 1 Night Neil Island Cottage",
-      meals: "Daily Breakfast, Lunch & Dinner Included (Complete Meal Plan)",
+      category: "AC Deluxe Hotels & Island Resorts",
+      description: "4 Nights Port Blair AC Hotel + 1 Night Havelock Island Resort + 1 Night Neil Island Resort",
+      meals: "Daily Breakfast, Lunch & Dinner Included",
       features: ["Air Conditioned Rooms", "Private Bathroom with Geyser", "In-house Restaurant", "24/7 Power Backup"]
     },
     pricingDetails: {
-      perHead: "₹32,000 / person (September Fare)",
-      originalPrice: "₹42,000",
-      groupDiscount: "Special discount for family bookings of 4+ travelers",
+      perHead: "₹38,990 / person",
+      groupDiscount: "Special group arrangements available on advance inquiry",
       inclusions: [
-        "Flight ticket",
-        "AC hotel accommodation (6 Nights)",
-        "AC car for all land transfers",
-        "Private cruise tickets (Port Blair - Havelock - Neil - Port Blair)",
-        "Daily Breakfast",
-        "Daily Lunch",
-        "Daily Dinner",
-        "All entry fees and permits (Cellular Jail, Natural Bridge, etc.)"
+        "Kolkata to Kolkata Flight Tickets",
+        "AC Hotel Accommodation (6 Nights)",
+        "AC Vehicle for all land transfers and sightseeing",
+        "Breakfast, Lunch & Dinner",
+        "All Entry Fees & Boat Tickets",
+        "Inter-island Cruise Tickets (Port Blair - Havelock - Neil - Port Blair)",
+        "Havelock Island Photoshoot",
+        "Experienced Tour Guide"
       ],
       exclusions: [
-        "Personal expenses (shopping, tips, laundry)",
+        "Personal expenses (shopping, laundry, tips)",
         "Optional water sports activities (Scuba diving, Sea Walk, Jet Ski)",
-        "Camera fees at monuments if applicable"
+        "Any item not mentioned in the inclusions"
       ]
     },
     itinerary: [
       {
         day: 1,
-        title: "Arrival in Port Blair & Cellular Jail Tour",
-        desc: "Land at Port Blair Airport. Driver greeting and transfer to hotel. Visit Corbyn's Cove Beach and witness historic Cellular Jail Light & Sound Show.",
-        spots: ["Port Blair Airport", "Corbyn's Cove Beach", "Cellular Jail"],
+        title: "Arrival at Port Blair, Cellular Jail & Light & Sound Show",
+        desc: "Arrive at Port Blair Airport. Transfer to hotel. Visit historic Cellular Jail, Corbyn's Cove Beach, and witness the Light & Sound Show.",
+        spots: ["Port Blair Airport", "Cellular Jail", "Corbyn's Cove Beach", "Light & Sound Show"],
         meals: "Lunch & Dinner Included"
       },
       {
         day: 2,
-        title: "Private Catamaran Cruise to Havelock & Radhanagar Beach",
-        desc: "Board high-speed private cruise to Havelock Island. Check-in to your beach resort. Relax at Radhanagar Beach, rated Asia's finest.",
-        spots: ["Havelock Island", "Radhanagar Beach"],
+        title: "Ross Island & North Bay Coral Island Tour",
+        desc: "Excursion to Ross Island (historical ruins) and North Bay Island for picturesque views and coral exploration. Overnight stay at Port Blair.",
+        spots: ["Ross Island", "North Bay Island"],
         meals: "Breakfast, Lunch & Dinner Included"
       },
       {
         day: 3,
-        title: "Elephant Beach Coral Reefs & Cruise to Neil Island",
-        desc: "Morning speed-boat trip to Elephant Beach for water sports & coral reef snorkeling. In the afternoon, board private cruise to scenic Neil Island.",
-        spots: ["Elephant Beach", "Neil Island"],
+        title: "Port Blair to Havelock Island — Radhanagar & Kala Patthar Beach",
+        desc: "Board private cruise to Havelock Island. Check-in to resort. Visit world-famous Radhanagar Beach and scenic Kala Patthar Beach. Havelock photoshoot session.",
+        spots: ["Havelock Island", "Radhanagar Beach", "Kala Patthar Beach"],
         meals: "Breakfast, Lunch & Dinner Included"
       },
       {
         day: 4,
-        title: "Neil Island Natural Bridge & Return Cruise to Port Blair",
-        desc: "Explore the famous Natural Bridge (Howrah Bridge rock formation) and Laxmanpur Beach. Take evening cruise back to Port Blair.",
-        spots: ["Natural Bridge", "Laxmanpur Beach", "Port Blair"],
+        title: "Havelock to Neil Island — Bharatpur, Laxmanpur & Natural Bridge",
+        desc: "Cruise transfer from Havelock to Neil Island. Visit Bharatpur Beach, Laxmanpur Beach, and the iconic Natural Rock Bridge formation. Overnight at Neil Island.",
+        spots: ["Neil Island", "Bharatpur Beach", "Laxmanpur Beach", "Natural Bridge"],
         meals: "Breakfast, Lunch & Dinner Included"
       },
       {
         day: 5,
-        title: "Port Blair City Tour & Chidiya Tapu Sunset",
-        desc: "Visit Samudrika Marine Museum, Anthropological Museum, and enjoy dramatic sunset views at Chidiya Tapu (Bird Island).",
-        spots: ["Samudrika Museum", "Chidiya Tapu Sunset Point"],
+        title: "Neil Island to Port Blair Return Cruise",
+        desc: "Return to Port Blair via premium cruise (Green Ocean / Sea Link). Check in to hotel at Port Blair with evening at leisure for local markets.",
+        spots: ["Neil Island", "Port Blair Cruise", "Local Market"],
         meals: "Breakfast, Lunch & Dinner Included"
       },
       {
         day: 6,
-        title: "Baratang Island Excursion or Local Heritage Shopping",
-        desc: "Day trip to Baratang Island to explore ancient Limestone Caves and Mangrove Creeks, or enjoy a relaxed shopping tour in Aberdeen Bazaar.",
-        spots: ["Baratang Limestone Caves", "Aberdeen Bazaar"],
+        title: "Baratang Island Excursion & Limestone Caves",
+        desc: "Full day excursion to Baratang Island passing through dense mangrove waterways to explore ancient Limestone Caves. Return to Port Blair for overnight stay.",
+        spots: ["Baratang Island", "Limestone Cave", "Mangrove Creeks"],
         meals: "Breakfast, Lunch & Dinner Included"
       },
       {
         day: 7,
-        title: "Departure from Port Blair",
-        desc: "After breakfast, drop off at Port Blair International Airport for your flight back home with memories of the emerald islands.",
+        title: "Airport Drop & Departure",
+        desc: "After breakfast, drop off at Veer Savarkar International Airport, Port Blair for flight back to Kolkata with cherished island memories.",
         spots: ["Port Blair Airport"],
         meals: "Breakfast Included"
       }
     ],
     bookingProcess: [
-      { step: 1, title: "Select Departure Month", desc: "Choose your travel month to see exact seasonal fare." },
-      { step: 2, title: "Flight & Cruise Lock", desc: "We reserve your flight tickets and private catamaran cruise seats." },
-      { step: 3, title: "Instant Vouchers", desc: "Receive official hotel, flight, and cruise vouchers on WhatsApp/Email." }
+      { step: 1, title: "Select Travel Date", desc: "Contact our team via phone or WhatsApp to check upcoming flight batch dates." },
+      { step: 2, title: "Flight & Hotel Confirmation", desc: "We reserve your Kolkata flights, cruise seats, and AC resort rooms." },
+      { step: 3, title: "Receive Official Vouchers", desc: "Receive confirmed flight tickets and tour vouchers." }
     ],
     importantNotes: [
-      "Carry valid Govt photo ID (Aadhaar / Passport / Voter ID).",
-      "Ferry tickets are subject to availability; early booking recommended.",
-      "Water sports activities depend on weather and sea conditions."
+      "Valid Government Photo ID (Aadhaar / Passport / Voter ID) mandatory for airport and island ferry boarding.",
+      "Water sports activities depend on sea conditions and weather clearance."
     ]
   },
   {
     id: "pkg-1",
-    title: "Enchanting Kashmir",
+    title: "Enchanting Kashmir Winter & Snow Tour",
     destination: "Kashmir, India",
-    duration: "5 Nights / 6 Days",
-    price: "₹18,500",
+    duration: "10 Nights / 11 Days",
+    price: "₹22,990",
     image: "/images/hero_kashmir_1783678442997.png",
-    shortDescription: "Experience paradise on earth with our curated Kashmir package. Includes Srinagar, Gulmarg, and Pahalgam.",
+    shortDescription: "Special 10N/11D Kashmir winter departure (24 Dec 2026) featuring 3AC train journey, Vande Bharat Express, Srinagar, Gulmarg with Gondola Phase 1, Sonmarg, Pahalgam with bonfire, and Dal Lake Shikara ride.",
     featured: true,
     rating: 4.9,
     reviewsCount: 142,
-    nextDate: "25 Aug",
+    nextDate: "24 Dec 2026",
+    stayBreakdown: "Srinagar — 4 Nights | Pahalgam — 2 Nights | On Train — 4 Nights",
     seasonalPricing: {
-      January: 22000,
-      February: 22000,
-      March: 20000,
-      April: 20000,
-      May: 19500,
-      June: 19500,
-      July: 18500,
-      August: 18500,
-      September: 18500,
-      October: 21000,
-      November: 19500,
-      December: 23000
+      January: 22990,
+      February: 22990,
+      March: 22990,
+      April: 22990,
+      May: 22990,
+      June: 22990,
+      July: 22990,
+      August: 22990,
+      September: 22990,
+      October: 22990,
+      November: 22990,
+      December: 22990
     },
+    pricingNote: "Departure date: 24th December 2026. Rate: ₹22,990 (Triple Sharing) | ₹23,990 (Double Sharing).",
     gallery: [
       "/images/hero_kashmir_1783678442997.png",
       "/images/tour-1.jpeg",
@@ -234,111 +236,164 @@ export const packages: TourPackage[] = [
     ],
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     highlights: [
-      "Shikara Ride on Dal Lake with complimentary Kahwa",
-      "Overnight stay in a Deluxe Houseboat",
-      "Gondola Cable Car ride to Phase 1 & Phase 2 in Gulmarg",
-      "Pahalgam Valley exploration — Aru & Betaab Valleys",
-      "Mughal Gardens visit (Nishat & Shalimar Bagh)"
+      "Fixed Winter Departure: 24th December 2026 from Kolkata",
+      "3-Tier AC Train Journey (Jammu Tawi Express) + Vande Bharat Express (Jammu to Srinagar)",
+      "Gulmarg Gondola Phase 1 Cable Car Ticket Included",
+      "1-Hour Relaxing Shikara Ride on Dal Lake Included",
+      "All Monument & Sightseeing Entry Tickets Included",
+      "Pahalgam stay with special evening Bonfire arrangement",
+      "Local Union Cabs & Sightseeing Vehicles Included",
+      "Full Meal Plan: 2x Tea/Biscuits, Breakfast, Lunch, Evening Snacks & Dinner (Chicken, Mutton, Fish, Egg, Biryani, Fried Rice, Chilli Chicken)"
     ],
     transport: {
-      mode: "Flight / Train to Jammu & Flight to Srinagar",
-      pickup: "Srinagar International Airport (SXR) or Jammu Railway Station",
-      vehicle: "Private AC/Non-AC Sedan / SUV (Innova/Tavera) reserved for full tour",
-      details: "Seamless transfer from arrival till departure with an experienced mountain driver."
+      mode: "3-Tier AC Train (Jammu Tawi Express) + Vande Bharat Express + Local Union Vehicles",
+      pickup: "Kolkata Railway Station",
+      vehicle: "Dedicated Local Union & Sightseeing Vehicles across Srinagar, Gulmarg, Sonmarg & Pahalgam",
+      details: "Roundtrip 3AC train from Kolkata, Vande Bharat connectivity between Jammu and Srinagar, and private local mountain cabs."
     },
     accommodation: {
-      category: "3-Star Deluxe Hotels & Traditional Houseboat",
-      description: "2 Nights Srinagar Deluxe Hotel + 1 Night Dal Lake Houseboat + 1 Night Gulmarg Resort + 1 Night Pahalgam Valley Hotel",
-      meals: "Daily Breakfast & Dinner included (Buffet style with veg/non-veg options)",
-      features: ["Central Heating / Electric Blankets", "24x7 Hot Water", "Free Wi-Fi", "Mountain / Lake Views"]
+      category: "Deluxe Hotels",
+      description: "Deluxe hotel accommodation (Family / 3 Sharing basis in Srinagar and Pahalgam)",
+      meals: "Morning & Evening Tea/Biscuits, Breakfast, Lunch, Evening Snacks and Dinner with diverse menu (Fish, Egg, Chicken, Mutton, Biryani, Fried Rice, Chilli Chicken)",
+      features: ["Comfortable Warm Bedding", "Geyser Hot Water", "Room Heating", "In-house Dining"]
     },
     pricingDetails: {
-      perHead: "₹18,500 / person (Quad/Triple Sharing)",
-      originalPrice: "₹22,000",
-      groupDiscount: "10% Flat Discount for groups of 4+ travelers",
+      perHead: "₹22,990 / person (Triple Sharing) | ₹23,990 / person (Double Sharing)",
       inclusions: [
-        "All transfers & sightseeing by private non-AC/AC vehicle",
-        "5 Nights Deluxe Accommodation",
-        "Daily Breakfast & Dinner",
-        "1 Hour Shikara Ride on Dal Lake",
-        "Inner Line Permits & Toll Taxes",
-        "Driver allowances, fuel charges, and parking fees"
+        "3-Tier AC Train Ticket (Jammu Tawi Express)",
+        "Vande Bharat Express ticket from Jammu to Srinagar & return",
+        "Deluxe Hotel Accommodation (Family / Triple Sharing)",
+        "Daily Meals: 2x Tea & Biscuits, Breakfast, Lunch, Evening Snacks, Dinner",
+        "All Entry Tickets for sightseeing spots",
+        "Gulmarg Gondola Phase 1 Cable Car Ticket",
+        "1-Hour Shikara Ride on Dal Lake",
+        "Local Union vehicles & all sightseeing transportation",
+        "Evening Bonfire at Pahalgam"
       ],
       exclusions: [
-        "Airfare / Train fare to Srinagar/Jammu",
-        "Gulmarg Gondola Ride tickets (Can be pre-booked on request)",
-        "Union cabs for Aru/Betaab Valley in Pahalgam (as per court rule)",
-        "Pony rides, personal laundry, and lunch"
+        "Meals and drinks during train journeys",
+        "Packaged mineral water",
+        "Personal expenses, pony/horse rides, or sledging charges"
       ]
     },
     itinerary: [
       {
         day: 1,
-        title: "Arrival in Srinagar & Shikara Ride",
-        desc: "Warm welcome at Srinagar Airport. Check-in to your hotel. In the evening, enjoy a romantic 1-hour Shikara ride across the serene Dal Lake.",
-        spots: ["Srinagar Airport", "Dal Lake", "Boulevard Road"],
-        meals: "Dinner Included"
+        title: "Departure from Kolkata Station",
+        desc: "Meet at Kolkata Railway Station and board the Jammu Tawi Express in 3-Tier AC coach for our journey towards Jammu. (Train food/drinks at own arrangement).",
+        spots: ["Kolkata Railway Station", "Jammu Tawi Express"],
+        meals: "Train journey — own arrangement"
       },
       {
         day: 2,
-        title: "Srinagar to Gulmarg Excursion",
-        desc: "Drive through pine-covered slopes to Gulmarg. Take the world's second highest Gondola ride up to Apharwat Peak.",
-        spots: ["Gulmarg Meadow", "Gondola Cable Car", "St. Mary Church"],
-        meals: "Breakfast & Dinner Included"
+        title: "Full Day & Night Train Journey",
+        desc: "Day and night train journey across northern India with lively group camaraderie.",
+        spots: ["Train Journey"],
+        meals: "Train journey — own arrangement"
       },
       {
         day: 3,
-        title: "Gulmarg to Pahalgam — Valley of Shepherds",
-        desc: "Proceed to Pahalgam via Saffron fields of Pampore and Awantipora ruins. Visit the pristine Aru and Betaab valleys.",
-        spots: ["Saffron Fields", "Awantipora Ruins", "Aru Valley", "Betaab Valley"],
-        meals: "Breakfast & Dinner Included"
+        title: "Arrival in Jammu & Vande Bharat to Srinagar",
+        desc: "Arrive at Jammu Station around 9:00 AM. Board the Vande Bharat Express at 12:00 PM for the scenic mountain train ride to Srinagar. Check in to hotel at Srinagar for overnight stay.",
+        spots: ["Jammu Railway Station", "Vande Bharat Express", "Srinagar Hotel"],
+        meals: "Dinner Included"
       },
       {
         day: 4,
-        title: "Pahalgam to Srinagar Deluxe Houseboat",
-        desc: "Return to Srinagar. Check-in to your heritage Dal Lake Houseboat. Enjoy sunset over the water.",
-        spots: ["Lidder River", "Dal Lake Houseboat", "Floating Market"],
-        meals: "Breakfast & Dinner Included"
+        title: "Srinagar Local Sightseeing & Dal Lake Shikara Ride",
+        desc: "Explore famous Srinagar attractions: Hazratbal Shrine, Mughal Gardens (Nishat & Shalimar Bagh), Dal Lake, Shankaracharya Temple, and enjoy an included 1-hour Shikara ride. Overnight in Srinagar.",
+        spots: ["Hazratbal", "Mughal Gardens", "Dal Lake", "Shankaracharya Temple", "Shikara Ride"],
+        meals: "Breakfast, Lunch, Evening Snacks & Dinner"
       },
       {
         day: 5,
-        title: "Srinagar Mughal Gardens Sightseeing",
-        desc: "Explore Shalimar Bagh, Nishat Bagh, Chashme Shahi, and Shankaracharya Temple perched atop the hill.",
-        spots: ["Shalimar Bagh", "Nishat Bagh", "Shankaracharya Temple"],
-        meals: "Breakfast & Dinner Included"
+        title: "Day Excursion to Sonmarg — Meadow of Gold",
+        desc: "Morning scenic drive to Sonmarg surrounded by snow-clad peaks and glaciers. Explore the golden valley and return to Srinagar for overnight stay.",
+        spots: ["Sonmarg Valley", "Thajiwas Glacier View", "Sindh River"],
+        meals: "Breakfast, Lunch, Evening Snacks & Dinner"
       },
       {
         day: 6,
-        title: "Departure from Srinagar",
-        desc: "After breakfast, drop off at Srinagar Airport with unforgettable memories of Kashmir.",
-        spots: ["Srinagar Airport"],
-        meals: "Breakfast Included"
+        title: "Gulmarg Day Excursion with Gondola Cable Car",
+        desc: "Morning departure for Gulmarg. Experience the thrill of the Gondola Cable Car (Phase 1 ticket included) to witness breathtaking snow fields. Return to Srinagar for overnight stay.",
+        spots: ["Gulmarg Meadow", "Gondola Phase 1", "Apharwat Mountain View"],
+        meals: "Breakfast, Lunch, Evening Snacks & Dinner"
+      },
+      {
+        day: 7,
+        title: "Srinagar to Pahalgam — Valley of Shepherds & Evening Bonfire",
+        desc: "Scenic journey to picturesque Pahalgam along the Lidder river. Check in to hotel. In the evening, enjoy a cozy group bonfire arrangement. Overnight in Pahalgam.",
+        spots: ["Pahalgam Valley", "Lidder River", "Evening Bonfire"],
+        meals: "Breakfast, Lunch, Evening Snacks & Dinner"
+      },
+      {
+        day: 8,
+        title: "Pahalgam Local Sightseeing — Chandanwari, Betaab & Aru Valleys",
+        desc: "Explore the breathtaking valleys of Pahalgam by local union vehicles, including Chandanwari, Betaab Valley, and Aru Valley. Overnight stay in Pahalgam.",
+        spots: ["Chandanwari", "Betaab Valley", "Aru Valley"],
+        meals: "Breakfast, Lunch, Evening Snacks & Dinner"
+      },
+      {
+        day: 9,
+        title: "Pahalgam to Jammu via Vande Bharat & Return Train",
+        desc: "Travel from Pahalgam to Srinagar and board the Vande Bharat Express to Jammu. At night, board the Jammu Tawi Express (3AC) from Jammu Station towards Kolkata.",
+        spots: ["Srinagar", "Jammu Station", "Return Train"],
+        meals: "Breakfast & Lunch Included"
+      },
+      {
+        day: 10,
+        title: "Full Day Train Journey",
+        desc: "Relax on board the train journey reminiscing the snow-filled memories of Kashmir.",
+        spots: ["Train Journey"],
+        meals: "Train journey — own arrangement"
+      },
+      {
+        day: 11,
+        title: "Arrival at Kolkata",
+        desc: "Arrive at Kolkata Station in the afternoon. Tour concludes with wonderful memories.",
+        spots: ["Kolkata Railway Station"],
+        meals: "Tour Concludes"
       }
     ],
     bookingProcess: [
-      { step: 1, title: "Select Dates & Guest Count", desc: "Submit the quick booking inquiry form at the bottom." },
-      { step: 2, title: "Customized Itinerary Confirmation", desc: "Our travel expert will send you a tailored quote on WhatsApp within 2 hours." },
-      { step: 3, title: "Token Advance Payment", desc: "Pay 30% advance to lock hotel bookings & private cab." },
-      { step: 4, title: "Voucher Receipt & Travel!", desc: "Receive official vouchers & driver contact details." }
+      { step: 1, title: "Book Your Slot", desc: "Limited 30 seats per batch. Register early with token advance and photo ID." },
+      { step: 2, title: "Train & Ticket Issuance", desc: "IRCTC 3AC train and Vande Bharat tickets reserved." },
+      { step: 3, title: "WhatsApp Group Coordination", desc: "Join dedicated WhatsApp tour group for real-time updates." }
     ],
     importantNotes: [
-      "Carry valid Govt photo ID (Aadhaar / Passport / Voter ID).",
-      "Postpaid SIM cards (Jio, Airtel, BSNL) work in Jammu & Kashmir.",
-      "Warm woolens required even in spring/autumn months."
+      "Children: 5–7 years half price; 7+ years full price.",
+      "Heavy winter woolens and thermals recommended for December snowfall.",
+      "Sightseeing spot access subject to weather conditions and local administration regulations."
     ]
   },
   {
     id: "pkg-2",
-    title: "Darjeeling & Sikkim Delight",
-    destination: "Darjeeling, India",
-    duration: "6 Nights / 7 Days",
-    price: "₹15,000",
+    title: "North Sikkim & Gangtok Tour",
+    destination: "Sikkim, India",
+    duration: "5 Nights / 6 Days",
+    price: "₹11,000",
     image: "/images/hero_darjeeling_1783678472536.png",
-    shortDescription: "Discover the breathtaking beauty of the Himalayas. Visit tea gardens, Tiger Hill sunrise, and Gangtok monasteries.",
+    shortDescription: "5N/6D North Sikkim tour from NJP to NJP covering Gangtok (3N), Lachung (2N), Tsomgo Lake, Baba Mandir, Yumthang Valley, and MG Marg with all non-veg meals and permits.",
     featured: true,
     rating: 4.8,
     reviewsCount: 118,
-    nextDate: "28 Aug",
+    nextDate: "Available on Booking",
+    stayBreakdown: "Gangtok — 3 Nights | Lachung — 2 Nights",
+    seasonalPricing: {
+      January: 11000,
+      February: 11000,
+      March: 11000,
+      April: 12500,
+      May: 13000,
+      June: 11000,
+      July: 10000,
+      August: 10000,
+      September: 11000,
+      October: 12500,
+      November: 12000,
+      December: 11500
+    },
+    pricingNote: "Tour Cost: ₹11,000/- per head (Season rates may vary slightly).",
     gallery: [
       "/images/hero_darjeeling_1783678472536.png",
       "/images/tour-2.png",
@@ -347,134 +402,271 @@ export const packages: TourPackage[] = [
     ],
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     highlights: [
-      "Early morning Tiger Hill sunrise view of Mount Kanchenjunga",
-      "Iconic Darjeeling Himalayan Toy Train ride",
-      "Tsomgo Lake & Baba Mandir high-altitude excursion in Sikkim",
-      "Visit Happy Valley Tea Estate & Himalayan Mountaineering Institute",
-      "Gangtok Ropeway & MG Marg evening stroll"
+      "NJP / Siliguri / Bagdogra Pick Up & Drop Included",
+      "Stay: 3 Nights Gangtok + 2 Nights Lachung in Standard Hotels",
+      "Glacial Tsomgo (Chhangu) Lake & Baba Harbhajan Singh Mandir Excursion",
+      "Scenic Yumthang Valley — Valley of Flowers & Snow",
+      "North Sikkim Entry Permits Included",
+      "All Non-Veg & Veg Meals Included from Day 1 Lunch to Day 6 Breakfast",
+      "Evening stroll and shopping at famous MG Marg, Gangtok"
     ],
     transport: {
-      mode: "Train to NJP / Flight to Bagdogra (IXB) / Pakyong",
-      pickup: "New Jalpaiguri Railway Station (NJP) or Bagdogra Airport (IXB)",
-      vehicle: "Dedicated Xylo / Scorpio / Sumo Gold for hill roads",
-      details: "Comfortable pickup and all inter-city transfers included."
+      mode: "Dedicated Mountain Vehicle (NJP to NJP)",
+      pickup: "NJP Railway Station / Siliguri / Bagdogra Airport",
+      vehicle: "Dedicated Mountain Vehicle (Sumo / Bolero / Maxx) for North Sikkim circuit",
+      details: "Complete pickup, drop, and high-altitude transfers with experienced hill driver."
     },
     accommodation: {
-      category: "3-Star Hill View Resorts & Hotels",
-      description: "3 Nights Darjeeling Deluxe Hotel + 3 Nights Gangtok Premium Hotel",
-      meals: "Breakfast & Dinner included daily",
-      features: ["Room Heaters on demand", "Free Wi-Fi", "Geyser in bathrooms", "In-house restaurant"]
+      category: "Standard Clean Hotels",
+      description: "3 Nights Gangtok Standard Hotel + 2 Nights Lachung Standard Hotel",
+      meals: "Breakfast, Lunch & Dinner (Non-Veg / Veg Food included)",
+      features: ["Clean Rooms", "Attached Bath with Geyser", "In-house Kitchen", "Room Service"]
     },
     pricingDetails: {
-      perHead: "₹15,000 / person (Triple Sharing)",
-      originalPrice: "₹18,000",
-      groupDiscount: "Special discount for family bookings of 6+",
+      perHead: "₹11,000 / person",
       inclusions: [
-        "All transfers & sightseeing in non-AC mountain vehicle",
-        "6 Nights Hotel Stay",
-        "Daily Breakfast & Dinner",
-        "Sikkim Inner Line Permits",
-        "Driver charges, toll, and state tax"
+        "All meals from Day 1 Lunch to Day 6 Breakfast (Non-veg & Veg)",
+        "Standard Hotel Accommodation (3N Gangtok + 2N Lachung)",
+        "All sightseeing as mentioned in the itinerary",
+        "NJP / Siliguri / Bagdogra Pick up & Drop",
+        "North Sikkim Entry Permits"
       ],
       exclusions: [
-        "Toy train tickets",
-        "Nathula Pass permit (Optional extra ₹500/head)",
-        "Entry fees to museums & gardens"
+        "Any monument/park entry fees",
+        "Camera charges",
+        "Nathula Pass, Katao, and Zero Point excursions (optional at driver direct payment)",
+        "Train or flight fares to NJP/Bagdogra",
+        "Room heater charges"
       ]
     },
     itinerary: [
-      { day: 1, title: "NJP/Bagdogra to Darjeeling", desc: "Pickup & scenic drive through tea gardens to Queen of Hills.", spots: ["Mirik", "Pashupati Market", "Darjeeling Mall"], meals: "Dinner" },
-      { day: 2, title: "Tiger Hill Sunrise & 7 Points Sightseeing", desc: "4 AM trip to Tiger Hill, followed by Batasia Loop, Ghoom Monastery & Tea Gardens.", spots: ["Tiger Hill", "Batasia Loop", "Japanese Temple"], meals: "Breakfast & Dinner" },
-      { day: 3, title: "Darjeeling to Gangtok Transfer", desc: "Scenic journey along Teesta river into Sikkim's capital city.", spots: ["Teesta View Point", "MG Marg"], meals: "Breakfast & Dinner" },
-      { day: 4, title: "Tsomgo Lake & Baba Mandir Excursion", desc: "Travel to glacial Tsomgo Lake (12,400 ft) and historic Baba Mandir.", spots: ["Tsomgo Lake", "Baba Harbhajan Mandir"], meals: "Breakfast & Dinner" },
-      { day: 5, title: "Gangtok Local Sightseeing", desc: "Visit Rumtek Monastery, Hanuman Tok, Flower Show & Ropeway.", spots: ["Rumtek Monastery", "Ban Jhakri Falls", "Gangtok Ropeway"], meals: "Breakfast & Dinner" },
-      { day: 6, title: "Gangtok to Kalimpong Excursion", desc: "Day trip to peaceful Kalimpong hill station.", spots: ["Deolo Hill", "Cactus Nursery"], meals: "Breakfast & Dinner" },
-      { day: 7, title: "Drop to NJP / Bagdogra", desc: "Transfer back to NJP station / Bagdogra airport.", spots: ["NJP / IXB Airport"], meals: "Breakfast" }
+      {
+        day: 1,
+        title: "Pick up from NJP / Siliguri / Bagdogra to Gangtok",
+        desc: "Pick up from NJP Railway Station / Siliguri / Bagdogra Airport and scenic transfer to Gangtok hotel. Enjoy lunch, evening walk at MG Marg. Overnight stay in Gangtok.",
+        spots: ["NJP / Bagdogra", "Teesta River View", "Gangtok MG Marg"],
+        meals: "Lunch & Dinner Included"
+      },
+      {
+        day: 2,
+        title: "Tsomgo (Chhangu) Lake & Baba Mandir Excursion",
+        desc: "After breakfast, excursion to the glacial Tsomgo Lake (12,400 ft) and the sacred Baba Harbhajan Singh Mandir. Return to Gangtok for overnight stay.",
+        spots: ["Tsomgo Lake", "Baba Mandir"],
+        meals: "Breakfast, Lunch & Dinner Included"
+      },
+      {
+        day: 3,
+        title: "Gangtok to Lachung via Mangan",
+        desc: "After breakfast, check out and journey towards North Sikkim. Enjoy lunch at Mangan en route. Reach Lachung by evening. Overnight stay in Lachung.",
+        spots: ["Mangan", "Chungthang Confluence", "Lachung Village"],
+        meals: "Breakfast, Lunch & Dinner Included"
+      },
+      {
+        day: 4,
+        title: "Yumthang Valley Excursion & Return to Lachung",
+        desc: "Morning visit to the magnificent Yumthang Valley (Valley of Flowers / Snow). (Zero Point & Mount Katao optional at own cost). Return to Lachung for overnight stay.",
+        spots: ["Yumthang Valley", "Singba Rhododendron Sanctuary", "Hot Springs"],
+        meals: "Breakfast, Lunch & Dinner Included"
+      },
+      {
+        day: 5,
+        title: "Lachung to Gangtok Return & MG Marg Evening",
+        desc: "After breakfast, drive back to Gangtok. Check in to hotel. Spend the evening exploring MG Marg for local souvenirs and handicrafts. Overnight in Gangtok.",
+        spots: ["Lachung to Gangtok", "MG Marg"],
+        meals: "Breakfast, Lunch & Dinner Included"
+      },
+      {
+        day: 6,
+        title: "Gangtok to NJP / Siliguri Drop",
+        desc: "After breakfast, depart Gangtok with beautiful mountain memories for drop at NJP Railway Station or Bagdogra Airport.",
+        spots: ["NJP / Siliguri / Bagdogra"],
+        meals: "Breakfast Included"
+      }
     ],
     bookingProcess: [
-      { step: 1, title: "Inquire via Form", desc: "Select travel date & number of passengers." },
-      { step: 2, title: "Permit Clearance & Quote", desc: "Receive instant customized package plan." },
-      { step: 3, title: "Advance Confirmation", desc: "Pay 25% token to secure hotel slots." },
-      { step: 4, title: "Pack & Travel", desc: "Receive voucher & driver info." }
+      { step: 1, title: "Submit Inquiry", desc: "Contact us via WhatsApp or Phone with your planned travel dates." },
+      { step: 2, title: "Permit Documentation", desc: "Submit passport photos & valid photo ID for Sikkim entry permits." },
+      { step: 3, title: "Token Confirmation", desc: "Pay token amount to confirm your booking vouchers." }
     ],
-    importantNotes: ["Passport photos required for Sikkim permits", "Voter ID or Passport mandatory for Nathula/Tsomgo permit"]
+    importantNotes: [
+      "Voter ID card or Passport and 4 passport-size photographs required for North Sikkim permits.",
+      "Zero Point & Katao visits depend on snow and military clearance."
+    ]
   },
   {
     id: "pkg-3",
-    title: "Andaman Adventure",
-    destination: "Andaman Islands",
-    duration: "4 Nights / 5 Days",
-    price: "₹22,000",
-    image: "/images/hero_andaman_1783678485939.png",
-    shortDescription: "Relax on pristine beaches and explore rich marine life in the crystal clear waters of Andaman.",
+    title: "Shimla – Kullu – Manali Himalayan Tour",
+    destination: "Himachal Pradesh, India",
+    duration: "9 Nights / 10 Days",
+    price: "₹11,990",
+    image: "/images/tour-10.png",
+    shortDescription: "10 Days complete Himalayan tour (Howrah to Howrah) featuring Kalka-Shimla heritage Toy Train ride, Kufri, Manali, Kullu, Solang Valley, Rohtang Pass, Atal Tunnel, Sissu Village, Kasol, Manikaran, and full Bengali meals.",
     featured: true,
-    rating: 4.9,
-    reviewsCount: 95,
-    nextDate: "02 Sep",
+    rating: 4.8,
+    reviewsCount: 110,
+    nextDate: "Available on Booking",
+    stayBreakdown: "Shimla — 2 Nights | Manali — 3 Nights | On Train — 4 Nights",
+    seasonalPricing: {
+      January: 11990,
+      February: 11990,
+      March: 11990,
+      April: 12990,
+      May: 13990,
+      June: 13990,
+      July: 11990,
+      August: 11990,
+      September: 11990,
+      October: 12990,
+      November: 11990,
+      December: 12990
+    },
+    pricingNote: "10-Day Package: ₹11,990/- per head (Triple/Quad Share) | ₹12,990/- per head (Double Share).",
     gallery: [
-      "/images/hero_andaman_1783678485939.png",
-      "/images/tour-3.png",
-      "/images/hero_goa_1783678456678.png",
-      "/images/tour-6.png"
+      "/images/tour-10.png",
+      "/images/tour-13.png",
+      "/images/hero_kashmir_1783678442997.png",
+      "/images/tour-1.jpeg"
     ],
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     highlights: [
-      "Cellular Jail Light & Sound Show in Port Blair",
-      "Cruise to Havelock Island & Radhanagar Beach (Asia's #1 Beach)",
-      "Scuba Diving / Snorkeling at Elephant Beach",
-      "Speedboat transfer to Neil Island & Natural Bridge"
+      "Roundtrip Howrah to Howrah Tour (Sleeper Class Train Tickets Included)",
+      "Scenic Kalka to Shimla Heritage Toy Train Ride Included",
+      "Shimla Mall Road, Ridge, Kali Bari & Kufri Sightseeing",
+      "Manali via Kullu Valley & River Rafting Point",
+      "Solang Valley, Atal Tunnel, Sissu Village & Rohtang Pass (subject to opening)",
+      "Kasol Parvati Valley & Sacred Manikaran Gurudwara en route to Chandigarh",
+      "4-Time Bengali Meals Daily (Morning Tea, Breakfast, Lunch, Evening Tea, Dinner with Fish, Egg, Chicken, 1-Day Mutton, Chutney, Papad)",
+      "Standard Clean Hotels & Dedicated Sightseeing Vehicles"
     ],
     transport: {
-      mode: "Flight to Port Blair (IXZ)",
-      pickup: "Veer Savarkar International Airport, Port Blair",
-      vehicle: "AC Private Vehicle for island transfers + Makruzz / Green Ocean AC Catamaran Cruise between islands",
-      details: "Complete island ferry tickets and land transfers pre-arranged."
+      mode: "Sleeper Class Train (Howrah - Kalka & Chandigarh - Howrah) + Heritage Toy Train + Sightseeing Vehicle",
+      pickup: "Howrah Railway Station",
+      vehicle: "Dedicated Sightseeing Vehicle for all Himachal transfers and local tours",
+      details: "Hassle-free sleeper train tickets, 5-hour UNESCO Toy Train experience, and mountain vehicles throughout."
     },
     accommodation: {
-      category: "Luxury Beachfront Resorts",
-      description: "2 Nights Port Blair Resort + 2 Nights Havelock Beachside Cottage",
-      meals: "Daily Breakfast Included",
-      features: ["Swimming Pool", "Beach Access", "Air Conditioned", "In-house Spa"]
+      category: "Standard Clean Hotels",
+      description: "2 Nights Shimla Clean Hotel + 3 Nights Manali Clean Hotel",
+      meals: "4 Meals Daily from Day 3 Lunch to Day 8 Lunch (Rice, Dal, Bhaja, Fish, Egg, Chicken, 1-Day Mutton, Chutney, Papad)",
+      features: ["Clean Bedding", "Attached Bathroom with Hot Water", "In-house Dining", "Good Location"]
     },
     pricingDetails: {
-      perHead: "₹22,000 / person (Double Sharing)",
-      originalPrice: "₹26,500",
-      groupDiscount: "Flat ₹2,000 OFF per couple",
-      inclusions: ["All ferry & catamaran cruise tickets", "4 Nights Beach Resort Stay", "Daily Breakfast", "Port Blair & Havelock transfers", "Cellular Jail tickets"],
-      exclusions: ["Airfare to Port Blair", "Water sports activities (Scuba/Sea Walk)", "Personal expenses"]
+      perHead: "₹11,990 / person (Triple/Quad Share) | ₹12,990 / person (Double Share)",
+      inclusions: [
+        "Roundtrip Sleeper Class Train Tickets (Howrah - Kalka / Chandigarh - Howrah)",
+        "Kalka to Shimla Toy Train Ticket",
+        "Standard Clean Hotel Accommodation (Shimla 2N + Manali 3N)",
+        "All 4 Meals Daily from Day 3 Lunch to Day 8 Lunch",
+        "Dedicated Sightseeing Vehicle across Shimla, Kufri, Kullu, Manali, Solang, Atal Tunnel, Sissu, Kasol, Manikaran"
+      ],
+      exclusions: [
+        "Any adventure activity, ropeway, horse riding, river rafting, boat rides",
+        "Entry fees at monuments/parks",
+        "Personal expenses, room heater, mineral water",
+        "Meals during train journey"
+      ]
     },
     itinerary: [
-      { day: 1, title: "Arrival Port Blair & Cellular Jail", desc: "Land in Port Blair. Visit Cellular Jail and witness historic Light & Sound show.", spots: ["Cellular Jail", "Corbyn's Cove Beach"], meals: "Welcome Drink" },
-      { day: 2, title: "Cruise to Havelock & Radhanagar Beach", desc: "Take high-speed catamaran to Havelock. Relax on white sands of Radhanagar Beach.", spots: ["Havelock Island", "Radhanagar Beach"], meals: "Breakfast" },
-      { day: 3, title: "Elephant Beach Coral Reef Snorkeling", desc: "Boat trip to Elephant beach for water sports and vibrant coral reef exploration.", spots: ["Elephant Beach", "Coral Reef"], meals: "Breakfast" },
-      { day: 4, title: "Neil Island Day Trip & Return to Port Blair", desc: "Explore Lakshmanpur Beach and Natural Bridge before returning to Port Blair.", spots: ["Neil Island", "Natural Bridge"], meals: "Breakfast" },
-      { day: 5, title: "Departure", desc: "Drop to Port Blair airport.", spots: ["Port Blair Airport"], meals: "Breakfast" }
+      {
+        day: 1,
+        title: "Departure from Howrah Station",
+        desc: "Meet at Howrah Railway Station and board our train at 9:55 PM for Himachal Pradesh. Overnight train journey.",
+        spots: ["Howrah Railway Station"],
+        meals: "Train journey — own arrangement"
+      },
+      {
+        day: 2,
+        title: "Full Day Train Journey",
+        desc: "Full day traveling through northern plains on the train.",
+        spots: ["Train Journey"],
+        meals: "Train journey — own arrangement"
+      },
+      {
+        day: 3,
+        title: "Arrive Kalka, Toy Train to Shimla & Local Sightseeing",
+        desc: "Arrive at Kalka Station in the morning. Board the dream Himalayan Toy Train to Shimla (approx. 5 hours journey). Check in to hotel, explore Shimla local sights (Mall, Ridge, Kali Bari). Overnight in Shimla.",
+        spots: ["Kalka Station", "Toy Train Ride", "Shimla Mall Road", "Kali Bari"],
+        meals: "Lunch, Evening Tea & Dinner Included"
+      },
+      {
+        day: 4,
+        title: "Shimla to Kufri Sightseeing Excursion",
+        desc: "After breakfast, depart for Kufri. Enjoy panoramic Himalayan views, nature park, and Himalayan viewpoints. Return to hotel. Overnight in Shimla.",
+        spots: ["Kufri", "Himalayan Viewpoints", "Shimla"],
+        meals: "Morning Tea, Breakfast, Lunch, Evening Tea & Dinner"
+      },
+      {
+        day: 5,
+        title: "Shimla to Manali via Kullu Sightseeing",
+        desc: "Drive from Shimla to Manali via scenic Kullu Valley. Enjoy scenic stopovers, Kullu shawl factories, and river valley views. Check in to Manali hotel for overnight stay.",
+        spots: ["Kullu Valley", "Beas River", "Manali"],
+        meals: "Morning Tea, Breakfast, Lunch, Evening Tea & Dinner"
+      },
+      {
+        day: 6,
+        title: "Manali Local Sightseeing",
+        desc: "Explore Manali local attractions: Hadimba Temple, Vashisht Hot Springs, Club House, Tibetan Monastery, and Mall Road. Overnight in Manali.",
+        spots: ["Hadimba Temple", "Vashisht Kund", "Manali Mall Road"],
+        meals: "Morning Tea, Breakfast, Lunch, Evening Tea & Dinner"
+      },
+      {
+        day: 7,
+        title: "Solang Valley, Atal Tunnel, Sissu Village & Rohtang Pass",
+        desc: "Full day excursion to Solang Valley, world-famous engineering marvel Atal Tunnel, beautiful Sissu Village in Lahaul, and Rohtang Pass (subject to opening). Overnight in Manali.",
+        spots: ["Solang Valley", "Atal Tunnel", "Sissu Village", "Rohtang Pass"],
+        meals: "Morning Tea, Breakfast, Lunch, Evening Tea & Dinner"
+      },
+      {
+        day: 8,
+        title: "Manali to Chandigarh via Kasol & Manikaran",
+        desc: "Depart Manali for Chandigarh via scenic Kasol in Parvati Valley and sacred Manikaran Hot Springs Gurudwara. Reach Chandigarh Station to board return train.",
+        spots: ["Kasol", "Manikaran Sahib", "Chandigarh Station"],
+        meals: "Morning Tea, Breakfast & Lunch Included"
+      },
+      {
+        day: 9,
+        title: "Full Day Train Journey",
+        desc: "Full day on train traveling back towards West Bengal.",
+        spots: ["Train Journey"],
+        meals: "Train journey — own arrangement"
+      },
+      {
+        day: 10,
+        title: "Arrival at Howrah Station",
+        desc: "Arrive at Howrah Railway Station. Tour concludes with wonderful memories.",
+        spots: ["Howrah Railway Station"],
+        meals: "Tour Concludes"
+      }
     ],
     bookingProcess: [
-      { step: 1, title: "Fill Details", desc: "Send your preferred island dates." },
-      { step: 2, title: "Ferry Ticket Lock", desc: "We reserve ferry seats on Makruzz." },
-      { step: 3, title: "Confirmation", desc: "Receive resort booking vouchers." }
+      { step: 1, title: "Book Early", desc: "Contact us on WhatsApp or phone to register your seat with token advance." },
+      { step: 2, title: "Train & Toy Train Booking", desc: "We manage IRCTC train and Kalka-Shimla Toy Train reservations." },
+      { step: 3, title: "Departure Briefing", desc: "Receive ticket vouchers and trip instructions." }
     ],
-    importantNotes: ["Ferry bookings close early in peak season", "Water sports subject to weather conditions"]
+    importantNotes: [
+      "Child Policy: Up to 4 years Free; 5–7 years 50% charge; 8+ years Full charge.",
+      "Rohtang Pass entry subject to weather, snow clearance, and NGT permit guidelines."
+    ]
   },
   {
     id: "pkg-4",
-    title: "Majestic Rajasthan",
+    title: "Majestic Rajasthan Royal Tour",
     destination: "Rajasthan, India",
-    duration: "7 Nights / 8 Days",
-    price: "₹25,000",
+    duration: "13 Nights / 14 Days",
+    price: "₹24,500",
     image: "/images/tour-4.png",
-    shortDescription: "Explore royal palaces, majestic forts, and vibrant desert sand dunes of Rajasthan.",
+    shortDescription: "Grand 13N/14D Royal Rajasthan tour (04 Dec – 17 Dec 2026) covering Jaipur, Ajmer Sharif, Pushkar, Chittorgarh Fort, Udaipur, Mount Abu, Jaisalmer Thar Desert Camp with folk dance, and Jodhpur.",
     featured: true,
     rating: 4.9,
     reviewsCount: 160,
-    nextDate: "12 Sep",
+    nextDate: "04 Dec 2026",
+    stayBreakdown: "Jaipur (2N) | Pushkar (1N) | Udaipur (2N) | Mount Abu (2N) | Jaisalmer (2N - 1N Camp) | Jodhpur (1N) | Train (4N)",
     seasonalPricing: {
-      January: 28000, February: 27000, March: 24000, April: 21000,
-      May: 19000, June: 18000, July: 18000, August: 19000,
-      September: 22000, October: 26000, November: 28000, December: 30000
+      January: 24500, February: 24500, March: 24500, April: 24500,
+      May: 24500, June: 24500, July: 24500, August: 24500,
+      September: 24500, October: 24500, November: 24500, December: 24500
     },
-    pricingNote: "Peak season Oct–Feb. Desert nights are cold; warm layers recommended.",
+    pricingNote: "Tour Dates: 04/12/2026 to 17/12/2026. Rate: ₹24,500 (Triple Share) | ₹25,500 (Double Share). Advance token: ₹5,000.",
     gallery: [
       "/images/tour-4.png",
       "/images/tour-9.png",
@@ -483,66 +675,177 @@ export const packages: TourPackage[] = [
     ],
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     highlights: [
-      "Amber Fort elephant/jeep ride in Jaipur",
-      "Overnight Swiss Tent stay in Jaisalmer Thar Desert with camel safari",
-      "Rajasthani Folk Dance & Cultural Night with BBQ",
-      "Boat ride on Lake Pichola in Udaipur",
-      "Mehrangarh Fort exploration in Jodhpur"
+      "Fixed Winter Dates: 04 December 2026 to 17 December 2026",
+      "Roundtrip Sleeper Class Train Transportation + AC Volvo / Tourist Bus",
+      "Jaipur: Amber Fort, Jal Mahal, City Palace, Albert Hall, Jantar Mantar, Hawa Mahal, Birla Mandir",
+      "Ajmer Sharif Moinuddin Chishti Dargah & Pushkar Brahma Temple & Lake",
+      "Historic Chittorgarh Fort & Udaipur City of Lakes (Lake Pichola, Saheliyon Ki Bari)",
+      "Mount Abu Hill Station (Nakki Lake, Dilwara Jain Temples, Om Shanti Bhawan)",
+      "Jaisalmer Thar Desert Camp Stay with Rajasthani Folk Culture & Dance Performance",
+      "Jaisalmer Golden Fort (Sonar Kella), Patwon Ki Haveli & Gadisar Lake",
+      "Jodhpur: Mehrangarh Fort, Umaid Bhawan Palace, Jaswant Thada, Mandore Gardens",
+      "All Meals: Daily Breakfast, Lunch & Dinner Included"
     ],
     transport: {
-      mode: "Train / Flight to Jaipur & Return from Udaipur",
-      pickup: "Jaipur Airport / Railway Station",
-      vehicle: "Private AC Tempo Traveler / SUV (Innova)",
-      details: "Dedicated chauffeur with royal heritage circuit expertise."
+      mode: "Sleeper Class Train from Kolkata + AC Volvo / Deluxe Bus across Rajasthan",
+      pickup: "Kolkata Railway Station",
+      vehicle: "AC Volvo / Deluxe Tourist Coach for all intercity journeys and sightseeing",
+      details: "Complete roundtrip train, luxury bus transportation, toll taxes, parking, and driver allowances included."
     },
     accommodation: {
-      category: "Heritage Haveli Hotels & Luxury Desert Camp",
-      description: "2N Jaipur + 2N Jaisalmer (1N Desert Camp) + 1N Jodhpur + 2N Udaipur",
-      meals: "Daily Breakfast + Royal Dinner in Desert Camp",
-      features: ["Royal Decor", "Heritage Architecture", "Swimming Pool", "Cultural Performances"]
+      category: "Deluxe Hotels & Luxury Desert Camp",
+      description: "Deluxe hotels in Jaipur (2N), Pushkar (1N), Udaipur (2N), Mount Abu (2N), Jaisalmer (1N Hotel + 1N Desert Camp), Jodhpur (1N)",
+      meals: "Daily Breakfast, Lunch and Dinner Included throughout the tour",
+      features: ["Air Conditioned / Deluxe Rooms", "Attached Bath with Geyser", "Authentic Cultural Evening in Desert", "Central Locations"]
     },
     pricingDetails: {
-      perHead: "₹25,000 / person (Twin Sharing)",
-      originalPrice: "₹29,000",
-      groupDiscount: "Group discount available for 6+ travelers",
-      inclusions: ["7 Nights Heritage Stay", "Camel Safari & Dune Bashing", "Folk Dance Night", "Breakfast & Desert Dinner", "AC Transport"],
-      exclusions: ["Monument entry tickets", "Personal shopping", "Lunches"]
+      perHead: "₹24,500 / person (Triple Share) | ₹25,500 / person (Double Share)",
+      inclusions: [
+        "Sleeper Class Train Tickets (Kolkata - Jaipur & Jodhpur - Kolkata)",
+        "AC Volvo / Bus Transportation throughout Rajasthan",
+        "Toll Tax, Parking, Driver Allowance",
+        "All Sightseeing as per program",
+        "Deluxe Hotel & Desert Camp Accommodation",
+        "Daily Breakfast, Lunch & Dinner",
+        "All Taxes and Service Charges"
+      ],
+      exclusions: [
+        "Camel riding, jeep safari, and rafting charges",
+        "Meals during train journey",
+        "Entry fees at monuments and museums",
+        "Camera and porter charges",
+        "AC Class train upgrade (optional extra fare)"
+      ]
     },
     itinerary: [
-      { day: 1, title: "Arrival Jaipur — Pink City", desc: "Welcome to Jaipur. Visit City Palace and Hawa Mahal.", spots: ["Hawa Mahal", "City Palace", "Local Bazaar"], meals: "Dinner" },
-      { day: 2, title: "Forts of Jaipur", desc: "Explore Amber Fort, Nahargarh Fort, and Jal Mahal.", spots: ["Amber Fort", "Nahargarh", "Jal Mahal"], meals: "Breakfast & Dinner" },
-      { day: 3, title: "Jaipur to Jodhpur Blue City", desc: "Drive to Jodhpur. Visit Mehrangarh Fort and Jaswant Thada.", spots: ["Mehrangarh Fort", "Blue City Streets"], meals: "Breakfast & Dinner" },
-      { day: 4, title: "Jodhpur to Jaisalmer Desert Camp", desc: "Reach Thar desert. Camel ride, sunset on dunes, and folk dance.", spots: ["Sam Sand Dunes", "Desert Camp"], meals: "Breakfast & Gala Dinner" },
-      { day: 5, title: "Jaisalmer Fort & Patwon Ki Haveli", desc: "Explore the Golden Fort and carved havelis.", spots: ["Golden Fort", "Patwon Ki Haveli"], meals: "Breakfast & Dinner" },
-      { day: 6, title: "Jaisalmer to Udaipur City of Lakes", desc: "Drive to Udaipur via Ranakpur Jain Temple.", spots: ["Ranakpur Temple", "Udaipur Lake"], meals: "Breakfast & Dinner" },
-      { day: 7, title: "Udaipur Lakes & Palaces", desc: "Lake Pichola boat ride, Saheliyon Ki Bari, and Jagdish Temple.", spots: ["Lake Pichola", "City Palace Udaipur"], meals: "Breakfast & Dinner" },
-      { day: 8, title: "Departure Udaipur", desc: "Drop off at Udaipur Airport/Station.", spots: ["Udaipur Airport"], meals: "Breakfast" }
+      {
+        day: 1,
+        title: "Departure from Kolkata for Jaipur",
+        desc: "Board the train for Jaipur in the afternoon from Kolkata. Overnight train journey.",
+        spots: ["Kolkata Railway Station"],
+        meals: "Train journey — own arrangement"
+      },
+      {
+        day: 2,
+        title: "Train Journey & Arrival in Jaipur",
+        desc: "Arrive in Jaipur in the afternoon/evening. Transfer to hotel, check-in, relax and spend the evening at leisure. Overnight in Jaipur.",
+        spots: ["Jaipur Station", "Jaipur Hotel"],
+        meals: "Dinner Included"
+      },
+      {
+        day: 3,
+        title: "Jaipur Sightseeing — Pink City Heritage",
+        desc: "After breakfast, explore Amber Fort, Jal Mahal, Kanak Garden, City Palace, Albert Hall Museum, Jantar Mantar, Hawa Mahal, and Birla Mandir. Overnight in Jaipur.",
+        spots: ["Amber Fort", "Jal Mahal", "City Palace", "Albert Hall", "Hawa Mahal", "Birla Mandir"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 4,
+        title: "Jaipur to Pushkar via Ajmer Sharif Dargah",
+        desc: "Check out after breakfast, drive to Pushkar. En route visit the famous Ajmer Sharif Moinuddin Chishti Dargah. In Pushkar, visit Brahma Temple and Pushkar Lake. Overnight in Pushkar.",
+        spots: ["Ajmer Sharif Dargah", "Brahma Temple", "Pushkar Lake"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 5,
+        title: "Pushkar to Udaipur via Chittorgarh Fort",
+        desc: "Drive from Pushkar to Udaipur. En route spend time exploring the majestic Chittorgarh Fort. Reach Udaipur in the evening. Check in and overnight in Udaipur.",
+        spots: ["Chittorgarh Fort", "Udaipur"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 6,
+        title: "Udaipur Sightseeing — City of Lakes",
+        desc: "Explore Lake Pichola, City Palace, Fateh Sagar Lake, Saheliyon Ki Bari, Moti Magri, and Lok Kala Mandal. Overnight in Udaipur.",
+        spots: ["Lake Pichola", "City Palace Udaipur", "Fateh Sagar", "Saheliyon Ki Bari"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 7,
+        title: "Udaipur to Mount Abu & Nakki Lake",
+        desc: "After breakfast, drive to Mount Abu hill station. Check in to hotel. Spend a peaceful evening at Nakki Lake. Overnight in Mount Abu.",
+        spots: ["Mount Abu", "Nakki Lake"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 8,
+        title: "Mount Abu Sightseeing — Dilwara Temples",
+        desc: "Visit Om Shanti Bhawan, Shankar Math, and intricately carved Dilwara Jain Temples. Overnight in Mount Abu.",
+        spots: ["Dilwara Temples", "Om Shanti Bhawan", "Shankar Math"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 9,
+        title: "Mount Abu to Jaisalmer Thar Desert Camp",
+        desc: "Early morning drive to Jaisalmer. Reach the Thar Desert Camp. Enjoy sunset on sand dunes and evening Rajasthani folk dance & music performance. Overnight in Desert Camp.",
+        spots: ["Thar Desert", "Desert Camp", "Rajasthani Folk Show"],
+        meals: "Breakfast, Lunch & Gala Dinner"
+      },
+      {
+        day: 10,
+        title: "Jaisalmer Fort (Sonar Kella) & Patwon Ki Haveli",
+        desc: "Check out from camp, transfer to Jaisalmer hotel. Explore the Golden Fort (Sonar Kella), Gadisar Lake, and Patwon Ki Haveli. Overnight in Jaisalmer.",
+        spots: ["Sonar Kella", "Gadisar Lake", "Patwon Ki Haveli"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 11,
+        title: "Jaisalmer to Jodhpur Blue City",
+        desc: "After breakfast, drive to Jodhpur. Check in to hotel, relax and explore local market. Overnight in Jodhpur.",
+        spots: ["Jodhpur", "Clock Tower Market"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 12,
+        title: "Jodhpur Sightseeing & Night Train to Kolkata",
+        desc: "Explore Mehrangarh Fort, Umaid Bhawan Palace, Mandore Gardens, and Jaswant Thada. Board night train for Kolkata.",
+        spots: ["Mehrangarh Fort", "Umaid Bhawan Palace", "Jaswant Thada", "Mandore Gardens"],
+        meals: "Breakfast & Lunch Included"
+      },
+      {
+        day: 13,
+        title: "Full Day Train Journey",
+        desc: "Full day traveling on train across India.",
+        spots: ["Train Journey"],
+        meals: "Train journey — own arrangement"
+      },
+      {
+        day: 14,
+        title: "Arrival at Kolkata",
+        desc: "Arrive in Kolkata early morning with lifetime memories of royal Rajasthan.",
+        spots: ["Kolkata"],
+        meals: "Tour Concludes"
+      }
     ],
     bookingProcess: [
-      { step: 1, title: "Inquire Now", desc: "Submit date & total guests." },
-      { step: 2, title: "Customize", desc: "Add/remove cities as needed." },
-      { step: 3, title: "Confirm & Book", desc: "Pay advance & get instant vouchers." }
+      { step: 1, title: "Advance Booking Token", desc: "Book your seat now with an advance token of ₹5,000 per person." },
+      { step: 2, title: "Train & Hotel Lock", desc: "We reserve your Sleeper/AC train tickets and deluxe hotel rooms." },
+      { step: 3, title: "Voucher Receipt", desc: "Receive official confirmation and itinerary booklet." }
     ],
-    importantNotes: ["Sunscreen and sunglasses recommended", "Light cotton clothes for day, jackets for desert nights"]
+    importantNotes: [
+      "Token amount ₹5,000 per head required at booking time.",
+      "Warm woolens recommended for desert nights in December."
+    ]
   },
   {
     id: "pkg-5",
-    title: "Kerala Backwaters",
-    destination: "Kerala, India",
-    duration: "5 Nights / 6 Days",
-    price: "₹16,500",
+    title: "Kerala & Kanyakumari Grand Tour",
+    destination: "Kerala & Tamil Nadu, India",
+    duration: "12 Nights / 13 Days",
+    price: "₹21,490",
     image: "/images/hero_kerala_1783678518411.png",
-    shortDescription: "Cruise through serene backwaters of Alleppey and relax in lush green tea gardens of Munnar.",
+    shortDescription: "12N/13D complete South India tour (Howrah to Howrah, 15 Feb departure) covering Kochi, Munnar, Thekkady, Alleppey with 3-hour Backwater boat cruise, Kovalam, and Kanyakumari. \"কাশ্মীর তু মে কন্যাকুমারী...\"",
     featured: true,
-    rating: 4.8,
-    reviewsCount: 110,
-    nextDate: "05 Sep",
+    rating: 4.9,
+    reviewsCount: 152,
+    nextDate: "15 Feb",
+    stayBreakdown: "Kochi (1N) | Munnar (2N) | Thekkady (1N) | Alleppey (1N) | Kovalam (1N) | Kanyakumari (2N) | Train (4N)",
     seasonalPricing: {
-      January: 18000, February: 18500, March: 17500, April: 16000,
-      May: 14500, June: 13500, July: 13500, August: 14000,
-      September: 15500, October: 17000, November: 18000, December: 19000
+      January: 21490, February: 21490, March: 21490, April: 21490,
+      May: 21490, June: 21490, July: 21490, August: 21490,
+      September: 21490, October: 21490, November: 21490, December: 21490
     },
-    pricingNote: "Off-peak Jun–Aug (monsoon). Houseboat availability may vary.",
+    pricingNote: "Departure Date: 15th February. Cost: ₹21,490/- (Triple Sharing) | ₹22,990/- (Double Sharing).",
     gallery: [
       "/images/hero_kerala_1783678518411.png",
       "/images/tour-5.png",
@@ -551,63 +854,169 @@ export const packages: TourPackage[] = [
     ],
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     highlights: [
-      "Overnight Houseboat Cruise in Alleppey backwaters with all meals",
-      "Munnar Tea Gardens & Eravikulam National Park (Nilgiri Tahr)",
-      "Spice Plantation tour in Thekkady",
-      "Kathakali cultural dance show in Fort Kochi"
+      "Song Quote: \"কাশ্মীর তু মে কন্যাকুমারী...\"",
+      "Departure: 15th February from Howrah / Santragachi via Coromandel Express",
+      "Kochi: Marine Drive, Fort Kochi view & historic Chinese Fishing Nets",
+      "Munnar: Echo Point, Mattupetty Dam, Eravikulam National Park / Rajamalai tea estates",
+      "Thekkady: Spice Garden tour & Periyar National Park / Lake",
+      "Alleppey: Included 3-hour famous Backwater Boat Cruise",
+      "Kovalam: Padmanabhaswamy Temple & Kovalam Sea Beach",
+      "Kanyakumari: Suchindram Temple, Vivekananda Rock Memorial, Gandhi Mandapam, Sunrise & Sunset",
+      "Authentic Bengali Meals (Breakfast, Lunch, Dinner) from arrival in Cochin till departure",
+      "Dedicated Non-AC Private Coach & Experienced Tour Manager"
     ],
     transport: {
-      mode: "Flight / Train to Cochin (COK)",
-      pickup: "Cochin Airport / Ernakulam Railway Station",
-      vehicle: "Private AC Sedan / Ertiga",
-      details: "Chauffeur driven private car throughout Kerala circuit."
+      mode: "Sleeper Class Train (Coromandel & Alleppey Exp / Vivek Exp) + Private Non-AC Tourist Coach",
+      pickup: "Howrah / Santragachi Railway Station",
+      vehicle: "Private Non-AC Tourist Coach for entire Kerala & Tamil Nadu circuit",
+      details: "Roundtrip train tickets (AC available at extra fare) and dedicated coach throughout."
     },
     accommodation: {
-      category: "4-Star Hill Resorts & Deluxe Houseboat",
-      description: "2 Nights Munnar Hill Resort + 1 Night Thekkady Resort + 1 Night Alleppey Houseboat + 1 Night Cochin Hotel",
-      meals: "Breakfast daily + All Meals on Houseboat (Lunch, Tea, Dinner, Breakfast)",
-      features: ["Traditional Kerala Cuisine", "Houseboat Air Conditioning", "Tea Plantation Views"]
+      category: "Standard / Deluxe Hotels",
+      description: "Family non-AC rooms across Kochi (1N), Munnar (2N), Thekkady (1N), Alleppey (1N), Kovalam (1N), Kanyakumari (2N)",
+      meals: "Delicious Bengali food (Breakfast, Lunch, Dinner) starting upon arrival in Cochin",
+      features: ["Clean Rooms", "Attached Bath with Hot Water", "Bengali Cuisine", "Experienced Manager"]
     },
     pricingDetails: {
-      perHead: "₹16,500 / person",
-      originalPrice: "₹19,500",
-      groupDiscount: "Honeymoon special setup (Candlelight dinner + cake) free",
-      inclusions: ["5 Nights Accommodation", "Private Houseboat with meals", "All AC transfers", "Spice Plantation entry fee"],
-      exclusions: ["Airfare/Train fare", "Personal ayurvedic massage"]
+      perHead: "₹21,490 / person (Triple Sharing) | ₹22,990 / person (Double Sharing)",
+      inclusions: [
+        "Sleeper Class Train Tickets (AC upgrade at additional cost)",
+        "Family non-AC rooms in Standard/Deluxe Hotels",
+        "Bengali food: Breakfast, Lunch and Dinner from Cochin arrival",
+        "3-Hour Backwater Boat Cruise Ticket in Alleppey",
+        "Private Non-AC Coach for all mentioned sightseeing",
+        "Experienced Tour Manager throughout the tour"
+      ],
+      exclusions: [
+        "Packaged mineral water and train meals",
+        "Entry fees, camera charges, and cultural program tickets",
+        "Elephant safari and auto rickshaw fares",
+        "Boat/launch charges other than the included Alleppey Backwater cruise",
+        "Tips to hotel/driver/cooks and personal expenses"
+      ]
     },
     itinerary: [
-      { day: 1, title: "Cochin to Munnar", desc: "Scenic drive past Cheeyappara Waterfalls to tea hill station.", spots: ["Cheeyappara Waterfalls", "Munnar Tea Hills"], meals: "Dinner" },
-      { day: 2, title: "Munnar Tea Estates & National Park", desc: "Eravikulam National Park, Mattupetty Dam, and Echo Point.", spots: ["Eravikulam Park", "Mattupetty Dam"], meals: "Breakfast & Dinner" },
-      { day: 3, title: "Munnar to Thekkady Wild Reserve", desc: "Drive to Periyar Wildlife Sanctuary. Spice plantation tour.", spots: ["Periyar Lake", "Spice Gardens"], meals: "Breakfast & Dinner" },
-      { day: 4, title: "Thekkady to Alleppey Houseboat", desc: "Board private houseboat. Cruise through coconut canals.", spots: ["Alleppey Backwaters", "Vembanad Lake"], meals: "Lunch, Tea & Dinner" },
-      { day: 5, title: "Alleppey to Cochin Sightseeing", desc: "Fort Kochi Chinese Fishing Nets, St. Francis Church & Mattancherry.", spots: ["Chinese Fishing Nets", "Fort Kochi"], meals: "Breakfast & Dinner" },
-      { day: 6, title: "Departure Cochin", desc: "Drop off at Cochin Airport.", spots: ["Cochin Airport"], meals: "Breakfast" }
+      {
+        day: 1,
+        title: "Departure from Howrah / Santragachi",
+        desc: "Meet at Howrah / Santragachi Station and board the Coromandel Express at 3:20 PM towards Chennai. Overnight train journey.",
+        spots: ["Howrah / Santragachi Station", "Coromandel Express"],
+        meals: "Train journey — own arrangement"
+      },
+      {
+        day: 2,
+        title: "Arrive Chennai & Connect to Alleppey Express",
+        desc: "Arrive at Chennai at 5:00 PM. Rest in waiting room (optional Marina Beach visit if on time). Board Alleppey Express at 8:50 PM for Ernakulam/Kochi.",
+        spots: ["Chennai Central", "Alleppey Express"],
+        meals: "Train journey — own arrangement"
+      },
+      {
+        day: 3,
+        title: "Arrival in Kochi & Marine Drive Sightseeing",
+        desc: "Arrive in Kochi, check in to hotel and fresh up. Visit Kochi Marine Drive, view Fort Kochi, and witness traditional Chinese Fishing Nets. Overnight in Kochi.",
+        spots: ["Kochi Marine Drive", "Fort Kochi", "Chinese Fishing Nets"],
+        meals: "Lunch & Dinner Included"
+      },
+      {
+        day: 4,
+        title: "Kochi to Munnar via Echo Point & Mattupetty Dam",
+        desc: "Morning departure (7:00–7:30 AM) for Munnar. Enjoy picnic lunch on the way. Visit Echo Point and Mattupetty Dam. Overnight in Munnar.",
+        spots: ["Echo Point", "Mattupetty Dam", "Munnar Hills"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 5,
+        title: "Munnar Tea Gardens & Eravikulam National Park",
+        desc: "Visit Eravikulam National Park / Rajamalai Forest and scenic tea plantations where the famous song \"কাশ্মীর তু মে কন্যাকুমারী...\" was filmed. Overnight in Munnar.",
+        spots: ["Eravikulam National Park", "Rajamalai", "Tea Plantations"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 6,
+        title: "Munnar to Thekkady Spice Garden Tour",
+        desc: "Drive to Thekkady. Visit Spice Garden. Check in to hotel, lunch, and optional evening Kathakali dance & Martial Arts performance. Overnight in Thekkady.",
+        spots: ["Thekkady", "Spice Garden", "Kathakali Cultural Show"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 7,
+        title: "Periyar Lake & 3-Hour Alleppey Backwater Cruise",
+        desc: "Morning visit to Periyar National Park / Lake. Drive to Alleppey, check in to hotel, and enjoy the famous 3-hour Backwater Boat Cruise. Overnight in Alleppey.",
+        spots: ["Periyar Lake", "Alleppey Backwaters", "Backwater Cruise"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 8,
+        title: "Alleppey to Kovalam & Padmanabhaswamy Temple",
+        desc: "Drive to Kovalam / Thiruvananthapuram. Visit historic Padmanabhaswamy Temple (traditional dress mandatory). Spend afternoon at Kovalam Beach. Overnight in Kovalam.",
+        spots: ["Padmanabhaswamy Temple", "Kovalam Beach"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 9,
+        title: "Kovalam Sea Bath to Kanyakumari via Suchindram",
+        desc: "Morning sea bath at Kovalam Beach. After lunch, drive to Kanyakumari (approx. 3.5 hrs drive) via Suchindram Temple. Overnight in Kanyakumari.",
+        spots: ["Kovalam Beach", "Suchindram Temple", "Kanyakumari"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 10,
+        title: "Kanyakumari Sunrise, Vivekananda Rock & Sunset",
+        desc: "Early morning sunrise walk. Visit iconic Vivekananda Rock Memorial, Gandhi Mandapam, enjoy sunset view and evening shopping. Overnight in Kanyakumari.",
+        spots: ["Kanyakumari Sunrise", "Vivekananda Rock Memorial", "Gandhi Mandapam", "Sunset Point"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 11,
+        title: "Board Return Train from Kanyakumari",
+        desc: "After lunch, board the return train (Vivek Express) from Kanyakumari Station at 5:25 PM.",
+        spots: ["Kanyakumari Station", "Vivek Express"],
+        meals: "Breakfast & Lunch Included"
+      },
+      {
+        day: 12,
+        title: "Full Day Train Journey",
+        desc: "Full day on train traveling back to West Bengal.",
+        spots: ["Train Journey"],
+        meals: "Train journey — own arrangement"
+      },
+      {
+        day: 13,
+        title: "Arrival at Dankuni / Santragachi",
+        desc: "Arrive at Dankuni / Santragachi Station in the afternoon. Tour concludes with cherished memories.",
+        spots: ["Dankuni / Santragachi"],
+        meals: "Tour Concludes"
+      }
     ],
     bookingProcess: [
-      { step: 1, title: "Select Package", desc: "Specify family or honeymoon requirement." },
-      { step: 2, title: "Houseboat Selection", desc: "Choose Deluxe or Premium AC Houseboat." },
-      { step: 3, title: "Lock Package", desc: "Receive voucher on payment." }
+      { step: 1, title: "Select Sharing Option", desc: "Choose Double Sharing (₹22,990) or Triple Sharing (₹21,490)." },
+      { step: 2, title: "Submit ID Proofs", desc: "Share passenger details for train and hotel bookings." },
+      { step: 3, title: "Token Confirmation", desc: "Pay advance token and receive confirmation." }
     ],
-    importantNotes: ["Houseboat AC operates 9 PM to 6 AM (Deluxe) or 24 hrs (Premium)", "Carry comfortable walking shoes"]
+    importantNotes: [
+      "Children: Under 5 years Free; 5–7 years ₹13,000 (with car seat, without train ticket); 7+ years Full charge.",
+      "Padmanabhaswamy Temple requires Dhoti for men and Saree for women."
+    ]
   },
   {
     id: "pkg-6",
-    title: "Goa Getaway",
-    destination: "Goa, India",
-    duration: "3 Nights / 4 Days",
-    price: "₹12,000",
-    image: "/images/hero_goa_1783678456678.png",
-    shortDescription: "Enjoy sun, sand, sea, watersports, and nightlife with our exciting Goa tour package.",
+    title: "Vizag & Araku Valley Tour",
+    destination: "Andhra Pradesh, India",
+    duration: "5 Nights / 6 Days",
+    price: "₹7,990",
+    image: "/images/tour-6.png",
+    shortDescription: "5N/6D coastal and hill retreat (December 2026 departure) covering Visakhapatnam, Rushikonda Beach, Submarine Museum, Aircraft Museum, scenic Araku Valley, and ancient Borra Caves.",
     featured: true,
     rating: 4.7,
     reviewsCount: 88,
-    nextDate: "20 Aug",
+    nextDate: "Dec 2026",
+    stayBreakdown: "Visakhapatnam (3N) | On Train (2N)",
     seasonalPricing: {
-      January: 15000, February: 15000, March: 13500, April: 11000,
-      May: 9500, June: 9000, July: 9000, August: 9500,
-      September: 11000, October: 13000, November: 15000, December: 17000
+      January: 7990, February: 7990, March: 7990, April: 7990,
+      May: 7990, June: 7990, July: 7990, August: 7990,
+      September: 7990, October: 7990, November: 7990, December: 7990
     },
-    pricingNote: "Peak season Nov–Feb. Great value Jun–Sep (off-peak).",
+    pricingNote: "Departure: December 2026. Rate: ₹7,990 (Triple Share) | ₹8,990 (Double Share).",
     gallery: [
       "/images/hero_goa_1783678456678.png",
       "/images/tour-6.png",
@@ -615,57 +1024,114 @@ export const packages: TourPackage[] = [
     ],
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     highlights: [
-      "Sunset Cruise on Mandovi River",
-      "North Goa Beach Tour (Baga, Calangute, Anjuna)",
-      "South Goa Heritage Tour (Basilica of Bom Jesus & Mangueshi Temple)",
-      "Dudhsagar Waterfalls jeep safari (Optional)"
+      "Travel Date: December 2026 from Howrah (Coromandel Express)",
+      "Rushikonda Beach Sea Bath & RK Beach Stroll",
+      "INS Kursura Submarine Museum & TU 142 Aircraft Museum",
+      "Excursion to scenic Araku Valley & million-year-old Borra Caves",
+      "Visakhapatnam Hill & Viewpoints Sightseeing",
+      "Bengali Meals prepared and served by our in-house cook",
+      "Standard Clean Rooms (Family / 3 Sharing basis)"
     ],
     transport: {
-      mode: "Flight / Train to Goa (GOI / GOX / Madgaon)",
-      pickup: "Dabolim / Mopa Airport / Madgaon Station",
-      vehicle: "Private AC Vehicle for airport transfers & tours",
-      details: "Hassle-free transfers and sightseeing."
+      mode: "Sleeper Class Train (Coromandel Exp 12841) + Tempo Traveler / Dedicated Vehicle",
+      pickup: "Howrah Railway Station",
+      vehicle: "Tempo Traveler / Car for all local sightseeing and Araku Valley tour",
+      details: "Roundtrip sleeper train and convenient local vehicles."
     },
     accommodation: {
-      category: "3-Star / 4-Star Resort near Beach with Pool",
-      description: "3 Nights Resort Stay in North Goa near Baga / Calangute",
-      meals: "Daily Buffet Breakfast Included",
-      features: ["Swimming Pool", "Bar & Restaurant", "10 min walk to beach"]
+      category: "Standard Clean Hotel",
+      description: "Standard clean rooms (Family / 3 Sharing basis)",
+      meals: "Morning & Evening Tea, Breakfast (Luchi, Kachori, Butter Toast) and Lunch/Dinner (Rice, Dal, Veg/Bhaja, Fish, Chicken, Egg, Biryani, Fried Rice, Chilli Chicken)",
+      features: ["Clean Bedding", "Attached Bath", "In-house Bengali Cooking"]
     },
     pricingDetails: {
-      perHead: "₹12,000 / person",
-      originalPrice: "₹14,500",
-      groupDiscount: "Bachelor / Group discount available",
-      inclusions: ["3 Nights Resort Stay", "Daily Breakfast", "Mandovi River Cruise", "North & South Goa Sightseeing", "Airport Transfers"],
-      exclusions: ["Water sports charges", "Nightclub entry", "Lunches & Dinners"]
+      perHead: "₹7,990 / person (Triple Share) | ₹8,990 / person (Double Share)",
+      inclusions: [
+        "Sleeper Class Train Tickets (Howrah - Vizag & Vizag - Shalimar)",
+        "Standard Clean Hotel Accommodation",
+        "Sightseeing by Tempo Traveler / Car / Auto as convenient",
+        "Morning & Evening Tea + 3 Meals Daily (Breakfast, Lunch, Dinner)",
+        "Delicious food cooked by our dedicated cook"
+      ],
+      exclusions: [
+        "Entry fees, ropeway, boat rides, and water sports",
+        "Meals and drinking water during train journey",
+        "Personal expenses"
+      ]
     },
     itinerary: [
-      { day: 1, title: "Arrival Goa & Sunset Cruise", desc: "Pickup from airport. Check-in to resort. Evening Mandovi sunset cruise.", spots: ["Mandovi River Cruise", "Baga Beach"], meals: "Welcome Drink" },
-      { day: 2, title: "North Goa Beaches & Nightlife", desc: "Calangute, Baga, Anjuna, Vagator Beach & Aguada Fort.", spots: ["Fort Aguada", "Anjuna Beach", "Vagator"], meals: "Breakfast" },
-      { day: 3, title: "South Goa Cultural & Heritage Tour", desc: "Old Goa Churches, Mangueshi Temple, and Miramar Beach.", spots: ["Basilica of Bom Jesus", "Miramar Beach"], meals: "Breakfast" },
-      { day: 4, title: "Departure", desc: "Shopping at Panjim market and drop to airport.", spots: ["Goa Airport"], meals: "Breakfast" }
+      {
+        day: 1,
+        title: "Departure from Howrah Station",
+        desc: "Board the Coromandel Express (12841) from Howrah Station at 3:10 PM. Overnight train journey.",
+        spots: ["Howrah Railway Station", "Coromandel Express"],
+        meals: "Train journey — own arrangement"
+      },
+      {
+        day: 2,
+        title: "Arrive Vizag, Rushikonda Beach & Submarine Museum",
+        desc: "Arrive in Visakhapatnam at 4:20 AM. Check in to hotel, breakfast, and enjoy sea bathing at Rushikonda Beach. In the afternoon, visit Submarine Museum, TU-142 Aircraft Museum, and Visakha Museum along RK Beach. Overnight in Vizag.",
+        spots: ["Rushikonda Beach", "Submarine Museum", "TU 142 Museum", "RK Beach"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 3,
+        title: "Vizag City Sightseeing",
+        desc: "After breakfast, explore key sights of Visakhapatnam including Kailasagiri Hill, Simhachalam Temple, Yarada Beach, and Dolphin's Nose Lighthouse. Overnight in Vizag.",
+        spots: ["Kailasagiri", "Simhachalam", "Yarada Beach", "Dolphin's Nose"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 4,
+        title: "Araku Valley & Borra Caves Excursion",
+        desc: "Full day excursion to Araku Valley and the famous Borra Caves via picturesque hill roads, coffee plantations, and viewpoints. Return to Vizag for overnight stay.",
+        spots: ["Araku Valley", "Borra Caves", "Coffee Plantations"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 5,
+        title: "RK Beach, Shopping & Night Train to Kolkata",
+        desc: "Morning at RK Beach, explore local markets for shopping. After dinner, board return train at 9:30 PM for Kolkata.",
+        spots: ["RK Beach", "Vizag Market", "Vizag Station"],
+        meals: "Breakfast, Lunch & Dinner Included"
+      },
+      {
+        day: 6,
+        title: "Arrival at Shalimar Station",
+        desc: "Arrive at Shalimar Station around 11:00 AM. Tour concludes.",
+        spots: ["Shalimar Railway Station"],
+        meals: "Tour Concludes"
+      }
     ],
-    bookingProcess: [{ step: 1, title: "Form Submit", desc: "Choose travel dates." }, { step: 2, title: "Resort Confirmation", desc: "Select preferred resort location." }, { step: 3, title: "Instant Voucher", desc: "Get vouchers via WhatsApp." }],
-    importantNotes: ["Valid ID mandatory for casino & cruise entry", "Sunscreen and beachwear recommended"]
+    bookingProcess: [
+      { step: 1, title: "Contact Us", desc: "Call 9830905332 / 9239458171 to check December availability." },
+      { step: 2, title: "ID Submission", desc: "Submit photo ID for train booking." },
+      { step: 3, title: "Confirmation", desc: "Pay advance token to secure seats." }
+    ],
+    importantNotes: [
+      "Child Policy: 1–4 years Free; 5–7 years 50% charge; 7+ years Full charge.",
+      "Train food not included in package."
+    ]
   },
   {
     id: "pkg-7",
-    title: "Magical Meghalaya",
-    destination: "Meghalaya, India",
-    duration: "5 Nights / 6 Days",
-    price: "₹17,500",
+    title: "Meghalaya, Shillong, Dawki & Cherrapunji",
+    destination: "Meghalaya & Assam, India",
+    duration: "7 Nights / 8 Days",
+    price: "₹7,990",
     image: "/images/tour-7.png",
-    shortDescription: "Discover the abode of clouds — double-decker living root bridges, crystal rivers, and waterfalls.",
+    shortDescription: "7N/8D North East tour (December 2026 departure) covering Kamakhya Temple, Umiam Lake, Shillong, crystal Dawki river, Living Root Bridge, Mawlynnong, Cherrapunji waterfalls, and caves with in-house Bengali cooking.",
     featured: true,
     rating: 4.9,
     reviewsCount: 104,
-    nextDate: "15 Sep",
+    nextDate: "Dec 2026",
+    stayBreakdown: "Guwahati (1N) | Shillong (4N) | Train (2N)",
     seasonalPricing: {
-      January: 16000, February: 16000, March: 16000, April: 16500,
-      May: 17000, June: 19000, July: 20000, August: 19500,
-      September: 18500, October: 17500, November: 16000, December: 15000
+      January: 7990, February: 7990, March: 7990, April: 7990,
+      May: 7990, June: 7990, July: 7990, August: 7990,
+      September: 7990, October: 7990, November: 7990, December: 7990
     },
-    pricingNote: "Best visited Jun–Sep for iconic monsoon waterfalls.",
+    pricingNote: "Departure: December 2026. Rate: ₹7,990 (Triple Share) | ₹8,990 (Double Share).",
     gallery: [
       "/images/tour-7.png",
       "/images/tour-13.png",
@@ -673,303 +1139,1118 @@ export const packages: TourPackage[] = [
     ],
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     highlights: [
-      "Transparent water boating at Dawki (Umngot River)",
-      "Nongriat Double Decker Living Root Bridge trek",
-      "Cherrapunji Seven Sisters & Nohkalikai Waterfalls",
-      "Mawlynnong — Cleanest Village in Asia"
+      "Travel Date: December 2026 departure via Saraighat Express (12345)",
+      "Guwahati: Kamakhya Temple, Umananda Temple, Bhubaneswari Temple, Basistha Ashram",
+      "Scenic Umiam Lake (Barapani) en route to Shillong",
+      "Dawki Umngot River, Borhill Falls, Living Root Bridge & Mawlynnong (Cleanest village in Asia)",
+      "Cherrapunji: Mawkdok Valley, Thangkharang Park, Seven Sisters Falls, Mawsmai Cave, Nohkalikai Falls",
+      "Shillong Local: Wards Lake, Lady Hydari Park, Cathedral, Golf Course, Elephant Falls, Shillong Peak",
+      "Delicious Bengali meals prepared by our personal cook (Fish, Chicken, Egg, Biryani, Fried Rice, Chilli Chicken)"
     ],
     transport: {
-      mode: "Flight to Guwahati (GAU) / Shillong (SHL)",
-      pickup: "Guwahati Airport / Railway Station",
-      vehicle: "Private SUV (Innova / Sumo) for mountain terrain",
-      details: "Experienced driver skilled in mist & serpentine roads."
+      mode: "Sleeper Class Train (Saraighat Exp) + Tempo Traveler / Dedicated Mountain Vehicle",
+      pickup: "Howrah Railway Station",
+      vehicle: "Tempo Traveler / Dedicated Vehicle for all sightseeing across Assam and Meghalaya",
+      details: "Roundtrip train tickets from Howrah and comfortable road transport throughout."
     },
     accommodation: {
-      category: "Eco Resorts & Boutique Homestays",
-      description: "2 Nights Shillong + 2 Nights Cherrapunji + 1 Night Dawki/Shillong",
-      meals: "Daily Breakfast & Dinner",
-      features: ["Nature Views", "Bonfire Option", "Geyser & Clean Linen"]
+      category: "Standard Clean Hotel",
+      description: "1 Night Guwahati Hotel + 4 Nights Shillong Hotel (Family / 3 Sharing basis)",
+      meals: "2x Tea daily + Breakfast (Luchi, Kachori, Toast) and Lunch/Dinner (Rice, Dal, Veg, Fish, Chicken, Egg, Biryani, Fried Rice, Chilli Chicken)",
+      features: ["Clean Rooms", "Attached Bath with Hot Water", "In-house Cook"]
     },
     pricingDetails: {
-      perHead: "₹17,500 / person",
-      originalPrice: "₹21,000",
-      groupDiscount: "Group discount for 4+ trek enthusiasts",
-      inclusions: ["5 Nights Accommodation", "Daily Breakfast & Dinner", "Dawki Boating", "Guwahati Pick & Drop", "All Permits"],
-      exclusions: ["Guide fee for root bridge trek", "Personal expenses"]
+      perHead: "₹7,990 / person (Triple Share) | ₹8,990 / person (Double Share)",
+      inclusions: [
+        "Sleeper Class Train Tickets (Saraighat Exp)",
+        "Standard Clean Hotel Accommodation",
+        "Tempo Traveler / Vehicle for all sightseeing",
+        "Morning & Evening Tea + Breakfast, Lunch, Dinner",
+        "Food freshly prepared and served by our cook"
+      ],
+      exclusions: [
+        "Entry tickets, ropeway, horse riding, and boating activities",
+        "Meals and water during train journey",
+        "Personal expenses"
+      ]
     },
     itinerary: [
-      { day: 1, title: "Guwahati to Shillong", desc: "Pickup at Guwahati. Visit Umiam Lake (Barapani) on way to Shillong.", spots: ["Umiam Lake", "Police Bazar"], meals: "Dinner" },
-      { day: 2, title: "Shillong to Cherrapunji", desc: "Visit Elephant Falls, Mawsmai Cave, Seven Sisters & Nohkalikai Falls.", spots: ["Nohkalikai Falls", "Mawsmai Cave"], meals: "Breakfast & Dinner" },
-      { day: 3, title: "Double Decker Root Bridge Trek", desc: "Trek down 3,000 steps to Nongriat Living Root Bridge & Rainbow Falls.", spots: ["Nongriat Root Bridge", "Rainbow Falls"], meals: "Breakfast & Dinner" },
-      { day: 4, title: "Mawlynnong & Dawki River", desc: "Explore Asia's cleanest village and ride crystal clear Umngot River at Dawki.", spots: ["Mawlynnong", "Dawki River"], meals: "Breakfast & Dinner" },
-      { day: 5, title: "Dawki to Shillong Sightseeing", desc: "Laitlum Canyons and Don Bosco Museum.", spots: ["Laitlum Canyons", "Shillong Peak"], meals: "Breakfast & Dinner" },
-      { day: 6, title: "Departure via Guwahati", desc: "Drop off at Guwahati Airport / Station.", spots: ["Guwahati Airport"], meals: "Breakfast" }
+      {
+        day: 1,
+        title: "Departure from Howrah Station",
+        desc: "Board the Saraighat Express (12345) from Howrah Station at 4:05 PM for Guwahati. Overnight train journey.",
+        spots: ["Howrah Station", "Saraighat Express"],
+        meals: "Train journey — own arrangement"
+      },
+      {
+        day: 2,
+        title: "Arrive Guwahati & Temple Sightseeing",
+        desc: "Arrive at Guwahati Station at 9:40 AM. Check in to hotel. Visit holy Kamakhya Temple, Umananda Temple (river island), Bhubaneswari Temple, Basistha Ashram, Nehru Park, and Assam State Museum. Overnight in Guwahati.",
+        spots: ["Kamakhya Temple", "Umananda Temple", "Basistha Ashram", "Guwahati"],
+        meals: "Lunch & Dinner Included"
+      },
+      {
+        day: 3,
+        title: "Guwahati to Shillong via Umiam Lake",
+        desc: "After breakfast, drive to Shillong. En route visit famous Umiam Lake (Barapani). Check in to hotel at Shillong. Overnight in Shillong.",
+        spots: ["Umiam Lake", "Shillong"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 4,
+        title: "Dawki River, Living Root Bridge & Mawlynnong",
+        desc: "Early breakfast and drive to Canyon Valley view point, crystal clear Dawki River (Umngot), Borhill Falls, Living Root Bridge, and Mawlynnong Village (Cleanest Village in Asia). Return to Shillong for overnight stay.",
+        spots: ["Dawki River", "Living Root Bridge", "Borhill Falls", "Mawlynnong Village"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 5,
+        title: "Cherrapunji Waterfalls, Mawsmai Cave & Eco Park",
+        desc: "Visit Mawkdok Dympep Valley, Thangkharang Park, Seven Sisters Waterfalls, Mawsmai Cave, Cherrapunji Eco Park, and Nohkalikai Falls. Return to Shillong for overnight stay.",
+        spots: ["Nohkalikai Falls", "Seven Sisters Falls", "Mawsmai Cave", "Eco Park"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 6,
+        title: "Shillong Local Sightseeing",
+        desc: "Explore Wards Lake, Lady Hydari Park, Cathedral of Mary, State Museum, Golf Course, Elephant Falls, and Shillong Peak. Overnight in Shillong.",
+        spots: ["Wards Lake", "Elephant Falls", "Shillong Peak", "Golf Course"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 7,
+        title: "Shopping & Night Train from Guwahati",
+        desc: "Morning shopping in Shillong. After lunch, drive to Guwahati Station to board return night train for Kolkata.",
+        spots: ["Police Bazar", "Guwahati Station"],
+        meals: "Breakfast & Lunch Included"
+      },
+      {
+        day: 8,
+        title: "Arrival at Howrah Station",
+        desc: "Arrive at Howrah Railway Station. Tour concludes.",
+        spots: ["Howrah Station"],
+        meals: "Tour Concludes"
+      }
     ],
-    bookingProcess: [{ step: 1, title: "Inquire Date", desc: "Send dates & fitness level info." }, { step: 2, title: "Itinerary Plan", desc: "Tailored eco-tour outline." }, { step: 3, title: "Book", desc: "Pay deposit to secure homestays." }],
-    importantNotes: ["Good trekking shoes mandatory for root bridge trek", "Raincoats recommended year-round"]
+    bookingProcess: [
+      { step: 1, title: "Inquire Now", desc: "Contact us via WhatsApp / Phone to check December slots." },
+      { step: 2, title: "Reserve Ticket", desc: "Provide IDs for train ticket reservation." },
+      { step: 3, title: "Get Vouchers", desc: "Receive trip confirmation." }
+    ],
+    importantNotes: [
+      "Child Policy: 1–4 years Free; 5–7 years 50% charge; 7+ years Full charge.",
+      "Good walking shoes recommended for root bridge and cave visits."
+    ]
   },
   {
     id: "pkg-8",
-    title: "Ooty & Kodaikanal Hills",
-    destination: "Tamil Nadu, India",
-    duration: "4 Nights / 5 Days",
-    price: "₹13,500",
+    title: "Arunachal & Kaziranga Snowfall Expedition",
+    destination: "Arunachal Pradesh & Assam, India",
+    duration: "8 Nights / 9 Days",
+    price: "₹18,990",
     image: "/images/tour-8.png",
-    shortDescription: "Escape to the Nilgiri hills with tea estates, Nilgiri Mountain Railway, and pine forests.",
+    shortDescription: "8N/9D magical winter trip (Nov–March, snowfall Dec–Feb) covering Bhalukpong, Dirang, Sela Pass & Lake (13,700 ft), Tawang Monastery, Bumla Pass (15,200 ft), Madhuri Lake, Nuranang Falls, Bomdila, and Kaziranga National Park.",
     featured: true,
-    rating: 4.7,
-    reviewsCount: 76,
-    nextDate: "22 Aug",
+    rating: 4.9,
+    reviewsCount: 112,
+    nextDate: "Nov–March",
+    stayBreakdown: "Bhalukpong (2N) | Tawang (2N) | Bomdila (1N) | Kaziranga (1N) | Train (2N)",
     seasonalPricing: {
-      January: 14500, February: 14500, March: 13000, April: 12000,
-      May: 11500, June: 11000, July: 11000, August: 11500,
-      September: 13000, October: 14000, November: 14500, December: 15000
+      January: 18990, February: 18990, March: 18990, April: 18990,
+      May: 18990, June: 18990, July: 18990, August: 18990,
+      September: 18990, October: 18990, November: 18990, December: 18990
     },
-    pricingNote: "Cool climate year-round. Jul–Aug best for misty hills.",
+    pricingNote: "Rate: ₹18,990/- (Triple Share) | ₹19,990/- (Double Share). Peak snowfall period: December to February.",
     gallery: [
       "/images/tour-8.png",
       "/images/tour-12.png",
       "/images/hero_darjeeling_1783678472536.png"
     ],
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    highlights: ["Nilgiri Toy Train Ride (Coonoor to Ooty)", "Botanical Gardens & Ooty Lake boating", "Kodaikanal Pillar Rocks & Coaker's Walk", "Pine Forest & Silver Cascade Waterfall"],
-    transport: { mode: "Train to Coimbatore (CBE) / Flight to Coimbatore", pickup: "Coimbatore Airport / Railway Station", vehicle: "Private AC Sedan / Ertiga", details: "Smooth hill road transfers." },
-    accommodation: { category: "3-Star Deluxe Hill Resorts", description: "2 Nights Ooty + 2 Nights Kodaikanal", meals: "Breakfast & Dinner", features: ["Valley View Rooms", "Heaters on request"] },
-    pricingDetails: { perHead: "₹13,500 / person", originalPrice: "₹16,000", inclusions: ["4 Nights Hotel Stay", "Breakfast & Dinner", "Private Transport", "Toll & Taxes"], exclusions: ["Toy train tickets", "Boating charges"] },
-    itinerary: [
-      { day: 1, title: "Coimbatore to Ooty", desc: "Scenic drive up Nilgiri hills. Visit Ooty Lake & Botanical Garden.", spots: ["Ooty Lake", "Botanical Garden"], meals: "Dinner" },
-      { day: 2, title: "Ooty & Coonoor Excursion", desc: "Doddabetta Peak, Tea Factory, and Toy Train ride to Coonoor.", spots: ["Doddabetta Peak", "Tea Factory", "Coonoor"], meals: "Breakfast & Dinner" },
-      { day: 3, title: "Ooty to Kodaikanal Transfer", desc: "Drive to Princess of Hill Stations. Evening walk around Kodai Lake.", spots: ["Kodai Lake"], meals: "Breakfast & Dinner" },
-      { day: 4, title: "Kodaikanal Sightseeing", desc: "Pillar Rocks, Coaker's Walk, Pine Forest, and Green Valley View.", spots: ["Pillar Rocks", "Pine Forest", "Coaker's Walk"], meals: "Breakfast & Dinner" },
-      { day: 5, title: "Departure", desc: "Drop off at Coimbatore Airport/Station.", spots: ["Coimbatore Airport"], meals: "Breakfast" }
+    highlights: [
+      "Optimal Season: November to March (Magical Snowfall from Dec to Feb)",
+      "Roundtrip Sleeper Class Train from Howrah to Guwahati",
+      "Bhalukpong, Dirang (Orchid Research Centre, Mandala Top, LDL Monastery)",
+      "High-altitude Sela Pass (13,700 ft) & frozen bluish Sela Lake",
+      "Tawang: War Memorial, 2nd Largest Buddhist Monastery in the World & Giant Buddha",
+      "Bumla Pass (15,200 ft - Indo-China border) by local union vehicle",
+      "Picturesque Madhuri Lake (Sangetsar Tso) & Nuranang Falls (Koyla movie shoot)",
+      "Bomdila Buddhist Monastery & Kaziranga National Park",
+      "All meals from Day 2 Lunch to Day 8 Dinner (Fish, Chicken, Egg, Biryani, Fried Rice, Chilli Chicken)"
     ],
-    bookingProcess: [{ step: 1, title: "Submit Form", desc: "Choose travel dates." }, { step: 2, title: "Confirm Car", desc: "Select car size." }, { step: 3, title: "Get Voucher", desc: "Instant confirmation." }],
-    importantNotes: ["Heavy woolens needed in winter months", "Advance toy train booking recommended"]
+    transport: {
+      mode: "Sleeper Class Train + Dedicated Mountain Vehicle + Local Union Bumla Cab",
+      pickup: "Howrah Railway Station",
+      vehicle: "Dedicated Mountain Vehicle + Local Union vehicle for Bumla Pass",
+      details: "Complete rail and high-altitude transport provided."
+    },
+    accommodation: {
+      category: "Standard Hotel",
+      description: "Standard clean rooms (Family / 3 Sharing basis)",
+      meals: "2x Tea/Biscuits daily, Breakfast, Lunch & Dinner from Day 2 lunch to Day 8 dinner",
+      features: ["Clean Bedding", "Geyser Hot Water", "In-house Dining"]
+    },
+    pricingDetails: {
+      perHead: "₹18,990 / person (Triple Share) | ₹19,990 / person (Double Share)",
+      inclusions: [
+        "Sleeper Class Train from Howrah to Guwahati & return",
+        "Local Union vehicle for Bumla Pass",
+        "Standard Room Accommodation (Family / 3 Sharing)",
+        "All meals from Day 2 Lunch to Day 8 Dinner",
+        "Dedicated mountain vehicle for the circuit"
+      ],
+      exclusions: [
+        "Kaziranga National Park safari charges (at own cost)",
+        "Entry tickets, ropeway, horse riding, and activities",
+        "Meals during train journey"
+      ]
+    },
+    itinerary: [
+      {
+        day: 1,
+        title: "Departure from Howrah Station",
+        desc: "Board the train at 3:00 PM from Howrah Station for Guwahati. Overnight train journey.",
+        spots: ["Howrah Station"],
+        meals: "Train journey — own arrangement"
+      },
+      {
+        day: 2,
+        title: "Guwahati to Bhalukpong (260 km)",
+        desc: "Arrive in Guwahati, drive to charming hillside village Bhalukpong surrounded by lush greenery and misty hills. Overnight in Bhalukpong.",
+        spots: ["Guwahati", "Bhalukpong"],
+        meals: "Lunch & Dinner Included"
+      },
+      {
+        day: 3,
+        title: "Bhalukpong to Dirang (93 km)",
+        desc: "Visit Orchid Research Centre, Mandala Top, and LDL Buddhist Monastery en route to Dirang. Overnight in Bhalukpong / Dirang area.",
+        spots: ["Orchid Centre", "Mandala Top", "Dirang Monastery"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 4,
+        title: "Dirang to Tawang via Sela Pass & Sela Lake (130 km)",
+        desc: "Adventure day! Cross Jung Waterfalls, snow-covered Sela Pass, and the frozen bluish Sela Lake (13,700 ft). Reach Tawang, visit War Memorial, 2nd largest Monastery in the world, and giant Buddha. Overnight in Tawang.",
+        spots: ["Jung Falls", "Sela Pass (13,700 ft)", "Sela Lake", "Tawang Monastery", "War Memorial"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 5,
+        title: "Tawang to Bumla Pass (15,200 ft), Madhuri Lake & Nuranang Falls",
+        desc: "Thrilling drive by local union cab to Bumla Pass at Indo-China border (15,200 ft), postcard-perfect Madhuri Lake, and the famous Nuranang Falls. Overnight in Tawang/Nuranang.",
+        spots: ["Bumla Pass", "Madhuri Lake", "Nuranang Falls"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 6,
+        title: "Tawang to Bomdila (140 km)",
+        desc: "Scenic drive to Bomdila. Visit peaceful Bomdila Buddhist Monastery with fluttering prayer flags. Overnight in Bomdila.",
+        spots: ["Bomdila Monastery", "Bomdila Viewpoint"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 7,
+        title: "Bomdila to Kaziranga (183 km)",
+        desc: "Scenic drive from Bomdila to Kaziranga. Check in to hotel. Overnight in Kaziranga.",
+        spots: ["Kaziranga Valley"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 8,
+        title: "Kaziranga Safari & Night Train from Guwahati",
+        desc: "Morning Kaziranga National Park safari (own cost). After lunch, drive to Guwahati Station and board night train for Kolkata.",
+        spots: ["Kaziranga National Park", "Guwahati Station"],
+        meals: "Breakfast, Lunch & Dinner Included"
+      },
+      {
+        day: 9,
+        title: "Arrival at Howrah Station",
+        desc: "Arrive at Howrah Station with unforgettable memories of snow-clad mountains and frozen lakes.",
+        spots: ["Howrah Station"],
+        meals: "Tour Concludes"
+      }
+    ],
+    bookingProcess: [
+      { step: 1, title: "Reserve Early", desc: "Contact via Phone / WhatsApp to book Arunachal winter slot." },
+      { step: 2, title: "ILP Permits", desc: "Submit photo ID for Inner Line Permit processing." },
+      { step: 3, title: "Confirm Travel", desc: "Receive booking confirmation." }
+    ],
+    importantNotes: [
+      "Child Policy: 5–7 years 50% charge; 7+ years Full charge.",
+      "Heavy woolens and gloves essential for Sela Pass and Bumla Pass."
+    ]
   },
   {
     id: "pkg-9",
-    title: "Golden Triangle Tour",
-    destination: "Delhi-Agra-Jaipur",
-    duration: "5 Nights / 6 Days",
-    price: "₹19,000",
+    title: "Haridwar – Mussoorie – Dehradun Tour",
+    destination: "Uttarakhand, India",
+    duration: "7 Nights / 8 Days",
+    price: "₹7,990",
     image: "/images/tour-9.png",
-    shortDescription: "The classic India experience — visit the iconic Taj Mahal, Amber Fort, and Red Fort.",
+    shortDescription: "7N/8D spiritual and hill holiday (Howrah to Howrah, 15 Nov departure) covering Haridwar Ganga Aarti, Mansa Devi, Chandi Devi, Rishikesh, Triveni Sangam, Laxman Jhula, Dehradun, and Mussoorie. \"হর হর মহাদেব...\"",
     featured: true,
     rating: 4.8,
     reviewsCount: 130,
+    nextDate: "15 Nov",
+    stayBreakdown: "Haridwar (3N) | On Train (4N)",
     seasonalPricing: {
-      January: 21000, February: 21000, March: 20000, April: 18000,
-      May: 17000, June: 16500, July: 16500, August: 17000,
-      September: 18500, October: 21000, November: 22000, December: 23000
+      January: 7990, February: 7990, March: 7990, April: 7990,
+      May: 7990, June: 7990, July: 7990, August: 7990,
+      September: 7990, October: 7990, November: 7990, December: 7990
     },
-    pricingNote: "Taj Mahal is closed on Fridays. Best Oct–Mar.",
+    pricingNote: "Departure Date: 15th November. Rate: ₹7,990 (Triple Share) | ₹8,500 (Double Share).",
     gallery: [
       "/images/tour-9.png",
       "/images/tour-4.png",
       "/images/tour-11.png"
     ],
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    highlights: ["Sunrise tour of Taj Mahal in Agra", "Agra Fort & Fatehpur Sikri UNESCO sites", "Amber Fort & City Palace in Jaipur", "Qutub Minar & India Gate in Delhi"],
-    transport: { mode: "Flight / Train to Delhi (DEL)", pickup: "Delhi Airport / Railway Station", vehicle: "Private AC Dzire / Etios / Innova", details: "Express highway connectivity with experienced driver." },
-    accommodation: { category: "4-Star City Hotels", description: "1N Delhi + 1N Agra + 3N Jaipur", meals: "Breakfast Included Daily", features: ["Wi-Fi", "AC Rooms", "Central Location"] },
-    pricingDetails: { perHead: "₹19,000 / person", originalPrice: "₹23,000", inclusions: ["5 Nights Accommodation", "Daily Breakfast", "AC Private Car", "Interstate Tolls & Taxes"], exclusions: ["Taj Mahal & Monument entry fees", "Tour Guide tips"] },
-    itinerary: [
-      { day: 1, title: "Arrival Delhi Sightseeing", desc: "Qutub Minar, Lotus Temple, India Gate & Parliament House.", spots: ["Qutub Minar", "India Gate"], meals: "Welcome Drink" },
-      { day: 2, title: "Delhi to Agra Transfer", desc: "Yamuna Expressway drive. Visit Agra Fort & Mehtab Bagh at sunset.", spots: ["Agra Fort", "Mehtab Bagh"], meals: "Breakfast" },
-      { day: 3, title: "Taj Mahal Sunrise to Jaipur", desc: "Sunrise at Taj Mahal. En route visit Fatehpur Sikri.", spots: ["Taj Mahal", "Fatehpur Sikri"], meals: "Breakfast" },
-      { day: 4, title: "Jaipur Heritage Tour", desc: "Amber Fort, Jal Mahal, Hawa Mahal & Jantar Mantar.", spots: ["Amber Fort", "Hawa Mahal"], meals: "Breakfast" },
-      { day: 5, title: "Jaipur Bazaars & Forts", desc: "Jaigarh Fort & Johari Bazaar shopping.", spots: ["Johari Bazaar"], meals: "Breakfast" },
-      { day: 6, title: "Jaipur to Delhi Departure", desc: "Drive back to Delhi Airport.", spots: ["Delhi Airport"], meals: "Breakfast" }
+    highlights: [
+      "Spiritual Chant: \"হর হর মহাদেব...\"",
+      "Fixed Departure: 15th November (Howrah to Howrah)",
+      "Haridwar: Har Ki Pauri, Mansa Devi Temple, Chandi Devi Temple, Kankhal & evening Ganga Aarti",
+      "Rishikesh: Triveni Sangam, Laxman Jhula, Ram Jhula & Neelkanth Mahadev (if possible)",
+      "Dehradun & Queen of Hills Mussoorie Sightseeing",
+      "Roundtrip Sleeper Class Train Tickets Included",
+      "Non-AC Vehicle for all days & all sightseeing",
+      "All meals from Day 1 Lunch to Day 6 Dinner Included",
+      "Experienced Tour Manager & Driver"
     ],
-    bookingProcess: [{ step: 1, title: "Inquire", desc: "Provide headcount & dates." }, { step: 2, title: "Customization", desc: "Add guide or luxury hotel options." }, { step: 3, title: "Confirmation", desc: "Voucher dispatched." }],
-    importantNotes: ["Taj Mahal is closed on Fridays", "Carry valid photo ID for monument entry"]
+    transport: {
+      mode: "Sleeper Class Train (Howrah - Haridwar & Haridwar - Howrah) + Non-AC Tourist Vehicle",
+      pickup: "Howrah Railway Station",
+      vehicle: "Non-AC Tourist Vehicle for all sightseeing transfers",
+      details: "Roundtrip sleeper train and private coach throughout."
+    },
+    accommodation: {
+      category: "Standard Good Service Hotel",
+      description: "Family non-AC rooms in good service hotel at Haridwar (3 Nights)",
+      meals: "All meals included from Day 1 Lunch to Day 6 Dinner",
+      features: ["Clean Rooms", "Attached Bath with Hot Water", "Good Service", "Experienced Manager"]
+    },
+    pricingDetails: {
+      perHead: "₹7,990 / person (Triple Share) | ₹8,500 / person (Double Share)",
+      inclusions: [
+        "Roundtrip Sleeper Class Train Tickets",
+        "Family non-AC rooms in good service hotel",
+        "All meals from Day 1 Lunch to Day 6 Dinner",
+        "Non-AC Vehicle from Day 1 to Day 6",
+        "All sightseeing as per plan",
+        "Tour conducted by experienced manager/driver"
+      ],
+      exclusions: [
+        "Meals during train journey",
+        "Rides, entry fees, and room heater",
+        "Mineral water, extra food/drinks",
+        "Puja offerings, personal expenses, and extra points"
+      ]
+    },
+    itinerary: [
+      {
+        day: 1,
+        title: "Departure from Howrah Station",
+        desc: "Meet at Howrah Station at scheduled time, complete introductions, and board our train for Haridwar. Overnight train journey.",
+        spots: ["Howrah Station"],
+        meals: "Train journey — own arrangement"
+      },
+      {
+        day: 2,
+        title: "Full Day & Night Train Journey",
+        desc: "Full day and night in train with pleasant group conversations and scenic window views.",
+        spots: ["Train Journey"],
+        meals: "Train journey — own arrangement"
+      },
+      {
+        day: 3,
+        title: "Arrive Haridwar, Mansa Devi, Chandi Devi & Ganga Aarti",
+        desc: "Morning arrival at Haridwar Station. Transfer to hotel. Visit Ganga Ghats, Mansa Devi Temple, Chandi Devi Temple, and witness the captivating evening Ganga Aarti at Har Ki Pauri. Overnight in Haridwar.",
+        spots: ["Haridwar Station", "Har Ki Pauri", "Mansa Devi Temple", "Chandi Devi Temple", "Ganga Aarti"],
+        meals: "Lunch & Dinner Included"
+      },
+      {
+        day: 4,
+        title: "Haridwar to Rishikesh Excursion",
+        desc: "Full day excursion to Rishikesh: Triveni Sangam, Laxman Jhula, Ram Jhula, and Neelkanth Mahadev (if feasible). Return to Haridwar for overnight stay.",
+        spots: ["Rishikesh", "Triveni Sangam", "Laxman Jhula", "Ram Jhula"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 5,
+        title: "Dehradun & Mussoorie Excursion",
+        desc: "Full day sightseeing excursion to Dehradun and Queen of Hills Mussoorie. Return to Haridwar for overnight stay.",
+        spots: ["Dehradun", "Mussoorie Mall Road", "Kempty View"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 6,
+        title: "Haridwar Shopping & Return Train",
+        desc: "Spend the morning at leisure for local shopping and holy souvenirs. After dinner, board return train from Haridwar Station.",
+        spots: ["Haridwar Market", "Haridwar Station"],
+        meals: "Breakfast, Lunch & Dinner Included"
+      },
+      {
+        day: 7,
+        title: "Full Day Train Journey",
+        desc: "Full day relaxing and chatting on board the train journey.",
+        spots: ["Train Journey"],
+        meals: "Train journey — own arrangement"
+      },
+      {
+        day: 8,
+        title: "Arrival at Howrah Station",
+        desc: "Morning arrival at Howrah Station with sweet memories. Tour concludes.",
+        spots: ["Howrah Station"],
+        meals: "Tour Concludes"
+      }
+    ],
+    bookingProcess: [
+      { step: 1, title: "Book Seat", desc: "Contact via Phone / WhatsApp to register for 15th November departure." },
+      { step: 2, title: "Ticket Allocation", desc: "Train tickets and hotel room allocated." },
+      { step: 3, title: "Confirmation", desc: "Receive voucher and trip guidelines." }
+    ],
+    importantNotes: [
+      "Child Policy: Below 5 years Free; 5–7 years ₹4,000 (without train ticket); Above 7 years Full charge.",
+      "Custom tour plans also available on request."
+    ]
   },
   {
     id: "pkg-10",
-    title: "Leh Ladakh Expedition",
-    destination: "Ladakh, India",
-    duration: "7 Nights / 8 Days",
-    price: "₹28,000",
+    title: "Char Dham & Do Dham Yatra",
+    destination: "Uttarakhand Himalayas, India",
+    duration: "14 Nights / 15 Days",
+    price: "₹27,500",
     image: "/images/tour-10.png",
-    shortDescription: "Conquer the land of high passes with dramatic mountain landscapes, monasteries, and Pangong Lake.",
+    shortDescription: "Sacred Himalayan pilgrimage (3 June / 1 Sept 2026 for Char Dham 14N/15D; 12 Sept 2026 for Do Dham 12N/13D) covering Yamunotri, Gangotri, Kedarnath (16km trek), Badrinath, Mana Village, and Rishikesh. \"হর হর মহাদেব...\"",
     featured: true,
     rating: 4.9,
     reviewsCount: 155,
+    nextDate: "03 Jun / 01 Sep",
+    stayBreakdown: "Haridwar (2N) | Barkot (2N) | Uttarkashi (2N) | Guptkashi (2N) | Kedarnath (1N) | Badrinath (1N) | Pipalkoti (1N) | Train (4N)",
     seasonalPricing: {
       January: 0, February: 0, March: 0, April: 0,
-      May: 28000, June: 30000, July: 32000, August: 32000,
-      September: 30000, October: 28000, November: 0, December: 0
+      May: 27500, June: 27500, July: 0, August: 0,
+      September: 27500, October: 27500, November: 0, December: 0
     },
-    pricingNote: "Open only May–October. Road closed in winter.",
+    pricingNote: "Char Dham (14N/15D): ₹27,500 (Triple) | ₹28,000 (Double). Do Dham (12N/13D): ₹20,499 (Triple) | ₹20,999 (Double). Token: ₹3,000.",
     gallery: [
       "/images/tour-10.png",
       "/images/tour-13.png",
       "/images/hero_kashmir_1783678442997.png"
     ],
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    highlights: ["Drive through Khardung La (World's highest motorable road)", "Overnight camp stay at Pangong Tso Lake", "Nubra Valley Bactrian Camel ride on sand dunes", "Magnetic Hill & Sangam (Confluence of Zanskar & Indus)"],
-    transport: { mode: "Flight to Leh (IXL)", pickup: "Kushok Bakula Rimpochee Airport, Leh", vehicle: "Dedicated Non-AC Xylo / Scorpio (Local Ladakh Taxi Union)", details: "Highland experienced local driver." },
-    accommodation: { category: "Deluxe Hotels & Luxury Lake Camps", description: "4N Leh + 2N Nubra Valley + 1N Pangong Tso Camp", meals: "Breakfast & Dinner daily", features: ["Oxygen Cylinders available", "Warm Bedding", "Hot Water"] },
-    pricingDetails: { perHead: "₹28,000 / person", originalPrice: "₹34,000", inclusions: ["7 Nights Stay", "Breakfast & Dinner", "Inner Line Permits & Wildlife Fee", "Airport Pick & Drop", "Oxygen Cylinder in vehicle"], exclusions: ["Airfare to Leh", "Camel ride & Quad biking charges"] },
-    itinerary: [
-      { day: 1, title: "Arrival in Leh & Acclimatization", desc: "Mandatory rest day in Leh to adjust to high altitude (11,500 ft).", spots: ["Leh Main Market"], meals: "Dinner" },
-      { day: 2, title: "Leh Local Monasteries & Hall of Fame", desc: "Visit Shey Palace, Thiksey Monastery, and Hall of Fame.", spots: ["Thiksey Monastery", "Hall of Fame"], meals: "Breakfast & Dinner" },
-      { day: 3, title: "Leh to Nubra Valley via Khardung La", desc: "Cross Khardung La pass (17,582 ft). Double-humped camel ride in Hunder.", spots: ["Khardung La", "Diskit Monastery", "Hunder Dunes"], meals: "Breakfast & Dinner" },
-      { day: 4, title: "Nubra Valley to Turtuk Village", desc: "Excursion to India's northernmost village near LOC.", spots: ["Turtuk Village"], meals: "Breakfast & Dinner" },
-      { day: 5, title: "Nubra to Pangong Tso Lake", desc: "Drive along Shayok river to color-changing Pangong Tso Lake.", spots: ["Pangong Lake"], meals: "Breakfast & Dinner" },
-      { day: 6, title: "Pangong Lake to Leh via Chang La", desc: "Sunrise over Pangong. Return to Leh over Chang La pass.", spots: ["Chang La Pass", "Leh"], meals: "Breakfast & Dinner" },
-      { day: 7, title: "Sham Valley & Magnetic Hill", desc: "Magnetic Hill, Gurudwara Pathar Sahib & Sangam confluence.", spots: ["Magnetic Hill", "Sangam"], meals: "Breakfast & Dinner" },
-      { day: 8, title: "Departure Leh", desc: "Early drop off at Leh Airport.", spots: ["Leh Airport"], meals: "Breakfast" }
+    highlights: [
+      "Sacred Invocation: \"হর হর মহাদেব...\"",
+      "Char Dham Dates: 03 June – 18 June 2026 & 01 September – 16 September 2026",
+      "Do Dham Dates (Kedarnath & Badrinath): 12 September – 23 September 2026",
+      "Yamunotri Temple & Surya Kund Hot Sulfur Springs",
+      "Gangotri Temple, Bhagirathi Shila & holy Bhagirathi River",
+      "Kedarnath Jyotirlinga Temple & Adi Shankaracharya Samadhi (16 km trek)",
+      "Badrinath Temple Puja & Mana Village (Last Village of India)",
+      "Devprayag (Alaknanda & Bhagirathi Sangam), Rishikesh (Laxman & Ram Jhula), Haridwar",
+      "Non-AC Train Tickets (Doon Express from Howrah) + Luxury Bus / Traveler",
+      "Complete Bengali Meals (Bed Tea, Breakfast, Lunch, Dinner)"
     ],
-    bookingProcess: [{ step: 1, title: "Medical Check & Submit", desc: "Check fitness & send dates." }, { step: 2, title: "Permit Application", desc: "We apply for Ladakh ILP." }, { step: 3, title: "Fly to Leh!", desc: "Receive voucher & oxygen kit info." }],
-    importantNotes: ["Mandatory 24hr acclimatization upon landing in Leh", "Postpaid BSNL / Airtel work best"]
+    transport: {
+      mode: "Non-AC Train (Doon Express from Howrah) + Traveler / Luxury Bus",
+      pickup: "Howrah Railway Station",
+      vehicle: "Force Traveler / Luxury Bus for mountain yatra circuit",
+      details: "Roundtrip train tickets from Howrah and dedicated mountain bus/traveler."
+    },
+    accommodation: {
+      category: "Deluxe Hotels",
+      description: "Deluxe hotel accommodation across Haridwar, Barkot, Uttarkashi, Guptkashi, Kedarnath, Badrinath, Pipalkoti",
+      meals: "Complete Bengali meals: Bed Tea, Breakfast, Lunch, Dinner and return dinner from Haridwar",
+      features: ["Comfortable Clean Rooms", "Hot Water Facility", "Dedicated Bengali Cooking/Food", "Tour Manager"]
+    },
+    pricingDetails: {
+      perHead: "Char Dham: ₹27,500 (Triple) / ₹28,000 (Double) | Do Dham: ₹20,499 (Triple) / ₹20,999 (Double)",
+      inclusions: [
+        "Non-AC Train Tickets (Doon Express from Howrah)",
+        "Deluxe Hotel Accommodation (Family basis)",
+        "Traveler / Luxury Bus for all yatra transfers",
+        "Complete Bengali meals (Bed tea, breakfast, lunch, dinner)",
+        "Dinner on return day from Haridwar",
+        "Tour management and coordination"
+      ],
+      exclusions: [
+        "Train meals and packaged mineral water",
+        "Entry fees at monuments/temples",
+        "Helicopter, pony, doli, palki, pithu charges for Kedarnath trek",
+        "Porter charges and personal expenses",
+        "Kedarnath registration broker fee (₹150/head if required)"
+      ]
+    },
+    itinerary: [
+      {
+        day: 1,
+        title: "Departure from Howrah via Doon Express",
+        desc: "Board the Doon Express from Howrah at 8:25 PM. Overnight train journey.",
+        spots: ["Howrah Station", "Doon Express"],
+        meals: "Train journey — own arrangement"
+      },
+      {
+        day: 2,
+        title: "Full Day & Night Train Journey",
+        desc: "Full day on train traveling towards Uttarakhand.",
+        spots: ["Train Journey"],
+        meals: "Train journey — own arrangement"
+      },
+      {
+        day: 3,
+        title: "Arrive Haridwar & Local Sightseeing",
+        desc: "Morning arrival at Haridwar. Check in to hotel. After lunch, local sightseeing and Ganga Aarti. Overnight in Haridwar.",
+        spots: ["Haridwar", "Har Ki Pauri"],
+        meals: "Lunch & Dinner Included"
+      },
+      {
+        day: 4,
+        title: "Haridwar to Barkot",
+        desc: "Scenic mountain drive from Haridwar to Barkot. Check in to hotel. Overnight in Barkot.",
+        spots: ["Barkot"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 5,
+        title: "Barkot – Yamunotri – Barkot Yatra",
+        desc: "Early morning yatra to Yamunotri Temple and sacred hot sulfur springs. Perform puja and return to Barkot. Overnight in Barkot.",
+        spots: ["Yamunotri Temple", "Surya Kund", "Barkot"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 6,
+        title: "Barkot to Uttarkashi & Kashi Vishwanath Temple",
+        desc: "Drive from Barkot to Uttarkashi. Evening visit to ancient Kashi Vishwanath Temple. Overnight in Uttarkashi.",
+        spots: ["Uttarkashi", "Kashi Vishwanath Temple"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 7,
+        title: "Uttarkashi – Gangotri – Uttarkashi Yatra",
+        desc: "Excursion to sacred Gangotri Temple, Bhagirathi Shila, and holy Bhagirathi River. Return to Uttarkashi for overnight stay.",
+        spots: ["Gangotri Temple", "Bhagirathi Shila", "Uttarkashi"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 8,
+        title: "Uttarkashi to Guptkashi",
+        desc: "Drive through scenic mountain valleys from Uttarkashi to Guptkashi. Overnight in Guptkashi.",
+        spots: ["Guptkashi"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 9,
+        title: "Guptkashi to Kedarnath Temple (16 km Trek)",
+        desc: "Drive to Gaurikund and commence the sacred 16 km trek to Kedarnath. Evening darshan of Kedarnath Jyotirlinga and Adi Shankaracharya Samadhi. Overnight in Kedarnath.",
+        spots: ["Gaurikund", "Kedarnath Temple", "Shankaracharya Samadhi"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 10,
+        title: "Kedarnath to Gaurikund to Guptkashi",
+        desc: "Morning puja at Kedarnath, trek down to Gaurikund, and drive back to Guptkashi by evening. Overnight in Guptkashi.",
+        spots: ["Kedarnath", "Gaurikund", "Guptkashi"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 11,
+        title: "Guptkashi to Badrinath",
+        desc: "Scenic drive from Guptkashi to Badrinath. Check in to hotel. Overnight in Badrinath.",
+        spots: ["Badrinath"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 12,
+        title: "Badrinath Puja, Mana Village to Pipalkoti",
+        desc: "Morning puja at Badrinath Temple. Visit Mana Village (the last village of India), Saraswati River, and drive to Pipalkoti. Overnight in Pipalkoti.",
+        spots: ["Badrinath Temple", "Mana Village", "Pipalkoti"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 13,
+        title: "Pipalkoti to Haridwar via Devprayag & Rishikesh",
+        desc: "Drive from Pipalkoti to Haridwar. En route witness Devprayag (Alaknanda & Bhagirathi confluence), Laxman Jhula and Ram Jhula in Rishikesh. Overnight in Haridwar.",
+        spots: ["Devprayag Sangam", "Rishikesh Laxman Jhula", "Haridwar"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 14,
+        title: "Board Return Train from Haridwar",
+        desc: "Board the Doon Express from Haridwar Station for Kolkata. Overnight train journey.",
+        spots: ["Haridwar Station"],
+        meals: "Dinner from Haridwar Included"
+      },
+      {
+        day: 15,
+        title: "Train Journey & Day 16 Arrival at Howrah",
+        desc: "Full day on train, reaching Howrah Station on Day 16 morning with the divine blessings of Char Dham.",
+        spots: ["Howrah Station"],
+        meals: "Tour Concludes"
+      }
+    ],
+    bookingProcess: [
+      { step: 1, title: "Token Registration", desc: "Book your seat with ₹3,000 advance token money and photo ID (30 seats max per batch)." },
+      { step: 2, title: "Train Ticket Opening", desc: "IRCTC train opening dates managed by our team." },
+      { step: 3, title: "Yatra WhatsApp Group", desc: "Join dedicated Yatra WhatsApp coordination group." }
+    ],
+    importantNotes: [
+      "Limited 30 seats per batch. Early registration recommended.",
+      "Valid Government Photo ID mandatory for Kedarnath biometric registration.",
+      "Warm thermals, walking stick, and comfortable trekking shoes required."
+    ]
   },
   {
     id: "pkg-11",
-    title: "Varanasi Spiritual Tour",
-    destination: "Varanasi, India",
-    duration: "3 Nights / 4 Days",
+    title: "Ayodhya – Varanasi – Kashi – Prayagraj Tour",
+    destination: "Uttar Pradesh, India",
+    duration: "6 Nights / 7 Days",
     price: "₹10,500",
     image: "/images/tour-11.png",
-    shortDescription: "Witness mystical Ganga Aarti, sunrise boat ride, and explore ancient temples in the world's oldest city.",
+    shortDescription: "6N/7D comprehensive spiritual tour (22 July – 28 July 2026) covering Varanasi 64 Ghats boat ride, Ganga Aarti, Kashi Vishwanath, Prayagraj Triveni Sangam holy bath, Vindhyachal, and Ayodhya Ram Janmabhoomi & Hanuman Garhi.",
     featured: false,
     rating: 4.8,
     reviewsCount: 64,
+    nextDate: "22 Jul 2026",
+    stayBreakdown: "Varanasi (3N) | Ayodhya (1N) | Train (2N)",
     seasonalPricing: {
-      January: 12000, February: 12000, March: 11000, April: 10000,
-      May: 9500, June: 9000, July: 9000, August: 9500,
-      September: 10500, October: 12000, November: 12500, December: 13000
+      January: 10500, February: 10500, March: 10500, April: 10500,
+      May: 10500, June: 10500, July: 10500, August: 10500,
+      September: 10500, October: 10500, November: 10500, December: 10500
     },
-    pricingNote: "Dev Deepawali festival in November is peak season.",
+    pricingNote: "Tour Dates: 22 July 2026 to 28 July 2026. Package Cost: ₹10,500/- per person.",
     gallery: [
       "/images/tour-11.png",
       "/images/tour-9.png",
       "/images/tour-4.png"
     ],
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    highlights: ["Evening Ganga Aarti at Dashashwamedh Ghat", "Sunrise wooden boat ride on River Ganges", "Kashi Vishwanath Temple Darshan", "Sarnath Excursion (Lord Buddha's First Sermon spot)"],
-    transport: { mode: "Train to Varanasi (BSB / DDU) / Flight to Varanasi (VNS)", pickup: "Varanasi Airport / Station", vehicle: "Private AC Car", details: "Easy ghat transfers." },
-    accommodation: { category: "3-Star Boutique Hotel near Ghats", description: "3 Nights Hotel Stay", meals: "Breakfast Included Daily", features: ["Pure Veg Restaurant", "24hr Power Backup"] },
-    pricingDetails: { perHead: "₹10,500 / person", originalPrice: "₹12,800", inclusions: ["3 Nights Hotel Stay", "Daily Breakfast", "Sunrise Boat Ride", "Sarnath Sightseeing", "Station Pick & Drop"], exclusions: ["Temple VIP darshan passes", "Personal offerings"] },
-    itinerary: [
-      { day: 1, title: "Arrival Varanasi & Evening Aarti", desc: "Check-in to hotel. Witness spectacular Dashashwamedh Ghat Ganga Aarti.", spots: ["Dashashwamedh Ghat"], meals: "Welcome Drink" },
-      { day: 2, title: "Sunrise Boat Ride & Temple Darshan", desc: "Early morning boat ride past Manikarnika & Assi Ghats. Visit Kashi Vishwanath & Annapurna Temple.", spots: ["Kashi Vishwanath", "Assi Ghat"], meals: "Breakfast" },
-      { day: 3, title: "Sarnath Excursion & BHU", desc: "Visit Sarnath stupas, museum, BHU campus & Sankat Mochan Temple.", spots: ["Sarnath Stupa", "BHU Vishwanath Temple"], meals: "Breakfast" },
-      { day: 4, title: "Departure", desc: "Shopping for Banarasi silk sarees and drop to station/airport.", spots: ["Varanasi Station / Airport"], meals: "Breakfast" }
+    highlights: [
+      "Travel Dates: 22 July 2026 to 28 July 2026",
+      "Roundtrip Sleeper Class Train from Kolkata (13151) / Asansol (13152)",
+      "Varanasi: 64 Ghats Boat Ride (Manikarnika to Assi), Evening Dashashwamedh Ganga Aarti",
+      "Kashi Vishwanath, Kal Bhairav, Vishalakshi, Annapurna Temple, Durga Mandir, Sarnath & Namo Ghat",
+      "Prayagraj: Holy Snan at Triveni Sangam & Vindhyachal Temple",
+      "Ayodhya: Saryu River Ghat, Lata Mangeshkar Chowk, Ram Ki Paidi Light & Sound Show, Nageshwar Nath",
+      "Ayodhya: Hanuman Garhi, Ram Janmabhoomi Temple, Raj Dwar, Dashrath Mahal & Kanak Bhawan",
+      "3-Time Bengali Vegetarian Meals Daily & Dedicated Tour Vehicle"
     ],
-    bookingProcess: [{ step: 1, title: "Book", desc: "Select dates." }, { step: 2, title: "Voucher", desc: "Get boat ride schedule & hotel voucher." }],
-    importantNotes: ["Dress modestly when visiting temples", "Boating depends on river water levels"]
+    transport: {
+      mode: "Sleeper Class Train (Kolkata-Jammu Tawi Exp 13151 / Kolkata Exp 13152) + Private Tourist Vehicle",
+      pickup: "Kolkata Railway Station / Asansol",
+      vehicle: "Private Tourist Vehicle for all sightseeing across Varanasi, Prayagraj and Ayodhya",
+      details: "Seamless rail tickets and private dedicated road coach with toll and parking included."
+    },
+    accommodation: {
+      category: "Standard Good Hotel",
+      description: "Family rooms in clean hotels across Varanasi (3N) and Ayodhya (1N)",
+      meals: "3 Vegetarian Bengali Meals Daily (Breakfast, Lunch, Dinner)",
+      features: ["Clean Rooms", "Attached Bath with Geyser", "Pure Vegetarian Meals", "Experienced Tour Manager"]
+    },
+    pricingDetails: {
+      perHead: "₹10,500 / person",
+      inclusions: [
+        "Sleeper Class Train Tickets (Kolkata/Asansol to Varanasi & Ayodhya to Kolkata)",
+        "Hotel accommodation with family rooms",
+        "Private vehicle for all sightseeing in Prayagraj, Varanasi & Ayodhya",
+        "3 Vegetarian Bengali meals daily (except during train travel)",
+        "Experienced Tour Manager, toll, parking, driver allowance"
+      ],
+      exclusions: [
+        "Entry fees at monuments and guide charges",
+        "Packaged mineral water and cold drinks",
+        "Camera and porter fees",
+        "Boat ride, Ganga Aarti charges, and local e-rickshaw / auto fares to ghats"
+      ]
+    },
+    itinerary: [
+      {
+        day: 1,
+        title: "Departure from Kolkata / Asansol",
+        desc: "Board the Kolkata-Jammu Tawi Express (13151) from Kolkata Station at 11:45 AM (or from Asansol at 3:05 PM). Overnight train journey.",
+        spots: ["Kolkata Station / Asansol", "Jammu Tawi Express"],
+        meals: "Train journey — own arrangement"
+      },
+      {
+        day: 2,
+        title: "Arrive Varanasi, 64 Ghats Boat Ride & Kashi Vishwanath",
+        desc: "Arrive in Varanasi at 3:00 AM, rest at hotel. After lunch, take a boat ride covering 64 ghats from Manikarnika to Assi Ghat and witness Ganga Aarti. Visit Kashi Vishwanath, Vishalakshi, and Annapurna temples. Overnight in Varanasi.",
+        spots: ["Varanasi Ghats", "Manikarnika to Assi Boat Ride", "Kashi Vishwanath", "Ganga Aarti"],
+        meals: "Lunch & Dinner Included"
+      },
+      {
+        day: 3,
+        title: "Early Morning Kal Bhairav & Temple Darshan",
+        desc: "Early morning darshan of Kal Bhairav and Kashi Vishwanath Temple. Rest and explore the ancient spiritual alleys of Varanasi. Overnight in Varanasi.",
+        spots: ["Kal Bhairav", "Kashi Vishwanath"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 4,
+        title: "Varanasi Local Sightseeing & Sarnath",
+        desc: "Visit Durga Temple, Tulsi Manas, Sankat Mochan, Birla Temple (BHU), Ramnagar Fort, historic Sarnath, and Namo Ghat. Overnight in Varanasi.",
+        spots: ["BHU Birla Temple", "Sankat Mochan", "Sarnath", "Namo Ghat"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 5,
+        title: "Varanasi to Prayagraj Sangam & Ayodhya",
+        desc: "Drive to Prayagraj at 6:00 AM. Take a holy dip at Triveni Sangam, visit Vindhyachal Temple, and proceed to Ayodhya. In the evening, visit Saryu River Ghat, Lata Mangeshkar Chowk, Ram Ki Paidi Light & Sound Show, and Nageshwar Nath Temple. Overnight in Ayodhya.",
+        spots: ["Triveni Sangam", "Vindhyachal", "Saryu River Ghat", "Ram Ki Paidi", "Lata Mangeshkar Chowk"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 6,
+        title: "Ayodhya Ram Mandir Darshan & Return Train",
+        desc: "Morning darshan of Hanuman Garhi, Ram Janmabhoomi Temple, Raj Dwar, Dashrath Mahal, and Kanak Bhawan. Board return train Kolkata Express (13152) at 7:56 PM.",
+        spots: ["Hanuman Garhi", "Ram Janmabhoomi Temple", "Kanak Bhawan", "Dashrath Mahal"],
+        meals: "Breakfast & Lunch Included"
+      },
+      {
+        day: 7,
+        title: "Arrival at Asansol & Kolkata",
+        desc: "Arrive at Asansol at 11:30 AM and Kolkata (Chitpur) Station at 3:40 PM. Tour concludes with divine blessings.",
+        spots: ["Asansol", "Kolkata Chitpur Station"],
+        meals: "Tour Concludes"
+      }
+    ],
+    bookingProcess: [
+      { step: 1, title: "Book July Slot", desc: "Contact via Phone / WhatsApp to register for 22nd July departure." },
+      { step: 2, title: "Train Reservation", desc: "Sleeper tickets and hotel rooms reserved." },
+      { step: 3, title: "Receive Confirmation", desc: "Get travel vouchers and itinerary." }
+    ],
+    importantNotes: [
+      "Pure vegetarian Bengali meals provided throughout.",
+      "Dress code: modest traditional attire recommended for temple entry."
+    ]
   },
   {
     id: "pkg-12",
-    title: "Coorg Coffee Trails",
-    destination: "Coorg, Karnataka",
-    duration: "3 Nights / 4 Days",
-    price: "₹11,000",
+    title: "Puri Seaside & Heritage Tour",
+    destination: "Odisha, India",
+    duration: "5 Nights / 6 Days",
+    price: "₹5,700",
     image: "/images/tour-12.png",
-    shortDescription: "Immerse yourself in lush coffee plantations, misty hills, and cascading waterfalls in the Scotland of India.",
+    shortDescription: "5N/6D complete beach and temple holiday (24 July departure) from Sodepur to Sodepur with included bus pickup/drop to Shalimar Station, Jagannath Temple, sea beach, Konark Sun Temple, Udayagiri, Khandagiri, Dhauli, and Nandankanan.",
     featured: false,
-    rating: 4.7,
-    reviewsCount: 52,
+    rating: 4.8,
+    reviewsCount: 95,
+    nextDate: "24 Jul",
+    stayBreakdown: "Puri (3N) | Train (2N)",
     seasonalPricing: {
-      January: 12000, February: 12000, March: 11500, April: 10500,
-      May: 10000, June: 10000, July: 10500, August: 11000,
-      September: 11500, October: 12000, November: 12500, December: 13000
+      January: 5700, February: 5700, March: 5700, April: 5700,
+      May: 5700, June: 5700, July: 5700, August: 5700,
+      September: 5700, October: 5700, November: 5700, December: 5700
     },
-    pricingNote: "Best visited Oct–Mar. Avoid heavy monsoon Jul–Aug.",
+    pricingNote: "Departure Date: 24th July. Package Cost: ₹5,700/- per person (Sodepur to Sodepur).",
     gallery: [
       "/images/tour-12.png",
       "/images/hero_kerala_1783678518411.png",
       "/images/tour-8.png"
     ],
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    highlights: ["Guided Walk through 50-acre Organic Coffee Estate", "Dubare Elephant Camp interaction & river rafting", "Abbey Waterfalls & Raja's Seat Sunset View", "Golden Temple Namdroling Monastery in Bylakuppe"],
-    transport: { mode: "Train / Flight to Mysore / Bengaluru", pickup: "Mysore / Bengaluru Airport or Station", vehicle: "Private AC Sedan", details: "Scenic drive through Western Ghats." },
-    accommodation: { category: "Luxury Plantation Resort / Estate Homestay", description: "3 Nights Plantation Resort", meals: "Breakfast & Plantation Style Dinner", features: ["Coffee Estate View", "Bonfire", "Authentic Kodava Cuisine"] },
-    pricingDetails: { perHead: "₹11,000 / person", originalPrice: "₹13,500", inclusions: ["3 Nights Plantation Resort Stay", "Breakfast & Dinner", "Coffee Estate Walk", "AC Car Transfers"], exclusions: ["Rafting fees", "Lunch"] },
-    itinerary: [
-      { day: 1, title: "Bengaluru/Mysore to Coorg", desc: "Drive to Madikeri. Visit Bylakuppe Golden Temple en route.", spots: ["Bylakuppe Tibetan Monastery"], meals: "Dinner" },
-      { day: 2, title: "Coorg Waterfalls & Sunset", desc: "Abbey Falls, Omkareshwara Temple, and Raja's Seat sunset view.", spots: ["Abbey Falls", "Raja's Seat"], meals: "Breakfast & Dinner" },
-      { day: 3, title: "Elephants & Coffee Estate Walk", desc: "Visit Dubare Elephant Camp and take guided coffee plantation walk.", spots: ["Dubare Elephant Camp", "Coffee Plantation"], meals: "Breakfast & Dinner" },
-      { day: 4, title: "Departure", desc: "Drive back to Mysore / Bengaluru.", spots: ["Bengaluru Airport"], meals: "Breakfast" }
+    highlights: [
+      "Travel Date: 24th July (Sodepur to Sodepur)",
+      "Included Bus Transfer from Sodepur to Shalimar Station & Return Drop to Sodepur",
+      "Sleeper Class Train Tickets (Jagannath Express 18409)",
+      "Puri Jagannath Temple Darshan & Puja, Sea Beach Bath & Stroll",
+      "Full Day Sightseeing: Udayagiri, Khandagiri, Dhauli Peace Pagoda, Konark Sun Temple & Nandankanan Zoo",
+      "All 4 Meals Daily from Day 2 Breakfast to Day 5 Dinner",
+      "Dedicated Sightseeing Vehicle on Day 2 & Day 4"
     ],
-    bookingProcess: [{ step: 1, title: "Inquire", desc: "Submit dates." }, { step: 2, title: "Confirm Homestay", desc: "Receive estate voucher." }],
-    importantNotes: ["Leech protection spray advised during monsoons", "Buy fresh coffee beans & spices direct from estate"]
+    transport: {
+      mode: "Bus Transfer (Sodepur - Shalimar - Sodepur) + Sleeper Train (Jagannath Exp 18409) + Sightseeing Car",
+      pickup: "Sodepur (Near Deshbandhu School)",
+      vehicle: "Bus for Shalimar transfers + Dedicated Tourist Coach for Odisha sightseeing",
+      details: "Complete door-to-door transit from Sodepur with all road and rail transfers."
+    },
+    accommodation: {
+      category: "Standard Clean Hotel",
+      description: "Standard clean hotel rooms in Puri (Family / 3 Sharing basis)",
+      meals: "All 4 meals daily from Day 2 Breakfast to Day 5 Dinner (Breakfast, Lunch, Evening Tea, Dinner)",
+      features: ["Clean Rooms", "Attached Bath with Hot Water", "Near Beach", "In-house Cooking"]
+    },
+    pricingDetails: {
+      perHead: "₹5,700 / person",
+      inclusions: [
+        "Bus transfer from Sodepur to Shalimar and Shalimar to Sodepur",
+        "Roundtrip Sleeper Class Train Tickets (Jagannath Express)",
+        "Standard Clean Hotel Accommodation in Puri (Family / 3 Sharing)",
+        "All 4 meals daily from Day 2 Breakfast to Day 5 Dinner",
+        "Dedicated vehicle for sightseeing on Day 2 and Day 4"
+      ],
+      exclusions: [
+        "Entry fees at monuments and Nandankanan Zoo",
+        "Puja expenses and panda/guide fees",
+        "Auto fares and personal shopping"
+      ]
+    },
+    itinerary: [
+      {
+        day: 1,
+        title: "Sodepur to Shalimar & Train to Puri",
+        desc: "Meet at Sodepur, board our bus transfer to Shalimar Station. Board the Jagannath Express (18409) at 6:55 PM for Puri. Overnight train journey.",
+        spots: ["Sodepur", "Shalimar Station", "Jagannath Express"],
+        meals: "Train journey — own arrangement"
+      },
+      {
+        day: 2,
+        title: "Arrive Puri, Hotel Check-in & Sea Beach",
+        desc: "Arrive at Puri in the morning. Check in to hotel, enjoy breakfast, and head to the sea beach for bathing. Afternoon local temple sightseeing by car. Overnight in Puri.",
+        spots: ["Puri Beach", "Local Temples"],
+        meals: "Breakfast, Lunch, Evening Tea & Dinner"
+      },
+      {
+        day: 3,
+        title: "Jagannath Temple Puja & Beach Relaxation",
+        desc: "Morning darshan and puja at sacred Jagannath Temple. Enjoy sea bathing, relax, and stroll along the lively Puri sea beach in the evening. Overnight in Puri.",
+        spots: ["Jagannath Temple", "Puri Sea Beach"],
+        meals: "Breakfast, Lunch, Evening Tea & Dinner"
+      },
+      {
+        day: 4,
+        title: "Konark Sun Temple, Dhauli, Udayagiri-Khandagiri & Nandankanan",
+        desc: "Early morning sightseeing tour: Udayagiri & Khandagiri Caves, Dhauli Peace Pagoda, world-famous Konark Sun Temple, and Nandankanan Zoological Park. Overnight in Puri.",
+        spots: ["Konark Sun Temple", "Dhauli Pagoda", "Udayagiri & Khandagiri", "Nandankanan Zoo"],
+        meals: "Breakfast, Lunch, Evening Tea & Dinner"
+      },
+      {
+        day: 5,
+        title: "Beach Leisure, Shopping & Return Train",
+        desc: "Spend the day relaxing by the sea, bathing, and shopping for handicrafts. After dinner, transfer to Puri Station to board return train to Shalimar.",
+        spots: ["Puri Beach Market", "Puri Station"],
+        meals: "Breakfast, Lunch, Evening Tea & Dinner Included"
+      },
+      {
+        day: 6,
+        title: "Arrive Shalimar & Bus Drop to Sodepur",
+        desc: "Arrive at Shalimar Station in the morning. Board our bus transfer back to Sodepur. Tour concludes.",
+        spots: ["Shalimar Station", "Sodepur"],
+        meals: "Tour Concludes"
+      }
+    ],
+    bookingProcess: [
+      { step: 1, title: "Book July Slot", desc: "Call 9830905332 / 9239458171 to register for 24th July." },
+      { step: 2, title: "Ticket Confirmation", desc: "IRCTC train and hotel reservation completed." },
+      { step: 3, title: "Board from Sodepur", desc: "Assemble at Sodepur for bus transfer." }
+    ],
+    importantNotes: [
+      "Child Policy: 5–7 years 50% charge; 7+ years Full charge.",
+      "Bus pickup and drop strictly from Sodepur office location."
+    ]
   },
   {
     id: "pkg-13",
-    title: "Spiti Valley Circuit",
-    destination: "Himachal Pradesh",
-    duration: "8 Nights / 9 Days",
-    price: "₹32,000",
+    title: "Lahaul & Spiti Valley Himalayan Circuit",
+    destination: "Himachal Pradesh, India",
+    duration: "13 Nights / 14 Days",
+    price: "₹24,499",
     image: "/images/tour-13.png",
-    shortDescription: "An off-beat Himalayan adventure through ancient monasteries, high-altitude villages, and Chandratal Lake.",
+    shortDescription: "Grand 13N/14D high-altitude Himalayan expedition (07 May – 20 May 2026) covering Shimla, Sarahan, Sangla, Chitkul, Kalpa, Tabo, Kaza, Sissu, and Manali with an accompanying Bengali cook.",
     featured: false,
     rating: 4.9,
     reviewsCount: 92,
+    nextDate: "07 May 2026",
+    stayBreakdown: "Shimla (1N) | Sarahan (1N) | Sangla (1N) | Kalpa (1N) | Tabo (1N) | Kaza (2N) | Sissu (1N) | Manali (1N) | Train (4N)",
     seasonalPricing: {
       January: 0, February: 0, March: 0, April: 0,
-      May: 32000, June: 34000, July: 36000, August: 35000,
-      September: 34000, October: 32000, November: 0, December: 0
+      May: 24499, June: 24499, July: 24499, August: 24499,
+      September: 24499, October: 24499, November: 0, December: 0
     },
-    pricingNote: "Open only Jun–Oct. Road closes Nov–Apr (heavy snowfall).",
+    pricingNote: "Tour Dates: 07 May 2026 to 20 May 2026. Rate: ₹24,499 (Triple Share) | ₹24,999 (Double Share).",
     gallery: [
       "/images/tour-13.png",
       "/images/tour-10.png",
       "/images/tour-7.png"
     ],
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    highlights: ["Camping at crescent-shaped Chandratal Lake", "Visit Key Monastery & Kibber (High village)", "Hikkim — World's Highest Post Office (Send a postcard!)", "Langza Fossil Village & Kaza Market"],
-    transport: { mode: "Train to Shimla / Chandigarh / Flight to Chandigarh (IXC)", pickup: "Chandigarh Railway Station / Airport", vehicle: "4x4 Force Traveler / Tempo / SUV", details: "All-terrain high clearance vehicle with rugged terrain specialist driver." },
-    accommodation: { category: "Spiti Homestays & High Altitude Tents", description: "2N Kalpa + 3N Kaza + 1N Chandratal Camp + 1N Manali + 1N Shimla", meals: "Breakfast & Dinner daily", features: ["Local Hospitality", "Warm Blankets", "Authentic Himachali Food"] },
-    pricingDetails: { perHead: "₹32,000 / person", originalPrice: "₹38,000", inclusions: ["8 Nights Accommodation", "Breakfast & Dinner", "4x4 Vehicle Transfer", "Permits & Taxes"], exclusions: ["Personal shopping", "Postcard stamps in Hikkim"] },
-    itinerary: [
-      { day: 1, title: "Chandigarh to Shimla/Narkanda", desc: "Pickup from Chandigarh. Drive into Himachal hills.", spots: ["Narkanda Pine Forests"], meals: "Dinner" },
-      { day: 2, title: "Narkanda to Kalpa", desc: "Drive along Sutlej river. View Kinnaur Kailash peak.", spots: ["Kalpa Village", "Kinnaur Kailash View"], meals: "Breakfast & Dinner" },
-      { day: 3, title: "Kalpa to Kaza via Nako & Tabo", desc: "Enter Spiti Valley. Nako Lake & 1,000-year-old Tabo Monastery.", spots: ["Tabo Monastery", "Nako Lake"], meals: "Breakfast & Dinner" },
-      { day: 4, title: "Key Monastery, Kibber & Chicham Bridge", desc: "Explore iconic Key Monastery and cross Asia's highest Chicham bridge.", spots: ["Key Monastery", "Chicham Bridge"], meals: "Breakfast & Dinner" },
-      { day: 5, title: "Hikkim, Komic & Langza", desc: "Post a card from Hikkim post office (14,567 ft) and search fossils in Langza.", spots: ["Hikkim Post Office", "Langza Buddha Statue"], meals: "Breakfast & Dinner" },
-      { day: 6, title: "Kaza to Chandratal Lake Camping", desc: "Drive over Kunzum Pass (15,060 ft) to blue Chandratal Lake.", spots: ["Kunzum Pass", "Chandratal Lake"], meals: "Breakfast & Camp Dinner" },
-      { day: 7, title: "Chandratal to Manali via Atal Tunnel", desc: "Cross Batal & Rohtang/Atal Tunnel to reach green Manali.", spots: ["Atal Tunnel", "Manali"], meals: "Breakfast & Dinner" },
-      { day: 8, title: "Manali to Chandigarh", desc: "Drive down to Chandigarh.", spots: ["Chandigarh"], meals: "Breakfast & Dinner" },
-      { day: 9, title: "Departure", desc: "Drop off at Chandigarh Airport/Station.", spots: ["Chandigarh Airport"], meals: "Breakfast" }
+    highlights: [
+      "Travel Dates: 07 May 2026 to 20 May 2026",
+      "Roundtrip Sleeper Class Train from Howrah to Chandigarh/Ambala",
+      "Dedicated Tempo Traveler Vehicle for the entire high-altitude circuit",
+      "Stays: Shimla (1N), Sarahan (1N), Sangla (1N), Kalpa (1N), Tabo (1N), Kaza (2N), Sissu (1N), Manali (1N)",
+      "Bhimkali Temple, Narkanda, Padam Palace, Kinnaur Gate, Taranda Mata, Chitkul, Rakchham & Hindustan Ka Akhri Dhaba",
+      "1,000-year-old Tabo Monastery, Langza, Kee Monastery, Kibber, Hikkim & Chicham Bridge",
+      "Sissu Waterfall, Atal Tunnel, Manali, and Kasol Parvati Valley",
+      "Fresh Bengali meals prepared on-tour by accompanying Bengali cook",
+      "Deluxe Hotel Accommodation (Family / Double / Triple Sharing)"
     ],
-    bookingProcess: [{ step: 1, title: "Check Dates", desc: "Spiti circuit opens June to October." }, { step: 2, title: "Confirm Seat", desc: "Book 4x4 seat." }, { step: 3, title: "Voucher", desc: "Receive trip briefing." }],
-    importantNotes: ["ATM and mobile network limited in Spiti", "Carry thermal innerwear and moisturizer"]
+    transport: {
+      mode: "Sleeper Class Train + High-Altitude Tempo Traveler Vehicle",
+      pickup: "Howrah Railway Station",
+      vehicle: "Force Tempo Traveler for complete Himachal and Spiti circuit",
+      details: "Roundtrip train tickets and rugged high-clearance mountain vehicle throughout."
+    },
+    accommodation: {
+      category: "Deluxe Hotels & Homestays",
+      description: "Deluxe hotel accommodation (Family / 2 / 3 Sharing basis across 8 hill destinations)",
+      meals: "Breakfast, Lunch, Evening Tea, Dinner with authentic Bengali food by accompanying cook",
+      features: ["Warm Bedding", "Clean Mountain Hotels", "Bengali Cuisine", "Experienced Mountain Crew"]
+    },
+    pricingDetails: {
+      perHead: "₹24,499 / person (Triple Share) | ₹24,999 / person (Double Share)",
+      inclusions: [
+        "Roundtrip Non-AC Sleeper Train Tickets",
+        "Deluxe Hotel & Homestay Accommodation",
+        "All sightseeing as per plan",
+        "Breakfast, Lunch, Evening Tea, Dinner",
+        "Train dinner on return night",
+        "Dedicated Tempo Traveler Vehicle"
+      ],
+      exclusions: [
+        "Entry fees, rides, and local taxi/auto charges",
+        "Special warm clothing / snow boot rentals",
+        "Room heater charges",
+        "Meals during onward train journey and mineral water",
+        "Porter and luggage handling"
+      ]
+    },
+    itinerary: [
+      {
+        day: 1,
+        title: "Departure from Howrah Station",
+        desc: "Board the train from Howrah Station for Himachal Pradesh. Overnight train journey.",
+        spots: ["Howrah Station"],
+        meals: "Train journey — own arrangement"
+      },
+      {
+        day: 2,
+        title: "Full Day & Night Train Journey",
+        desc: "Full day traveling on train across the northern plains.",
+        spots: ["Train Journey"],
+        meals: "Train journey — own arrangement"
+      },
+      {
+        day: 3,
+        title: "Arrive Chandigarh/Ambala to Shimla",
+        desc: "Arrive at Chandigarh/Ambala in early morning, drive to Shimla. Check in to hotel, breakfast, and explore Mall Road, Ridge, and Kali Bari. Overnight in Shimla.",
+        spots: ["Shimla Mall Road", "Kali Bari"],
+        meals: "Breakfast, Lunch, Evening Tea & Dinner"
+      },
+      {
+        day: 4,
+        title: "Shimla to Sarahan via Bhimkali Temple",
+        desc: "After breakfast, drive to Sarahan. Visit the historic wooden Bhimkali Temple. Check in and overnight in Sarahan.",
+        spots: ["Bhimkali Temple", "Sarahan"],
+        meals: "Breakfast, Lunch, Evening Tea & Dinner"
+      },
+      {
+        day: 5,
+        title: "Sarahan to Sangla via Kinnaur Gate & Chitkul",
+        desc: "Drive through Narkanda, Padam Palace, Kinnaur Gate, Taranda Mata temple, Rakchham, Hindustan Ka Akhri Dhaba, and Kamru temple. Overnight in Sangla.",
+        spots: ["Kinnaur Gate", "Taranda Mata", "Chitkul", "Hindustan Ka Akhri Dhaba", "Sangla"],
+        meals: "Breakfast, Lunch, Evening Tea & Dinner"
+      },
+      {
+        day: 6,
+        title: "Sangla to Chitkul Valley & Kalpa",
+        desc: "Explore Chitkul (last inhabited village near Indo-Tibet border), then proceed to Kalpa with stunning views of Kinnaur Kailash. Overnight in Kalpa.",
+        spots: ["Chitkul Valley", "Kalpa", "Kinnaur Kailash View"],
+        meals: "Breakfast, Lunch, Evening Tea & Dinner"
+      },
+      {
+        day: 7,
+        title: "Kalpa to Tabo via Nako",
+        desc: "Drive into high Spiti Valley via Nako Lake. Arrive in ancient Tabo. Overnight in Tabo.",
+        spots: ["Nako Lake", "Tabo Monastery"],
+        meals: "Breakfast, Lunch, Evening Tea & Dinner"
+      },
+      {
+        day: 8,
+        title: "Tabo to Kaza via Langza",
+        desc: "Visit 1,000-year-old Tabo Monastery, Langza fossil village with giant Buddha statue, and Kee Monastery. Overnight in Kaza.",
+        spots: ["Tabo Monastery", "Langza Buddha", "Kee Monastery", "Kaza"],
+        meals: "Breakfast, Lunch, Evening Tea & Dinner"
+      },
+      {
+        day: 9,
+        title: "Kaza Local Sightseeing — Hikkim & Komic",
+        desc: "Visit Hikkim (World's highest post office), Komic (Highest village with motorable road), and Chicham Bridge. Overnight in Kaza.",
+        spots: ["Hikkim Post Office", "Komic", "Chicham Bridge"],
+        meals: "Breakfast, Lunch, Evening Tea & Dinner"
+      },
+      {
+        day: 10,
+        title: "Spiti High Valley Exploration",
+        desc: "Full day exploring surrounding mountain landscapes and serene Spiti valley vistas. Overnight in Kaza.",
+        spots: ["Spiti Valley", "Kaza Market"],
+        meals: "Breakfast, Lunch, Evening Tea & Dinner"
+      },
+      {
+        day: 11,
+        title: "Kaza to Manali via Sissu & Atal Tunnel",
+        desc: "Drive over Kunzum Pass route to Sissu village in Lahaul, cross the engineering marvel Atal Tunnel, and reach Manali. Overnight in Manali.",
+        spots: ["Kunzum Pass", "Sissu", "Atal Tunnel", "Manali"],
+        meals: "Breakfast, Lunch, Evening Tea & Dinner"
+      },
+      {
+        day: 12,
+        title: "Manali to Chandigarh / Ambala Station",
+        desc: "Drive down from Manali to Chandigarh / Kalka / Ambala Station to board return train. (Train dinner provided).",
+        spots: ["Chandigarh / Ambala Station"],
+        meals: "Breakfast, Lunch & Return Train Dinner"
+      },
+      {
+        day: 13,
+        title: "Full Day Train Journey",
+        desc: "Full day relaxing on train with wonderful memories.",
+        spots: ["Train Journey"],
+        meals: "Train journey — own arrangement"
+      },
+      {
+        day: 14,
+        title: "Arrival at Howrah Station",
+        desc: "Morning arrival at Howrah Station. Tour concludes.",
+        spots: ["Howrah Station"],
+        meals: "Tour Concludes"
+      }
+    ],
+    bookingProcess: [
+      { step: 1, title: "Book May Slot", desc: "Contact via Phone / WhatsApp to register for 07 May departure." },
+      { step: 2, title: "Payment Clearance", desc: "Remaining payment to be completed by 2nd May 2026." },
+      { step: 3, title: "Trip WhatsApp Group", desc: "Join WhatsApp group for live travel coordination." }
+    ],
+    importantNotes: [
+      "Child Policy: 7+ years Full charge; 5–7 years ₹17,999 (with car seat); Under 5 years Free (lap child; ₹10,000 for seat).",
+      "Spiti circuit involves high altitudes; carry warm thermals and skin moisturizer."
+    ]
   },
   {
     id: "pkg-14",
-    title: "Sundarbans Mangrove Tour",
-    destination: "West Bengal, India",
-    duration: "2 Nights / 3 Days",
-    price: "₹8,500",
+    title: "Nepal Himalayan Heritage & Wildlife Tour",
+    destination: "Nepal",
+    duration: "8 Nights / 9 Days",
+    price: "₹19,000",
     image: "/images/tour-14.png",
-    shortDescription: "Explore the world's largest mangrove delta — spot Royal Bengal Tigers and cruise through dense jungle waterways.",
+    shortDescription: "8N/9D complete international holiday (06 Jan – 14 Jan 2027) without passport requirement covering Lumbini (Lord Buddha's Birthplace 1N), Kathmandu (2N), Pokhara (2N), and Chitwan National Park (1N). \"আজ মন চেয়েছে আমি হারিয়ে যাবো, হারিয়ে যাবো আজ দিয়ার সাথে...\"",
     featured: false,
     rating: 4.8,
     reviewsCount: 78,
+    nextDate: "06 Jan 2027",
+    stayBreakdown: "Lumbini (1N) | Kathmandu (2N) | Pokhara (2N) | Chitwan (1N) | Train (2N)",
     seasonalPricing: {
-      January: 9500, February: 9500, March: 9000, April: 8000,
-      May: 7500, June: 7500, July: 8000, August: 8000,
-      September: 8500, October: 9000, November: 9500, December: 10000
+      January: 19000, February: 19000, March: 19000, April: 19000,
+      May: 19000, June: 19000, July: 19000, August: 19000,
+      September: 19000, October: 19000, November: 19000, December: 19000
     },
-    pricingNote: "Tiger sighting highest Nov–Feb. Monsoon Jul–Sep has lush greenery.",
+    pricingNote: "Tour Dates: 06 Jan to 14 Jan 2027. Rate: ₹19,000 (Triple Share) | ₹19,500 (Double Share). No passport required.",
     gallery: [
       "/images/tour-14.png",
       "/images/hero_kerala_1783678518411.png",
       "/images/hero_andaman_1783678485939.png"
     ],
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    highlights: ["Exclusive Jungle Boat Safari through narrow delta creeks", "Watchtowers visit: Sajnekhali, Sudhanyakhali & Dobanki", "Spot Royal Bengal Tigers, Estuarine Crocodiles & Spotted Deer", "Jhumur Folk Dance & Fresh Seafood Experience"],
-    transport: { mode: "Pickup from Kolkata (Esplanade / Science City)", pickup: "Kolkata City Center / Howrah / Sealdah Station", vehicle: "AC Tourist Coach to Godkhali + Covered Motor Launch Boat for jungle cruise", details: "All river transfers included." },
-    accommodation: { category: "Eco Jungle Resort on Island", description: "2 Nights Island Eco Resort near National Park", meals: "6 Meals: 2 Breakfast, 3 Lunch, 2 Dinner (Traditional Bengali / Seafood)", features: ["Jungle Views", "Cultural Evening", "Clean AC / Non-AC Rooms"] },
-    pricingDetails: { perHead: "₹8,500 / person", originalPrice: "₹10,500", inclusions: ["2 Nights Resort Stay", "All 6 Meals (Veg/Non-Veg/Fish/Crab)", "Exclusive Boat Cruise", "Forest Entry Permits & Guide Fees", "Kolkata Pick & Drop"], exclusions: ["Camera charges in forest", "Personal tips"] },
-    itinerary: [
-      { day: 1, title: "Kolkata to Sundarbans Island", desc: "Drive to Godkhali port. Boat transfer to island resort. Afternoon village walk & evening Folk Dance.", spots: ["Godkhali Port", "Sundarbans Island", "Jhumur Dance"], meals: "Lunch & Dinner" },
-      { day: 2, title: "Full Day Jungle Boat Safari", desc: "Cruise through deep mangroves. Visit Sajnekhali, Sudhanyakhali & Dobanki canopy walk watchtowers.", spots: ["Sudhanyakhali Watchtower", "Dobanki Canopy Walk"], meals: "Breakfast, Boat Lunch & Dinner" },
-      { day: 3, title: "Village Walk & Return Kolkata", desc: "Morning boat trip to Hamilton Bungalow & Beacon Island. Return transfer to Kolkata.", spots: ["Hamilton Bungalow", "Godkhali Port", "Kolkata"], meals: "Breakfast & Lunch" },
+    highlights: [
+      "Poetic Line: \"আজ মন চেয়েছে আমি হারিয়ে যাবো, হারিয়ে যাবো আজ দিয়ার সাথে...\"",
+      "Fixed Winter Dates: 06 January to 14 January 2027 (Passport-free foreign travel)",
+      "Lumbini (1N): Lord Buddha's Birthplace, Mayadevi Temple, Sacred Garden UNESCO Heritage Site",
+      "Kathmandu (2N): Pashupatinath Temple, Boudhanath Stupa, Budhanilkantha, Bhaktapur Durbar Square, Swayambhunath",
+      "Pokhara (2N): Bindhyabasini Temple, Mahendra Cave, Gupteshwor Cave, Seti River, Davis Falls, Phewa Lake boating",
+      "Chitwan (1N): Wildlife sanctuary home to Royal Bengal Tigers & One-horned Rhinos, Sita Cave, Trishuli River",
+      "Roundtrip Train Tickets (Kolkata to Gorakhpur & Raxaul to Howrah in Sleeper Class)",
+      "Private Vehicle for complete Gorakhpur - Nepal - Raxaul tour & Full-time Tour Manager",
+      "All meals included from Day 2 Lunch to Day 8 Breakfast"
     ],
-    bookingProcess: [{ step: 1, title: "Submit Form", desc: "Select weekend or weekday slot." }, { step: 2, title: "Confirm Seat", desc: "Receive pickup point details." }, { step: 3, title: "Go Safari!", desc: "Board the coach in Kolkata." }],
-    importantNotes: ["Forest permissions managed by our guide", "Carry binocular & mosquito repellent"]
+    transport: {
+      mode: "Sleeper Class Train (Kolkata to Gorakhpur & Raxaul to Howrah) + Private Tourist Vehicle in Nepal",
+      pickup: "Kolkata (Chitpur) Railway Station",
+      vehicle: "Dedicated Private Tourist Vehicle for entire Gorakhpur - Nepal - Raxaul tour",
+      details: "Seamless rail tickets and private coach across all Nepal destinations."
+    },
+    accommodation: {
+      category: "Deluxe Hotels",
+      description: "Deluxe hotel accommodation (Family basis) across Lumbini (1N), Kathmandu (2N), Pokhara (2N), Chitwan (1N)",
+      meals: "All meals included from Day 2 Lunch to Day 8 Breakfast",
+      features: ["Deluxe Rooms", "Attached Bath with Hot Water", "Good Hospitality", "Full-time Tour Manager"]
+    },
+    pricingDetails: {
+      perHead: "₹19,000 / person (Triple Share) | ₹19,500 / person (Double Share)",
+      inclusions: [
+        "Sleeper Class Train Tickets (Kolkata to Gorakhpur & Raxaul to Howrah)",
+        "Private vehicle for Gorakhpur - Nepal - Raxaul tour",
+        "All meals from Day 2 Lunch to Day 8 Breakfast",
+        "Deluxe Hotel Accommodation (Family basis)",
+        "Sightseeing as per itinerary",
+        "Full-time experienced Tour Manager"
+      ],
+      exclusions: [
+        "Meals during train journey",
+        "Chitwan Jungle Safari charges",
+        "Campfire charges, room heater, mineral water",
+        "Medical insurance, entry fees, and personal expenses"
+      ]
+    },
+    itinerary: [
+      {
+        day: 1,
+        title: "Departure from Kolkata (Chitpur) Station",
+        desc: "Meet at Kolkata (Chitpur) Station by 1:00 PM and board train for Gorakhpur (can also board from Bandel, Naihati, Bardhaman). Overnight train journey.",
+        spots: ["Kolkata Chitpur Station"],
+        meals: "Train journey — own arrangement"
+      },
+      {
+        day: 2,
+        title: "Arrive Gorakhpur & Drive to Lumbini",
+        desc: "Arrive at Gorakhpur Station at 7:30 AM. Cross border into Nepal and arrive at Lumbini. After lunch, visit Mayadevi Temple, monasteries, shrines, and UNESCO Sacred Garden. Overnight in Lumbini.",
+        spots: ["Gorakhpur", "Lumbini", "Mayadevi Temple", "Sacred Garden"],
+        meals: "Lunch & Dinner Included"
+      },
+      {
+        day: 3,
+        title: "Lumbini to Kathmandu — Capital City",
+        desc: "Scenic drive from Lumbini to Kathmandu. Check in to deluxe hotel. Evening at leisure in vibrant Thamel/city center. Overnight in Kathmandu.",
+        spots: ["Kathmandu", "Thamel"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 4,
+        title: "Kathmandu Heritage & Temple Sightseeing",
+        desc: "Full day exploring iconic landmarks: Pashupatinath Temple, Boudhanath Stupa, Budhanilkantha, Guhyeshwari Temple, Bhaktapur Durbar Square, and Swayambhunath Stupa. Overnight in Kathmandu.",
+        spots: ["Pashupatinath Temple", "Boudhanath Stupa", "Budhanilkantha", "Bhaktapur Durbar Square", "Swayambhunath"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 5,
+        title: "Kathmandu to Pokhara via Manakamana Temple",
+        desc: "Drive to scenic Pokhara at the foothills of the Himalayas. En route view Swayambhunath & Manakamana Temple (cable car optional). Overnight in Pokhara.",
+        spots: ["Manakamana", "Pokhara"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 6,
+        title: "Pokhara Sightseeing & Phewa Lake Boating",
+        desc: "Explore Bindhyabasini Temple, Mahendra Cave, Gupteshwor Cave, Seti River Gorge, Davis Falls, and enjoy serene Phewa Lake. Overnight in Pokhara.",
+        spots: ["Bindhyabasini Temple", "Mahendra Cave", "Gupteshwor Cave", "Davis Falls", "Phewa Lake"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 7,
+        title: "Pokhara to Chitwan National Park",
+        desc: "Drive from Pokhara to Chitwan. En route view Sita Cave, Bhitti Cave, Trishuli River, and Devghat. Arrive at Chitwan wildlife reserve. Overnight in Chitwan.",
+        spots: ["Trishuli River", "Devghat", "Chitwan National Park"],
+        meals: "Breakfast, Lunch & Dinner"
+      },
+      {
+        day: 8,
+        title: "Chitwan Jungle Safari & Drive to Raxaul Station",
+        desc: "Early morning Chitwan Jungle Safari (own cost). Drive to Raxaul Station enjoying breathtaking scenic views and board return train for Howrah.",
+        spots: ["Chitwan Safari", "Raxaul Station"],
+        meals: "Breakfast Included"
+      },
+      {
+        day: 9,
+        title: "Arrival at Howrah Station",
+        desc: "Arrive at Howrah Station in the morning with sweet memories of the Himalayas. Tour concludes.",
+        spots: ["Howrah Station"],
+        meals: "Tour Concludes"
+      }
+    ],
+    bookingProcess: [
+      { step: 1, title: "Book January Slot", desc: "Contact via Phone / WhatsApp to register for 06 Jan 2027 departure." },
+      { step: 2, title: "ID Proof Submission", desc: "Provide Voter ID or Aadhaar Card (No passport required)." },
+      { step: 3, title: "Confirmation Vouchers", desc: "Receive ticket vouchers and trip briefing." }
+    ],
+    importantNotes: [
+      "No passport required for Indian citizens (Valid Voter ID or Aadhaar mandatory).",
+      "Child Policy: Under 5 years Free; 5–7 years ₹10,000 (with car seat, without train ticket); 7+ years Full charge."
+    ]
   }
 ];

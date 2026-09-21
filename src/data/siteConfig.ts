@@ -1,10 +1,10 @@
 export const siteConfig = {
   name: "Cholo Jai Tour & Travels",
-  phoneNumbers: ["98309 05332", "92394 58171"],
+  phoneNumbers: ["9830905332", "9239458171"],
   email: "cholojai2013@gmail.com",
-  address: "R.N. Avenue, Sodepur, Kolkata - 700110 (Near Deshbandhu School)",
+  address: "R. N. Avenue, Sodepur, Near Deshbandhu School, Kolkata - 700110",
   socials: {
-    facebook: "#",
+    facebook: "https://www.facebook.com/share/1EwxdAGZvd/",
     instagram: "#",
     twitter: "#",
     whatsapp: "https://wa.me/919830905332"
