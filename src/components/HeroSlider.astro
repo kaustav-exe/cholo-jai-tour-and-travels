@@ -1,11 +1,13 @@
 ---
-import { packages } from '../data/packages';
+import { ContentService } from '../services/content/contentService';
 import { getPackagePriceForMonth, getWhatsAppBookingUrl } from '../utils/pricing';
 
-// Select 5 key featured packages for the hero slider
+const allPackages = await ContentService.getAllPackages();
+
+// Select key featured packages for the hero slider
 const featuredIds = ['andaman-6n7d', 'pkg-1', 'pkg-2', 'pkg-5', 'pkg-4'];
 const heroPackages = featuredIds
-  .map(id => packages.find(p => p.id === id))
+  .map(id => allPackages.find(p => p.id === id))
   .filter(Boolean);
 
 const taglines: Record<string, string> = {

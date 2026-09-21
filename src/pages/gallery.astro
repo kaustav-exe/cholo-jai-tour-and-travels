@@ -1,7 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { galleryImages } from '../data/gallery';
+import { ContentService } from '../services/content/contentService';
 import { Image as ImageIcon } from 'lucide-astro';
+
+const galleryImages = await ContentService.getGalleryImages();
 ---
 
 <BaseLayout title="Gallery | Cholo Jai Tour & Travels">

@@ -1,7 +1,20 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { aboutData } from '../data/siteConfig';
+import { ContentService } from '../services/content/contentService';
 import { Target, Lightbulb, Heart, ShieldCheck } from 'lucide-astro';
+
+const siteSettings = await ContentService.getSiteSettings();
+const aboutData = siteSettings.aboutSummary || {
+  mission: "To provide unforgettable and seamless travel experiences with personalized service and care.",
+  vision: "To be the most trusted and preferred travel agency in Kolkata, known for our commitment to excellence.",
+  experienceYears: "10+",
+  stats: [
+    { label: "Happy Customers", value: "10k+" },
+    { label: "Tours Completed", value: "500+" },
+    { label: "Destinations", value: "50+" },
+    { label: "Expert Guides", value: "20+" }
+  ]
+};
 ---
 
 <BaseLayout title="About Us | Cholo Jai Tour & Travels">

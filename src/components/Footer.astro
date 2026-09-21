@@ -1,6 +1,8 @@
 ---
-import { siteConfig } from '../data/siteConfig';
+import { ContentService } from '../services/content/contentService';
 import { MapPin, Phone, Mail, ChevronRight, Share2 } from 'lucide-astro';
+
+const siteConfig = await ContentService.getSiteSettings();
 ---
 
 <footer class="footer">

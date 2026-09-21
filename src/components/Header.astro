@@ -1,6 +1,8 @@
 ---
-import { siteConfig } from '../data/siteConfig';
+import { ContentService } from '../services/content/contentService';
 import { Phone, Mail } from 'lucide-astro';
+
+const siteConfig = await ContentService.getSiteSettings();
 ---
 
 <!-- Fixed header -->

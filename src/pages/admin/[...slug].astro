@@ -1,0 +1,68 @@
+---
+export const prerender = false;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Cholo Jai Tour & Travels — CMS Admin Dashboard</title>
+  <link rel="icon" type="image/png" href="/images/icon.png" />
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #13141b;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+    #sanity-studio-root {
+      height: 100vh;
+      width: 100vw;
+    }
+    .loading-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: #fff;
+      background: #13141b;
+    }
+    .spinner {
+      width: 44px;
+      height: 44px;
+      border: 3px solid rgba(255, 255, 255, 0.15);
+      border-top-color: #f26419;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 16px;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div id="sanity-studio-root">
+    <div class="loading-container">
+      <div class="spinner"></div>
+      <h3 style="font-weight: 600; margin: 0 0 6px 0;">Loading Cholo Jai Studio...</h3>
+      <p style="opacity: 0.6; font-size: 0.9rem; margin: 0;">Connecting to Sanity.io CMS</p>
+    </div>
+  </div>
+
+  <script>
+    import { renderStudio } from 'sanity';
+    import config from '../../../sanity.config';
+
+    const root = document.getElementById('sanity-studio-root');
+    if (root) {
+      renderStudio(root, config);
+    }
+  </script>
+</body>
+</html>

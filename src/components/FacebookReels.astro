@@ -1,6 +1,12 @@
 ---
-import { facebookReels, facebookPageUrl } from '../data/facebookReels';
+import { ReelsService } from '../services/reels/reelsService';
+import { ContentService } from '../services/content/contentService';
+import { facebookPageUrl as defaultFbPageUrl } from '../data/facebookReels';
 import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X } from 'lucide-astro';
+
+const facebookReels = await ReelsService.getActiveReels();
+const siteSettings = await ContentService.getSiteSettings();
+const facebookPageUrl = siteSettings.socials.facebook || defaultFbPageUrl;
 ---
 
 <section class="section fb-reels-section" id="facebook-reels">

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { packages, type TourPackage } from '../../data/packages';
+import type { TourPackage } from '../../data/packages';
+import { ContentService } from '../../services/content/contentService';
 import { 
   getPackagePriceForMonth, 
   getSeasonalMonthlyBreakdown, 
@@ -15,13 +16,20 @@ import {
 } from 'lucide-astro';
 
 export async function getStaticPaths() {
-  return packages.map((pkg) => ({
+  const allPackages = await ContentService.getAllPackages();
+  return allPackages.map((pkg) => ({
     params: { id: pkg.id },
     props: { pkg },
   }));
 }
 
-const { pkg } = Astro.props as { pkg: TourPackage };
+const { id } = Astro.params;
+const pkg = ((Astro.props as any).pkg as TourPackage) || (id ? await ContentService.getPackageById(id) : undefined);
+
+if (!pkg) {
+  return Astro.redirect('/packages');
+}
+
 const rating = pkg.rating || 4.8;
 const reviews = pkg.reviewsCount || 100;
 const highlights = pkg.highlights || ["Guided sightseeing", "Private vehicle transfers", "Deluxe accommodation", "Daily breakfast"];

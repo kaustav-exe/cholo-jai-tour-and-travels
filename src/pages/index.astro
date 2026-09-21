@@ -4,15 +4,23 @@ import HeroSlider from '../components/HeroSlider.astro';
 import IntroVideo from '../components/IntroVideo.astro';
 import PackageCard from '../components/PackageCard.astro';
 import FacebookReels from '../components/FacebookReels.astro';
-import { packages } from '../data/packages';
-import { aboutData, siteConfig } from '../data/siteConfig';
+import { ContentService } from '../services/content/contentService';
 import { getPackagePriceForMonth, getCurrentMonthName, getWhatsAppBookingUrl } from '../utils/pricing';
 import { Shield, Award, Map, Users, ArrowRight, Calendar, Sparkles } from 'lucide-astro';
 
-const allPackages = packages;
+const allPackages = await ContentService.getAllPackages();
+const siteSettings = await ContentService.getSiteSettings();
+const aboutData = siteSettings.aboutSummary || {
+  stats: [
+    { label: "Happy Customers", value: "10k+" },
+    { label: "Tours Completed", value: "500+" },
+    { label: "Destinations", value: "50+" },
+    { label: "Expert Guides", value: "20+" }
+  ]
+};
 
 // Resolve Andaman 6N/7D package for dynamic seasonal banner
-const andamanPkg = packages.find(p => p.id === 'andaman-6n7d') || packages[0];
+const andamanPkg = allPackages.find(p => p.id === 'andaman-6n7d') || allPackages[0];
 const andamanPricing = getPackagePriceForMonth(andamanPkg);
 const currentMonth = getCurrentMonthName();
 const andamanWaUrl = getWhatsAppBookingUrl(andamanPkg.title, currentMonth, andamanPricing.formattedPrice);
@@ -20,7 +28,7 @@ const andamanWaUrl = getWhatsAppBookingUrl(andamanPkg.title, currentMonth, andam
 // Popular destinations mapping with live pricing
 const popularIds = ['andaman-6n7d', 'pkg-1', 'pkg-4', 'pkg-5', 'pkg-10', 'pkg-9'];
 const popularDestinations = popularIds.map(id => {
-  const pkg = packages.find(p => p.id === id);
+  const pkg = allPackages.find(p => p.id === id);
   if (!pkg) return null;
   const pricing = getPackagePriceForMonth(pkg);
   return { pkg, pricing };
@@ -30,11 +38,11 @@ const popularDestinations = popularIds.map(id => {
 const schemaData = {
   "@context": "https://schema.org",
   "@type": "TravelAgency",
-  "name": siteConfig.name,
+  "name": siteSettings.name,
   "description": "Government Registered Travel Agency in Kolkata offering curated tour packages for Andaman, Kashmir, Sikkim, Shimla Manali, Rajasthan, Kerala, Meghalaya, Spiti Valley, Char Dham, and Nepal.",
   "url": "https://cholo-jai-tour-and-travels.vercel.app/",
-  "telephone": "+919830905332",
-  "email": siteConfig.email,
+  "telephone": siteSettings.phoneNumbers?.[0] ? `+91${siteSettings.phoneNumbers[0]}` : "+919830905332",
+  "email": siteSettings.email,
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "R. N. Avenue, Sodepur, Near Deshbandhu School",

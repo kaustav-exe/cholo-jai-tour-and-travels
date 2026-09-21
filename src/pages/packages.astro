@@ -1,8 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PackageCard from '../components/PackageCard.astro';
-import { packages } from '../data/packages';
+import { ContentService } from '../services/content/contentService';
 import { Search, Filter } from 'lucide-astro';
+
+const packages = await ContentService.getAllPackages();
 ---
 
 <BaseLayout title="Tour Packages | Cholo Jai Tour & Travels">
