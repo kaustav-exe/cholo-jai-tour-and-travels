@@ -80,9 +80,8 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
               />
               <div class="reel-overlay-gradient"></div>
 
-              <!-- Top Tags -->
+              <!-- Top Tag -->
               <div class="reel-top-bar">
-                <span class="reel-dest-pill">{reel.destination}</span>
                 <span class="reel-fb-badge" title="Facebook Reel">
                   <svg viewBox="0 0 24 24" width="13" height="13" fill="#ffffff">
                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
@@ -139,9 +138,8 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
 
       <!-- Content -->
       <div class="preview-content">
-        <!-- Destination + Brand -->
+        <!-- Brand -->
         <div class="preview-top-row">
-          <span class="preview-dest-tag" id="preview-dest-tag">Kashmir</span>
           <div class="preview-brand">
             <svg viewBox="0 0 24 24" width="14" height="14" fill="#1877f2">
               <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
@@ -250,7 +248,6 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
     // Preview panel elements
     const previewPanel = document.getElementById('modal-preview-panel');
     const previewBg = document.getElementById('preview-bg');
-    const previewDestTag = document.getElementById('preview-dest-tag');
     const previewTitle = document.getElementById('reel-modal-title');
     const previewViews = document.getElementById('preview-views');
     const previewLikes = document.getElementById('preview-likes');
@@ -339,7 +336,6 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
 
       // Populate preview panel
       if (previewBg) previewBg.style.backgroundImage = `url('${poster}')`;
-      if (previewDestTag) previewDestTag.textContent = destination;
       if (previewTitle) previewTitle.textContent = title;
       if (previewViews) previewViews.textContent = `👁️ ${views} views`;
       if (previewLikes) previewLikes.textContent = `❤️ ${likes} likes`;

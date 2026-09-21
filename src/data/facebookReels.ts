@@ -88,8 +88,7 @@ export const facebookReels: FacebookReel[] = [
     title: "Cruising through the tranquil emerald backwaters of Alleppey ⛵🌴",
     destination: "Kerala",
     thumbnail: "/images/hero_kerala_1783678518411.png",
-    // ⚠️ NOTE: Same URL as Reel 4 — please provide the correct Kerala reel URL
-    facebookUrl: "https://www.facebook.com/reel/1116749940884772",
+    facebookUrl: "https://www.facebook.com/reel/29078670298401322",
     views: "21.3K",
     likes: "2.8K",
     duration: "0:35",
