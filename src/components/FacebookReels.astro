@@ -1,6 +1,6 @@
 ---
-import { facebookReels, facebookPageUrl } from '../data/facebookReels';
-import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, Volume2, VolumeX, Sparkles, RefreshCw, Rss } from 'lucide-astro';
+import { facebookReels, facebookPageUrl, facebookProfileUrl, facebookReelsUrl } from '../data/facebookReels';
+import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, Sparkles, CheckCircle2, Video } from 'lucide-astro';
 ---
 
 <section class="section fb-reels-section" id="facebook-reels">
@@ -14,15 +14,15 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, Volume2, 
             <svg class="fb-svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
               <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
             </svg>
-            <span>Live Facebook Feed &amp; Reels</span>
+            <span>Live Facebook Reel Hub</span>
           </span>
           <span class="fb-live-dot" title="Active on Facebook">
-            <span class="pulse-dot"></span> Real-Time Synced
+            <span class="pulse-dot"></span> Real Facebook Page
           </span>
         </div>
-        <h2 class="fb-section-title">Latest Facebook Reels &amp; Travel Stories</h2>
+        <h2 class="fb-section-title">Latest Facebook Reels &amp; Travel Videos</h2>
         <p class="fb-section-desc">
-          Original tour moments and recent video reels synced directly from our official Facebook page.
+          Watch recent tour reels and videos directly from our official Facebook page — <strong>চলো যাই ট্যুর &amp; ট্রাভেলস</strong>.
         </p>
       </div>
 
@@ -53,152 +53,129 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, Volume2, 
       </div>
     </div>
 
-    <!-- Main Content Layout: 5 Reels Carousel + Live Facebook Sync Box -->
-    <div class="fb-showcase-grid">
-      <!-- Horizontal 5 Reel Carousel Track -->
-      <div class="fb-carousel-container">
-        <div class="fb-reels-track" id="fb-reels-track">
-          {facebookReels.map((reel, idx) => (
-            <article 
-              class="reel-card" 
-              data-index={idx}
-              data-title={reel.title}
-              data-destination={reel.destination}
-              data-video-url={reel.videoUrl}
-              data-fb-url={reel.facebookUrl}
-              data-views={reel.views}
-              data-likes={reel.likes}
-            >
-              <div class="reel-card-inner">
-                <img 
-                  src={reel.thumbnail} 
-                  alt={reel.title} 
-                  class="reel-poster" 
-                  loading="lazy" 
-                />
-                <div class="reel-overlay-gradient"></div>
+    <!-- 5 Recent Reel Cards Carousel -->
+    <div class="fb-carousel-container">
+      <div class="fb-reels-track" id="fb-reels-track">
+        {facebookReels.map((reel, idx) => (
+          <a 
+            href={reel.facebookUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="reel-card" 
+            data-index={idx}
+            data-title={reel.title}
+            data-destination={reel.destination}
+            data-fb-url={reel.facebookUrl}
+            data-views={reel.views}
+            data-likes={reel.likes}
+            title={`Watch "${reel.title}" on Facebook`}
+          >
+            <div class="reel-card-inner">
+              <img 
+                src={reel.thumbnail} 
+                alt={reel.title} 
+                class="reel-poster" 
+                loading="lazy" 
+              />
+              <div class="reel-overlay-gradient"></div>
 
-                <!-- Top Tags -->
-                <div class="reel-top-bar">
-                  <span class="reel-dest-pill">{reel.destination}</span>
-                  <span class="reel-fb-badge" title="Facebook Reel">
-                    <svg viewBox="0 0 24 24" width="13" height="13" fill="#ffffff">
-                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                    </svg>
-                    <span>Reel #{idx + 1}</span>
-                  </span>
+              <!-- Top Tags -->
+              <div class="reel-top-bar">
+                <span class="reel-dest-pill">{reel.destination}</span>
+                <span class="reel-fb-badge" title="Facebook Reel">
+                  <svg viewBox="0 0 24 24" width="13" height="13" fill="#ffffff">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                  </svg>
+                  <span>Reel #{idx + 1}</span>
+                </span>
+              </div>
+
+              <!-- Center Play Icon Glow -->
+              <div class="reel-center-play">
+                <div class="play-circle">
+                  <Play size={24} fill="#ffffff" color="#ffffff" class="play-icon" />
                 </div>
+                <span class="watch-on-fb-hint">Watch Reel</span>
+              </div>
 
-                <!-- Center Play Icon Glow -->
-                <div class="reel-center-play">
-                  <div class="play-circle">
-                    <Play size={22} fill="#ffffff" color="#ffffff" class="play-icon" />
-                  </div>
-                </div>
-
-                <!-- Bottom Content -->
-                <div class="reel-bottom-bar">
-                  <p class="reel-title">{reel.title}</p>
-                  <div class="reel-meta-row">
-                    <span class="reel-stat"><Eye size={12} /> {reel.views}</span>
-                    <span class="reel-stat"><Heart size={12} fill="#ef4444" color="#ef4444" /> {reel.likes}</span>
-                    <span class="reel-duration">{reel.duration}</span>
-                  </div>
+              <!-- Bottom Content -->
+              <div class="reel-bottom-bar">
+                <p class="reel-title">{reel.title}</p>
+                <div class="reel-meta-row">
+                  <span class="reel-stat"><Eye size={12} /> {reel.views}</span>
+                  <span class="reel-stat"><Heart size={12} fill="#ef4444" color="#ef4444" /> {reel.likes}</span>
+                  <span class="reel-duration">{reel.duration}</span>
                 </div>
               </div>
-            </article>
-          ))}
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Official Facebook Live Page & Feed Section -->
+    <div class="fb-embed-container">
+      <div class="fb-embed-card">
+        <div class="fb-embed-header">
+          <div class="fb-embed-profile">
+            <div class="fb-avatar">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="#ffffff">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="fb-page-heading">চলো যাই ট্যুর &amp; ট্রাভেলস</h3>
+              <p class="fb-page-sub">Official Facebook Page • Live Travel Posts &amp; Daily Reels</p>
+            </div>
+          </div>
+          <a 
+            href={facebookPageUrl} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="btn-visit-fb"
+          >
+            <span>Open Page on Facebook</span>
+            <ExternalLink size={14} />
+          </a>
+        </div>
+
+        <!-- Official Facebook Page Plugin Iframe (Live from Meta CDN) -->
+        <div class="fb-iframe-wrapper">
+          <iframe 
+            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61577840137646&tabs=timeline&width=500&height=460&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
+            width="100%" 
+            height="460" 
+            style="border:none;overflow:hidden;border-radius:12px;background:#ffffff;" 
+            scrolling="no" 
+            frameborder="0" 
+            allowfullscreen="true" 
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            loading="lazy"
+            title="Cholo Jai Tour & Travels Official Facebook Page"
+          ></iframe>
         </div>
       </div>
     </div>
 
     <!-- Mobile Swipe Helper Indicator -->
     <div class="swipe-hint-bar mobile-only">
-      <span>← Swipe horizontally to browse recent Facebook Reels →</span>
+      <span>← Swipe horizontally to browse more Reels →</span>
     </div>
 
   </div>
 </section>
-
-<!-- In-Site Interactive Reel Video Modal -->
-<div class="reel-modal-overlay" id="reel-modal" aria-hidden="true">
-  <div class="reel-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="reel-modal-title">
-    <button class="reel-modal-close" id="reel-modal-close" aria-label="Close Reel Player" type="button">
-      <X size={20} />
-    </button>
-
-    <div class="reel-player-container">
-      <video 
-        id="reel-modal-video" 
-        class="reel-modal-video" 
-        playsinline 
-        webkit-playsinline 
-        preload="none"
-        loop
-      >
-        <source id="reel-modal-source" src="" type="video/mp4" />
-      </video>
-
-      <!-- Video Controls Overlay -->
-      <div class="reel-player-controls">
-        <button type="button" class="btn-sound-toggle" id="reel-sound-btn" aria-label="Toggle Sound">
-          <Volume2 size={18} id="sound-on-icon" />
-          <VolumeX size={18} id="sound-off-icon" style="display:none;" />
-        </button>
-      </div>
-
-      <!-- In-Modal Footer Info & Facebook Action -->
-      <div class="reel-modal-footer">
-        <div class="reel-modal-info">
-          <span class="modal-dest-tag" id="reel-modal-dest">Kashmir</span>
-          <h3 class="modal-video-title" id="reel-modal-title">Reel Title</h3>
-          <div class="modal-stats-row">
-            <span id="reel-modal-views"><Eye size={13}/> 18.4K views</span>
-            <span id="reel-modal-likes"><Heart size={13} fill="#ef4444" color="#ef4444"/> 2.1K likes</span>
-          </div>
-        </div>
-
-        <a 
-          href={facebookPageUrl} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          class="btn-modal-fb-direct"
-          id="reel-modal-fb-link"
-        >
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="#ffffff">
-            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-          </svg>
-          <span>Watch on Facebook</span>
-          <ExternalLink size={12} />
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
 
 <script>
   function initFacebookReels() {
     const track = document.getElementById('fb-reels-track');
     const prevBtn = document.getElementById('fb-reels-prev');
     const nextBtn = document.getElementById('fb-reels-next');
-    const modal = document.getElementById('reel-modal');
-    const modalClose = document.getElementById('reel-modal-close');
-    const video = document.getElementById('reel-modal-video') as HTMLVideoElement | null;
-    const videoSource = document.getElementById('reel-modal-source') as HTMLSourceElement | null;
-    const modalTitle = document.getElementById('reel-modal-title');
-    const modalDest = document.getElementById('reel-modal-dest');
-    const modalViews = document.getElementById('reel-modal-views');
-    const modalLikes = document.getElementById('reel-modal-likes');
-    const soundBtn = document.getElementById('reel-sound-btn');
-    const soundOnIcon = document.getElementById('sound-on-icon');
-    const soundOffIcon = document.getElementById('sound-off-icon');
-    const fbLink = document.getElementById('reel-modal-fb-link') as HTMLAnchorElement | null;
 
     if (!track) return;
 
     // 1. Horizontal Carousel Smooth Arrow Navigation
     if (prevBtn && nextBtn) {
-      const scrollStep = 320;
+      const scrollStep = 300;
       prevBtn.addEventListener('click', () => {
         track.scrollBy({ left: -scrollStep, behavior: 'smooth' });
       });
@@ -211,11 +188,9 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, Volume2, 
     let isDown = false;
     let startX = 0;
     let scrollLeft = 0;
-    let hasMoved = false;
 
     track.addEventListener('mousedown', (e) => {
       isDown = true;
-      hasMoved = false;
       track.classList.add('is-dragging');
       startX = e.pageX - track.offsetLeft;
       scrollLeft = track.scrollLeft;
@@ -228,9 +203,7 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, Volume2, 
 
     track.addEventListener('mouseup', () => {
       isDown = false;
-      setTimeout(() => {
-        track.classList.remove('is-dragging');
-      }, 50);
+      track.classList.remove('is-dragging');
     });
 
     track.addEventListener('mousemove', (e) => {
@@ -238,103 +211,8 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, Volume2, 
       e.preventDefault();
       const x = e.pageX - track.offsetLeft;
       const walk = (x - startX) * 1.5;
-      if (Math.abs(walk) > 5) {
-        hasMoved = true;
-      }
       track.scrollLeft = scrollLeft - walk;
     });
-
-    // 3. Modal Player Interactions
-    const reelCards = document.querySelectorAll<HTMLElement>('.reel-card');
-    reelCards.forEach((card) => {
-      card.addEventListener('click', (e) => {
-        if (hasMoved) return; // Ignore drag clicks
-        e.preventDefault();
-
-        const title = card.dataset.title || '';
-        const destination = card.dataset.destination || '';
-        const videoUrl = card.dataset.videoUrl || '';
-        const fbUrl = card.dataset.fbUrl || 'https://www.facebook.com/share/1EwxdAGZvd/';
-        const views = card.dataset.views || '';
-        const likes = card.dataset.likes || '';
-
-        if (modalTitle) modalTitle.textContent = title;
-        if (modalDest) modalDest.textContent = destination;
-        if (modalViews) modalViews.innerHTML = `<span>👁️ ${views} views</span>`;
-        if (modalLikes) modalLikes.innerHTML = `<span>❤️ ${likes} likes</span>`;
-        if (fbLink) fbLink.href = fbUrl;
-
-        if (video && videoSource && videoUrl) {
-          videoSource.src = videoUrl;
-          video.load();
-          video.muted = false;
-          updateSoundIcons(false);
-          video.play().catch(() => {
-            // Autoplay with sound may be blocked by browser policy, fallback to muted
-            video.muted = true;
-            updateSoundIcons(true);
-            video.play().catch(console.error);
-          });
-        }
-
-        if (modal) {
-          modal.setAttribute('aria-hidden', 'false');
-          modal.classList.add('active');
-          document.body.style.overflow = 'hidden';
-        }
-      });
-    });
-
-    function closeModal() {
-      if (modal) {
-        modal.setAttribute('aria-hidden', 'true');
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-      if (video) {
-        video.pause();
-        video.currentTime = 0;
-      }
-    }
-
-    if (modalClose) {
-      modalClose.addEventListener('click', closeModal);
-    }
-
-    if (modal) {
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          closeModal();
-        }
-      });
-    }
-
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
-        closeModal();
-      }
-    });
-
-    // Sound Toggle
-    function updateSoundIcons(isMuted: boolean) {
-      if (soundOnIcon && soundOffIcon) {
-        if (isMuted) {
-          soundOnIcon.style.display = 'none';
-          soundOffIcon.style.display = 'block';
-        } else {
-          soundOnIcon.style.display = 'block';
-          soundOffIcon.style.display = 'none';
-        }
-      }
-    }
-
-    if (soundBtn && video) {
-      soundBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        video.muted = !video.muted;
-        updateSoundIcons(video.muted);
-      });
-    }
   }
 
   document.addEventListener('astro:page-load', initFacebookReels);
@@ -343,7 +221,7 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, Volume2, 
 
 <style>
   .fb-reels-section {
-    background: linear-gradient(180deg, #ffffff 0%, #f0f4f9 100%);
+    background: linear-gradient(180deg, #f8fafc 0%, #eef2f6 100%);
     padding: 70px 0 80px;
     position: relative;
     overflow: hidden;
@@ -354,7 +232,7 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, Volume2, 
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
     gap: 24px;
     flex-wrap: wrap;
   }
@@ -372,7 +250,7 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, Volume2, 
     gap: 6px;
     background: #e7f3ff;
     color: #1877f2;
-    padding: 6px 12px;
+    padding: 6px 14px;
     border-radius: 20px;
     font-size: 0.82rem;
     font-weight: 700;
@@ -493,6 +371,7 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, Volume2, 
   .fb-carousel-container {
     position: relative;
     width: 100%;
+    margin-bottom: 40px;
   }
 
   .fb-reels-track {
@@ -501,7 +380,7 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, Volume2, 
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    padding: 12px 4px 24px;
+    padding: 12px 4px 20px;
     scrollbar-width: thin;
     scrollbar-color: #cbd5e1 transparent;
     cursor: grab;
@@ -525,22 +404,23 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, Volume2, 
 
   /* Reel Card (9:16 Aspect Ratio) */
   .reel-card {
-    flex: 0 0 250px;
-    width: 250px;
-    height: 440px;
+    flex: 0 0 240px;
+    width: 240px;
+    height: 420px;
     scroll-snap-align: start;
     border-radius: 18px;
     overflow: hidden;
     position: relative;
     background: #111827;
     cursor: pointer;
+    text-decoration: none;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .reel-card:hover {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 16px 36px rgba(24, 119, 242, 0.3);
   }
 
   .reel-card-inner {
@@ -614,25 +494,37 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, Volume2, 
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
-    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
   }
 
   .play-circle {
-    width: 56px;
-    height: 56px;
+    width: 54px;
+    height: 54px;
     border-radius: 50%;
-    background: rgba(24, 119, 242, 0.9);
-    backdrop-filter: blur(6px);
+    background: #1877f2;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 20px rgba(24, 119, 242, 0.6);
-    transition: transform 0.3s ease, background 0.3s ease;
+    box-shadow: 0 4px 20px rgba(24, 119, 242, 0.7);
+    transition: transform 0.3s ease;
   }
 
   .reel-card:hover .play-circle {
     transform: scale(1.15);
-    background: #1877f2;
+  }
+
+  .watch-on-fb-hint {
+    background: rgba(0, 0, 0, 0.75);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   /* Bottom Content */
@@ -643,7 +535,7 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, Volume2, 
 
   .reel-title {
     color: #ffffff;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     font-weight: 700;
     line-height: 1.35;
     margin-bottom: 8px;
@@ -676,6 +568,87 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, Volume2, 
     color: #fbbf24;
   }
 
+  /* Live Facebook Embed Card */
+  .fb-embed-container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .fb-embed-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
+  }
+
+  .fb-embed-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .fb-embed-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .fb-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1877f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(24, 119, 242, 0.3);
+  }
+
+  .fb-page-heading {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #111827;
+    margin: 0 0 2px;
+  }
+
+  .fb-page-sub {
+    font-size: 0.82rem;
+    color: #6b7280;
+    margin: 0;
+  }
+
+  .btn-visit-fb {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #e7f3ff;
+    color: #1877f2 !important;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-visit-fb:hover {
+    background: #1877f2;
+    color: #ffffff !important;
+  }
+
+  .fb-iframe-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f9fafb;
+  }
+
   .swipe-hint-bar {
     text-align: center;
     font-size: 0.82rem;
@@ -702,156 +675,8 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, Volume2, 
       width: 210px;
       height: 380px;
     }
-  }
-
-  /* Reel Modal */
-  .reel-modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.88);
-    backdrop-filter: blur(8px);
-    z-index: 99999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    padding: 20px;
-  }
-
-  .reel-modal-overlay.active {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .reel-modal-dialog {
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-    height: 90vh;
-    max-height: 720px;
-    background: #000000;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-  }
-
-  .reel-modal-close {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10;
-    transition: background 0.2s ease;
-  }
-
-  .reel-modal-close:hover {
-    background: rgba(239, 68, 68, 0.9);
-  }
-
-  .reel-player-container {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .reel-modal-video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .reel-player-controls {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    z-index: 10;
-  }
-
-  .btn-sound-toggle {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
-
-  .reel-modal-footer {
-    position: relative;
-    z-index: 10;
-    margin-top: auto;
-    padding: 20px;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.6) 60%, transparent 100%);
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .modal-dest-tag {
-    display: inline-block;
-    background: #1877f2;
-    color: #ffffff;
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding: 3px 8px;
-    border-radius: 8px;
-    margin-bottom: 4px;
-  }
-
-  .modal-video-title {
-    color: #ffffff;
-    font-size: 1.05rem;
-    font-weight: 700;
-    line-height: 1.35;
-    margin: 0;
-  }
-
-  .modal-stats-row {
-    display: flex;
-    gap: 14px;
-    color: #9ca3af;
-    font-size: 0.8rem;
-    margin-top: 4px;
-  }
-
-  .btn-modal-fb-direct {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background: #1877f2;
-    color: #ffffff !important;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 700;
-    padding: 10px 18px;
-    border-radius: 25px;
-    transition: background 0.2s ease;
-  }
-
-  .btn-modal-fb-direct:hover {
-    background: #0d65d9;
+    .fb-embed-card {
+      padding: 16px;
+    }
   }
 </style>
