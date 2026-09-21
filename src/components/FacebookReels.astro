@@ -1,6 +1,6 @@
 ---
 import { facebookReels, facebookPageUrl } from '../data/facebookReels';
-import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCircle2, MonitorPlay, ArrowLeft } from 'lucide-astro';
+import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X } from 'lucide-astro';
 ---
 
 <section class="section fb-reels-section" id="facebook-reels">
@@ -121,117 +121,50 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
   </div>
 </section>
 
-<!-- Reel Modal — Two Panels: Preview (default) & Embed Player (on request) -->
+<!-- Direct Reel Player Modal — auto-loads on card click, no preview, sound ON -->
 <div class="reel-modal-overlay" id="reel-modal" aria-hidden="true">
   <div class="reel-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="reel-modal-title">
 
     <!-- Close Button -->
-    <button class="reel-modal-close" id="reel-modal-close" aria-label="Close Reel Preview" type="button">
+    <button class="reel-modal-close" id="reel-modal-close" aria-label="Close Reel Player" type="button">
       <X size={20} />
     </button>
 
-    <!-- PANEL 1: Preview State (default, never broken) -->
-    <div class="modal-panel preview-panel" id="modal-preview-panel">
-      <!-- Thumbnail Background -->
-      <div class="preview-bg" id="preview-bg"></div>
-      <div class="preview-overlay"></div>
-
-      <!-- Content -->
-      <div class="preview-content">
-        <!-- Brand -->
-        <div class="preview-top-row">
-          <div class="preview-brand">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="#1877f2">
-              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-            </svg>
-            <span>চলো যাই ট্যুর &amp; ট্রাভেলস</span>
-            <CheckCircle2 size={13} class="verified-icon" />
-          </div>
-        </div>
-
-        <!-- Title -->
-        <h3 class="preview-title" id="reel-modal-title">Reel Title</h3>
-
-        <!-- Stats -->
-        <div class="preview-stats-row">
-          <span id="preview-views">👁️ 18.4K views</span>
-          <span id="preview-likes">❤️ 2.1K likes</span>
-          <span id="preview-duration" class="preview-dur-pill">0:45</span>
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="preview-actions">
-          <!-- Try in-site embed -->
-          <button type="button" class="btn-try-embed" id="btn-try-embed" aria-label="Try playing this reel inside the website">
-            <MonitorPlay size={18} />
-            <span>Try Playing Here</span>
-          </button>
-
-          <!-- Direct reel link — ALWAYS points to exact reel URL -->
-          <a 
-            href="#" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="btn-watch-fb" 
-            id="btn-watch-fb"
-            aria-label="Watch original reel on Facebook"
-          >
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-            </svg>
-            <span>Watch on Facebook</span>
-            <ExternalLink size={13} />
-          </a>
-        </div>
-
-        <p class="preview-hint">Click "Try Playing Here" to embed the original Facebook Reel inline.</p>
-      </div>
+    <!-- Loading Spinner (shown while iframe loads) -->
+    <div class="embed-spinner" id="embed-spinner">
+      <div class="spinner-ring"></div>
+      <span>Loading Reel...</span>
     </div>
 
-    <!-- PANEL 2: Embed Player State (shown only when user requests) -->
-    <div class="modal-panel player-panel hidden" id="modal-player-panel">
-      <!-- Back to preview button -->
-      <button type="button" class="btn-back-preview" id="btn-back-preview" aria-label="Back to preview">
-        <ArrowLeft size={16} />
-        <span>Back</span>
-      </button>
+    <!-- Facebook Reel Embed iframe — fills the entire modal -->
+    <iframe
+      id="reel-fb-iframe"
+      src=""
+      width="100%"
+      height="100%"
+      style="border:none;overflow:hidden;width:100%;height:calc(100% - 60px);display:block;opacity:0;transition:opacity 0.3s ease;"
+      scrolling="no"
+      frameborder="0"
+      allowfullscreen="true"
+      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+      title="Facebook Reel Player"
+    ></iframe>
 
-      <!-- Embed container -->
-      <div class="embed-container" id="embed-container">
-        <div class="embed-spinner" id="embed-spinner">
-          <div class="spinner-ring"></div>
-          <span>Loading Facebook Reel...</span>
-        </div>
-        <iframe
-          id="reel-fb-iframe"
-          src=""
-          width="100%"
-          height="100%"
-          style="border:none;overflow:hidden;width:100%;height:100%;display:block;"
-          scrolling="no"
-          frameborder="0"
-          allowfullscreen="true"
-          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-          title="Facebook Reel Player"
-        ></iframe>
-      </div>
-
-      <!-- Footer with fallback link (always visible in player state) -->
-      <div class="player-footer">
-        <span class="player-footer-label">Not playing?</span>
-        <a 
-          href="#" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          class="btn-player-fb-link" 
-          id="btn-player-fb-link"
-        >
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
-            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-          </svg>
-          Watch this Reel on Facebook →
-        </a>
-      </div>
+    <!-- Footer: always-visible fallback link to exact reel -->
+    <div class="player-footer">
+      <span class="player-footer-label">Not playing?</span>
+      <a 
+        href="#" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="btn-player-fb-link" 
+        id="btn-player-fb-link"
+      >
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+        Watch this Reel on Facebook →
+      </a>
     </div>
 
   </div>
@@ -244,28 +177,11 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
     const nextBtn = document.getElementById('fb-reels-next');
     const modal = document.getElementById('reel-modal');
     const modalClose = document.getElementById('reel-modal-close');
-
-    // Preview panel elements
-    const previewPanel = document.getElementById('modal-preview-panel');
-    const previewBg = document.getElementById('preview-bg');
-    const previewTitle = document.getElementById('reel-modal-title');
-    const previewViews = document.getElementById('preview-views');
-    const previewLikes = document.getElementById('preview-likes');
-    const previewDuration = document.getElementById('preview-duration');
-    const btnTryEmbed = document.getElementById('btn-try-embed');
-    const btnWatchFb = document.getElementById('btn-watch-fb') as HTMLAnchorElement | null;
-
-    // Player panel elements
-    const playerPanel = document.getElementById('modal-player-panel');
     const embedSpinner = document.getElementById('embed-spinner');
     const fbIframe = document.getElementById('reel-fb-iframe') as HTMLIFrameElement | null;
-    const btnBackPreview = document.getElementById('btn-back-preview');
     const btnPlayerFbLink = document.getElementById('btn-player-fb-link') as HTMLAnchorElement | null;
 
     if (!track) return;
-
-    // Store current reel URL
-    let currentReelUrl = '';
 
     // ── Carousel Navigation ──────────────────────────────────────
     if (prevBtn && nextBtn) {
@@ -311,63 +227,18 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
       track.scrollLeft = scrollLeft - walk;
     });
 
-    // ── Show Modal in Preview State ──────────────────────────────
-    function showPreviewPanel() {
-      previewPanel?.classList.remove('hidden');
-      playerPanel?.classList.add('hidden');
-    }
-
-    function showPlayerPanel() {
-      previewPanel?.classList.add('hidden');
-      playerPanel?.classList.remove('hidden');
-    }
-
-    // ── Open Modal ───────────────────────────────────────────────
-    function openModal(card: HTMLElement) {
-      const title = card.dataset.title || '';
-      const destination = card.dataset.destination || '';
-      const poster = card.dataset.poster || '';
-      const fbUrl = card.dataset.fbUrl || '';
-      const views = card.dataset.views || '';
-      const likes = card.dataset.likes || '';
-      const duration = card.dataset.duration || '';
-
-      currentReelUrl = fbUrl;
-
-      // Populate preview panel
-      if (previewBg) previewBg.style.backgroundImage = `url('${poster}')`;
-      if (previewTitle) previewTitle.textContent = title;
-      if (previewViews) previewViews.textContent = `👁️ ${views} views`;
-      if (previewLikes) previewLikes.textContent = `❤️ ${likes} likes`;
-      if (previewDuration) previewDuration.textContent = duration;
-
-      // Set direct reel links
-      if (btnWatchFb) btnWatchFb.href = fbUrl;
+    // ── Open Modal — directly load FB embed with autoplay + sound ─
+    function openModal(fbUrl: string) {
+      // Set fallback direct link
       if (btnPlayerFbLink) btnPlayerFbLink.href = fbUrl;
 
-      // Reset to preview state
-      showPreviewPanel();
-      resetEmbedState();
-
-      // Show modal
-      modal?.setAttribute('aria-hidden', 'false');
-      modal?.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    // ── Try Embed ────────────────────────────────────────────────
-    function tryEmbed() {
-      if (!currentReelUrl) return;
-
-      showPlayerPanel();
-
-      // Show spinner, hide iframe
+      // Show spinner, hide iframe until loaded
       if (embedSpinner) embedSpinner.style.display = 'flex';
       if (fbIframe) {
         fbIframe.style.opacity = '0';
 
-        // Construct Facebook official video embed URL
-        const embedUrl = `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(currentReelUrl)}&show_text=false&autoplay=true&mute=false&width=340`;
+        // Facebook official video embed — autoplay=true, mute=false (sound ON)
+        const embedUrl = `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(fbUrl)}&show_text=false&autoplay=true&mute=false&width=340&height=600`;
 
         fbIframe.src = embedUrl;
 
@@ -376,24 +247,24 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
           if (fbIframe) fbIframe.style.opacity = '1';
         };
       }
+
+      // Show modal
+      modal?.setAttribute('aria-hidden', 'false');
+      modal?.classList.add('active');
+      document.body.style.overflow = 'hidden';
     }
 
-    // ── Reset Embed State ────────────────────────────────────────
-    function resetEmbedState() {
+    // ── Close Modal — stop video, free memory ───────────────────
+    function closeModal() {
+      modal?.setAttribute('aria-hidden', 'true');
+      modal?.classList.remove('active');
+      document.body.style.overflow = '';
+      // Clear iframe src to stop playback and free memory
       if (fbIframe) {
         fbIframe.src = '';
         fbIframe.style.opacity = '0';
       }
       if (embedSpinner) embedSpinner.style.display = 'flex';
-    }
-
-    // ── Close Modal ──────────────────────────────────────────────
-    function closeModal() {
-      modal?.setAttribute('aria-hidden', 'true');
-      modal?.classList.remove('active');
-      document.body.style.overflow = '';
-      resetEmbedState();
-      currentReelUrl = '';
     }
 
     // ── Reel Card Click ──────────────────────────────────────────
@@ -402,24 +273,17 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
       card.addEventListener('click', (e) => {
         if (hasMoved) return;
         e.preventDefault();
-        openModal(card);
+        const fbUrl = card.dataset.fbUrl || '';
+        if (fbUrl) openModal(fbUrl);
       });
 
       card.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          openModal(card);
+          const fbUrl = card.dataset.fbUrl || '';
+          if (fbUrl) openModal(fbUrl);
         }
       });
-    });
-
-    // ── Try Embed Button ─────────────────────────────────────────
-    btnTryEmbed?.addEventListener('click', tryEmbed);
-
-    // ── Back to Preview ──────────────────────────────────────────
-    btnBackPreview?.addEventListener('click', () => {
-      showPreviewPanel();
-      resetEmbedState();
     });
 
     // ── Close Controls ───────────────────────────────────────────
@@ -801,235 +665,15 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
 
   .reel-modal-close:hover { background: rgba(239,68,68,0.9); transform: scale(1.1); }
 
-  /* ── Panels ───────────────────────────────────────────────── */
-  .modal-panel {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    transition: opacity 0.25s ease;
-  }
-
+  /* ── Panels (unused, kept for base layout) ────────────────── */
+  .modal-panel { position: absolute; inset: 0; width: 100%; height: 100%; }
   .modal-panel.hidden { display: none; }
 
-  /* ── Preview Panel ────────────────────────────────────────── */
-  .preview-panel {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    background: #0d1117;
-  }
-
-  .preview-bg {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transform: scale(1.05);
-    transition: transform 0.4s ease;
-    filter: brightness(0.55);
-  }
-
-  .reel-modal-overlay.active .preview-bg { transform: scale(1); }
-
-  .preview-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      180deg,
-      transparent 0%,
-      transparent 30%,
-      rgba(0,0,0,0.5) 55%,
-      rgba(0,0,0,0.97) 100%
-    );
-    pointer-events: none;
-  }
-
-  .preview-content {
-    position: relative;
-    z-index: 5;
-    padding: 24px 22px 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .preview-top-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-
-  .preview-dest-tag {
-    background: #1877f2;
-    color: #fff;
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 10px;
-    letter-spacing: 0.3px;
-  }
-
-  .preview-brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255,255,255,0.15);
-    padding: 4px 10px;
-    border-radius: 20px;
-  }
-
-  .preview-brand span {
-    font-size: 0.76rem;
-    font-weight: 700;
-    color: #ffffff;
-  }
-
-  .verified-icon { color: #38bdf8; }
-
-  .preview-title {
-    color: #ffffff;
-    font-size: 1.05rem;
-    font-weight: 800;
-    line-height: 1.4;
-    margin: 0;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.7);
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .preview-stats-row {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    font-size: 0.82rem;
-    color: #d1d5db;
-    font-weight: 600;
-    flex-wrap: wrap;
-  }
-
-  .preview-dur-pill {
-    background: rgba(251, 191, 36, 0.2);
-    border: 1px solid rgba(251, 191, 36, 0.5);
-    color: #fbbf24;
-    padding: 2px 8px;
-    border-radius: 8px;
-    font-size: 0.78rem;
-    font-weight: 700;
-  }
-
-  /* ── Preview Action Buttons ───────────────────────────────── */
-  .preview-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 4px;
-  }
-
-  .btn-try-embed {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.3);
-    color: #ffffff;
-    font-size: 0.95rem;
-    font-weight: 700;
-    padding: 13px 20px;
-    border-radius: 14px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    width: 100%;
-  }
-
-  .btn-try-embed:hover {
-    background: rgba(255,255,255,0.25);
-    border-color: rgba(255,255,255,0.5);
-    transform: translateY(-1px);
-  }
-
-  .btn-watch-fb {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background: #1877f2;
-    color: #ffffff !important;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 700;
-    padding: 13px 20px;
-    border-radius: 14px;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 16px rgba(24, 119, 242, 0.5);
-    width: 100%;
-  }
-
-  .btn-watch-fb:hover {
-    background: #0d65d9;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(24, 119, 242, 0.6);
-  }
-
-  .preview-hint {
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.45);
-    text-align: center;
-    margin: 0;
-    line-height: 1.5;
-  }
-
-  /* ── Player Panel ─────────────────────────────────────────── */
-  .player-panel {
-    background: #000000;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .btn-back-preview {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(0,0,0,0.6);
-    border: 1px solid rgba(255,255,255,0.25);
-    color: #ffffff;
-    font-size: 0.82rem;
-    font-weight: 600;
-    padding: 7px 14px;
-    border-radius: 20px;
-    cursor: pointer;
-    z-index: 50;
-    transition: background 0.2s ease;
-  }
-
-  .btn-back-preview:hover { background: rgba(255,255,255,0.15); }
-
-  .embed-container {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: calc(100% - 68px);
-    background: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-
+  /* ── Embed Spinner ────────────────────────────────────────── */
   .embed-spinner {
     position: absolute;
     inset: 0;
+    bottom: 60px; /* above footer */
     background: #000;
     display: flex;
     flex-direction: column;
@@ -1053,11 +697,12 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
 
   @keyframes spin { to { transform: rotate(360deg); } }
 
+  /* ── Player Footer ────────────────────────────────────────── */
   .player-footer {
     position: absolute;
     bottom: 0; left: 0;
     width: 100%;
-    height: 68px;
+    height: 60px;
     background: #0a0a0a;
     border-top: 1px solid rgba(255,255,255,0.08);
     display: flex;
@@ -1065,6 +710,7 @@ import { Play, Eye, Heart, ChevronLeft, ChevronRight, ExternalLink, X, CheckCirc
     justify-content: center;
     gap: 10px;
     padding: 0 20px;
+    z-index: 10;
   }
 
   .player-footer-label {
