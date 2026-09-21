@@ -13,6 +13,7 @@ export interface FacebookReel {
 
 export const facebookPageUrl = "https://www.facebook.com/share/1EwxdAGZvd/";
 
+// Top 5 most recent tour reels
 export const facebookReels: FacebookReel[] = [
   {
     id: "reel-1",
@@ -58,56 +59,20 @@ export const facebookReels: FacebookReel[] = [
     videoUrl: "/cholo-jai-tours-and-travels-hook.mp4",
     facebookUrl: "https://www.facebook.com/share/1EwxdAGZvd/",
     views: "31.8K",
-    likes: "4.8K",
+    likes: "4.7K",
     duration: "0:40",
-    date: "Spiritual Darshan"
+    date: "Spiritual Yatra"
   },
   {
     id: "reel-5",
-    title: "Serene Alleppey Backwater boat cruise through coconut groves ⛵🌴",
+    title: "Cruising through the tranquil emerald backwaters of Alleppey ⛵🌴",
     destination: "Kerala",
-    thumbnail: "/images/hero_kerala_1783678518411.png",
+    thumbnail: "/images/tour-6.png",
     videoUrl: "/cholo-jai-tours-and-travels-hook.mp4",
     facebookUrl: "https://www.facebook.com/share/1EwxdAGZvd/",
-    views: "19.3K",
-    likes: "2.7K",
+    views: "21.3K",
+    likes: "2.8K",
     duration: "0:35",
-    date: "Backwaters"
-  },
-  {
-    id: "reel-6",
-    title: "Standing at 15,200 ft Bumla Pass near Indo-China Border 🇮🇳🏔️",
-    destination: "Arunachal",
-    thumbnail: "/images/tour-8.png",
-    videoUrl: "/cholo-jai-tours-and-travels-hook.mp4",
-    facebookUrl: "https://www.facebook.com/share/1EwxdAGZvd/",
-    views: "27.5K",
-    likes: "3.9K",
-    duration: "0:48",
-    date: "Border Expedition"
-  },
-  {
-    id: "reel-7",
-    title: "Golden sunset camel safari & folk music in Jaisalmer Thar Desert 🏜️🐪",
-    destination: "Rajasthan",
-    thumbnail: "/images/tour-4.png",
-    videoUrl: "/cholo-jai-tours-and-travels-hook.mp4",
-    facebookUrl: "https://www.facebook.com/share/1EwxdAGZvd/",
-    views: "16.7K",
-    likes: "2.3K",
-    duration: "0:42",
-    date: "Desert Night"
-  },
-  {
-    id: "reel-8",
-    title: "Boating on the transparent crystal river of Dawki (Umngot) 🛶💎",
-    destination: "Meghalaya",
-    thumbnail: "/images/tour-7.png",
-    videoUrl: "/cholo-jai-tours-and-travels-hook.mp4",
-    facebookUrl: "https://www.facebook.com/share/1EwxdAGZvd/",
-    views: "22.1K",
-    likes: "3.1K",
-    duration: "0:38",
-    date: "Crystal River"
+    date: "Backwater Cruise"
   }
 ];

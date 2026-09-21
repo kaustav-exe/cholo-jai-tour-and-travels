@@ -180,24 +180,25 @@ const schemaData = {
     </div>
   </section>
 
-  <!-- Featured Tours — ALL 14 -->
+  <!-- Featured Tours — Top 4 Upcoming Departures -->
   <section class="section bg-light" id="featured-tours">
     <div class="container">
       <div class="section-header text-center scroll-anim">
-        <h2>Featured Tours</h2>
-        <p>Our complete collection of premium travel packages</p>
+        <span class="badge badge-primary">Upcoming Departures</span>
+        <h2>Featured Tour Packages</h2>
+        <p>Hand-picked upcoming destinations with seasonal pricing for {currentMonth}</p>
       </div>
-      <div class="tours-grid">
-        {allPackages.map((pkg, i) => (
+      <div class="grid grid-4 tours-grid">
+        {allPackages.slice(0, 4).map((pkg, i) => (
           <div class="tour-wrap scroll-anim" style={`--i:${i}`}>
             <PackageCard pkg={pkg} />
           </div>
         ))}
       </div>
-      <div class="featured-footer scroll-anim">
-        <a href="/packages" class="btn-explore-more">
-          <span>Explore More Tours</span>
-          <ArrowRight size={16} />
+      <div class="featured-footer scroll-anim text-center" style="margin-top: 40px;">
+        <a href="/packages" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px; font-size: 1.05rem; padding: 14px 28px; box-shadow: 0 4px 14px rgba(227, 100, 20, 0.35);">
+          <span>Explore All Packages ({allPackages.length} Available)</span>
+          <ArrowRight size={18} />
         </a>
       </div>
     </div>
