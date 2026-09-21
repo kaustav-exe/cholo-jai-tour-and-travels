@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroSlider from '../components/HeroSlider.astro';
 import IntroVideo from '../components/IntroVideo.astro';
 import PackageCard from '../components/PackageCard.astro';
+import FacebookReels from '../components/FacebookReels.astro';
 import { packages } from '../data/packages';
 import { aboutData, siteConfig } from '../data/siteConfig';
 import { getPackagePriceForMonth, getCurrentMonthName, getWhatsAppBookingUrl } from '../utils/pricing';
@@ -201,6 +202,9 @@ const schemaData = {
       </div>
     </div>
   </section>
+
+  <!-- Facebook Page & Travel Reels Horizontal Carousel -->
+  <FacebookReels />
 
   <!-- Why Choose Us -->
   <section class="section">
